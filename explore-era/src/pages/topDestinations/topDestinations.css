@@ -1,0 +1,52 @@
+.travel-content-img{
+    display: flex;
+    padding: 3% 10% 5% 10%;
+
+}
+
+.top-destinations h1{
+    padding-top: 5%;
+    /* padding-left: 10%; */
+    text-align: center;
+    font-size: xxx-large;
+    font-weight: 500;
+    margin-top: -2%;
+}
+
+.top-destinations span{
+    color: red;
+}
+
+.travel-content p{
+    padding: 5% 6% 1% 10%;
+    font-size: large;
+}
+
+.destinations h3{
+    color: white;
+    background-color: red;
+    text-align: center;
+    font-size: xx-large;
+    width: 75%;
+    margin-left: 14%; 
+}
+
+.destinations p{
+    width: 75%;
+    margin-left: 14%; 
+    padding: 3% 0 2% 0;
+    font-size: large;
+}
+
+.top-destinations h2{
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+.td-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5%;
+    padding-left: 2%;
+}

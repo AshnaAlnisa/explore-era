@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+
+.nav-submenu{
+    width: 10rem;
+    position: absolute;
+    top: 10.48%;
+    list-style: none;
+    text-align: start;
+    flex-direction: column;
+    /* border: 2px solid red ; */
+}
+
+.nav-submenu.clicked{
+    display: none;
+}
+
+.nav-submenu li{
+    width: 200px;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    margin: -20px;
+    background: white;
+    padding: 5%;
+    /* border: 2px solid red ; */
+    
+
+    /* text-decoration: none; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.submenu-item{
+    /* background: rgb(255, 255, 255); */
+    display: block;
+    text-decoration: none;
+}
+
+.submenu-item:hover{
+    background: rgb(228, 223, 223);
+}

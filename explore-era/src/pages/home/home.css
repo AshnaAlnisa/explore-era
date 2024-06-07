@@ -1,0 +1,350 @@
+.india-holiday{
+    display: flex;
+    gap: 10%;
+}
+
+.india-holiday-para{
+    padding-top: 10%;
+}
+
+.india-holiday-para-1{
+    font-size: 500%;
+    line-height: 100%;
+}
+.india-holiday-para-2{
+    font-size: 150%;
+    line-height: 100%;
+}
+
+.india-holiday-para-1 span{
+    font-weight: bolder;
+    color: red;
+}
+
+
+
+.region-heading{
+    font-size: 325%;
+    font-weight: bolder; 
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
+
+.region-photos{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* gap: 0.5%; */
+}
+
+.region-photo-1,
+.region-photo-2,
+.region-photo-3,
+.region-photo-4,
+.region-photo-5,
+.region-photo-6 {
+    margin: 5px; /* Adjust the initial spacing between images */
+    flex: 1 0 30%; /* Adjust the size of the images */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .region-photo-1,
+    .region-photo-2,
+    .region-photo-3,
+    .region-photo-4,
+    .region-photo-5,
+    .region-photo-6 {
+        flex-basis: 45%; /* Adjust the size of images on smaller screens */
+    }
+}
+
+
+/* .region-small-photos img{
+    padding: 0.1%;
+} */
+
+
+/* .trending{
+    
+} */
+
+.trending-heading{
+    font-size: 325%;
+    font-weight: bolder; 
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+}
+
+.trending-card img{
+    border-radius: 1%;
+}
+
+.trending-packages{
+    line-height: 250%;
+    font-size: 150%;
+    color: gray;
+}
+
+.trending-state{
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.trending-photo-card{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+
+/* .weekend{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+} */
+
+
+
+.weekend-heading{
+    font-size: 325%;
+    font-weight: bolder; 
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+}
+
+.weekend-card{
+    height: 310px;
+    width: 16.5%;
+    /* border: 2px solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.weekend-card img{
+    border-radius: 1%;
+}
+
+.weekend-packages{
+    line-height: 250%;
+    font-size: 150%;
+    color: gray;
+}
+
+.weekend-state{
+    font-size: 150%;
+    font-weight: bold;
+    color: black;
+}
+
+.link{
+    color: black;
+}
+
+.link:hover{
+    color: red;
+}
+
+/* .weekend-state Link:hover{
+    text-decoration: none;
+    color: red;
+} */
+
+.weekend-photo-card{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+
+.choose-cards{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}
+
+.choose-heading{
+    font-size: 325%;
+    font-weight: bolder;
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+}
+
+.choose-card{
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 15.5%;
+    /* border: 2px solid black; */
+    padding: 1.5%;
+}
+
+.choose-card img{
+    height: 8%;
+    width: 17%;
+    margin-top: 5%;
+    margin-left: 35%;
+}
+
+.choose-card-heading{
+    font-size: 170%;
+    font-weight: 600;
+    padding-top: 10%;
+}
+
+.choose-card-details{
+    font-size: 125%;
+    padding-top: 4%;
+}
+
+.year{
+    background-color: #EFF4EF;
+}
+
+.team{
+    background-color: #EEF5F8;
+}
+
+.verified{
+    background-color: #FBF2F1;
+}
+
+.value{
+    background-color: #FDFAEE;
+}
+
+.incredible-india-heading{
+    font-size: 325%;
+    font-weight: bolder;
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+}
+
+.incredible-india-details-pic{
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+}
+
+.incredible-india-details{
+    height: 60%;
+    width: 42%;
+    font-size: 115%;
+    color: gray;
+    padding-right: 6%;
+}
+
+/* .incredible-india-pic{
+    padding-left: 5%;
+} */
+
+.climate-visa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    padding-top: 5%;
+    
+}
+  
+.climate{
+    height: 600px;
+    width: 33.5%;
+    background-color: #F8F8FC;
+}
+
+.visa{
+    height: 600px;
+    width: 33.5%;
+    background-color: #F8F8FC;
+}
+
+.climate-heading{
+    font-size: 260%;
+    font-weight: bold;
+    color: #38404F;
+    align-items: center;
+    height: 12%;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.climate-details{
+    width: 90%;
+    padding-left: 5%;
+    font-size: 120%;
+    color: #38404F;
+    padding-top: 5%;
+}
+
+.visa-heading{
+    font-size: 260%;
+    font-weight: bold;
+    color: #38404F;
+    align-items: center;
+    height: 12%;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.visa-details{
+    width: 90%;
+    padding-left: 5%;
+    font-size: 120%;
+    color: #38404F;
+    padding-top: 5%;
+}
+
+.visa-details a{
+    color: red;
+}
+
+
+.travel-info-heading{
+    font-size: 325%;
+    font-weight: bolder;
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+}
+
+.travel-info{
+    width: 135%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 5%; */
+}
+
+.best{
+    /* height: 380px; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 110%;
+    gap: 3%;
+    margin-right: 26%;
+}
+
+.travel-info .details-heading{
+    font-size: 170%;
+    font-weight: 800;
+    padding-bottom: 1%;
+}
+
+
+
+
+  

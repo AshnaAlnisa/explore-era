@@ -1,0 +1,63 @@
+.main-pilgrimage-tourism h1{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.main-pilgrimage-tourism span{
+    color: red;
+}
+
+.pilgrimage-tourism-content p, h4, img{
+    padding: 2% 0% 0% 0;
+
+}
+
+.pilgrimage-tourism-content{
+    display: flex;
+    gap: -2%;
+    padding: 2% 15% 5% 15%;
+    gap: 2%;
+    line-height: 150%;
+    font-size: 120%;
+}
+
+.pilgrimage-tourism-cards-content h2{
+    text-align: center;
+    /* padding-top: 5%; */
+}
+.pilgrimage-tourism-cards-content p{
+    text-align: center;
+    padding: 1% 15% 0 15%;
+
+}
+
+.pilgrimage-tourism-card{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    align-items: center;
+    padding-top: 1%;
+    height: 450px;
+}
+
+.pilgrimage-tourism-cards-content{
+    width: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-left: 15%; */
+    padding-top: 2%;
+    background-color: rgb(247, 246, 246);
+}
+
+.pilgrimage-tourism-cards-all{
+    padding-top: -10;
+    background-color: white;
+    line-height: 210%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

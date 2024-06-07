@@ -1,0 +1,44 @@
+.about-img{
+    width: 100%;
+    height: 30em;
+}
+
+.about-page{
+    /* width: 50%; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-size: large;
+    justify-content: center;
+    /* margin-left: 30%; */
+    padding-top: 5%;
+    /* align-items: center; */
+    
+}
+
+.about-company-heading{
+    color: #A52A2A;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.out-motto-heading{
+    color: #A52A2A;
+    font-size: larger;
+    font-weight: 600;
+    margin-left: 27%;
+    padding-top: 1%;
+}
+
+.about-page-details{
+    width: 50%;
+    padding-top: 2%;
+    margin-left: 27%;
+}
+
+.our-motto-details{
+    width: 50%;
+    padding-top: 1%;
+    margin-left: 27%;
+}

@@ -1,0 +1,19 @@
+.privacy-policy-img{
+    width: 100%;
+    height: 30em;
+}
+
+.privacy-policy{
+    width: 80%;
+    padding-left: 20%;
+    /* padding-right: 2%; */
+}
+
+.privacy-policy-heading{
+    font-size: x-large;
+    padding: 2% 0;
+}
+
+.privacy-policy-details{
+    font-size: large;
+}

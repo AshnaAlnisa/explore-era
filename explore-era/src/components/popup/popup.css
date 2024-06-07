@@ -1,0 +1,116 @@
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .how-it-works, .request-quote {
+    width: 45%;
+  }
+  
+  .how-it-works h2, .request-quote h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .how-it-works ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .how-it-works ul li {
+    margin-bottom: 10px;
+  }
+  
+  .social-media {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .social-media a img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .contact-number {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  
+  .contact-number span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .request-quote h2 span {
+    color: red;
+  }
+  
+  .request-quote form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .request-quote form label {
+    margin: 10px 0 5px;
+  }
+  
+  .request-quote form input, .request-quote form select, .request-quote form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .request-quote form button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .request-quote form button:hover {
+    background-color: darkgreen;
+  }
+
+ /* Popup.css */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Ensure the background darkens */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  .popup-content {
+    background: rgb(243, 241, 241);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute; /* Position it absolutely within popup-content */
+    top: 10px; /* Adjust top position */
+    right: 10px; /* Adjust right position */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid red;
+    height: 3%;
+    width: 5%;
+    background-color: red;
+    border-radius: 15%;
+    color: white;
+  }
+  

@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  /* Responsive Typography */
+  body {
+    font-size: 1.6rem; /* 16px default */
+  }
+  
+  @media (max-width: 1200px) {
+    html {
+      font-size: 58%; /* Slightly smaller font size for large screens */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    html {
+      font-size: 55%; /* Medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      font-size: 52%; /* Tablets */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    html {
+      font-size: 50%; /* Mobile devices */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    html {
+      font-size: 48%; /* Small mobile devices */
+    }
+  }
+  
+  
+  /* 
+   
+  
+  /* navbar style start  */
+  
+  .main-nav {
+    width: 100%;
+    height: 8rem;
+    display: grid;
+    grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .logo {
+    display: grid;
+    /* background-color: #3b5998; */
+    grid-column: 2/3;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .menu-link {
+    grid-column: 3/4;
+  }
+  
+  .menu-link ul {
+    height: 10rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .logo h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(#eee, rgb(248, 57, 57));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .logo h2 span {
+    font-size: 3.5rem;
+  }
+  
+  .menu-link ul li {
+    font-size: 1.8rem;
+  }
+
+  .link{
+    height: 7vh;
+    margin-top: 5%;
+  }
+  
+  .menu-link ul li a {
+    text-transform: capitalize;
+    color: rgba(0, 0, 3, 0.8);
+    transition: 0.5s;
+  }
+  .menu-link ul li:hover > a {
+    transform-origin: left;
+    color: rgba(0, 0, 3, 1);
+    text-decoration: underline;
+    transition: 0.5s;
+  }
+
+  .details {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    flex: 1; 
+  }
+  
+  .details-desktop {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .phone-number {
+    display: flex;
+    font-size: 1.6rem;
+    width: 150px;
+    height: 30px;
+    border: 2px solid red;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .plan-your-trip {
+    display: flex;
+    width: 150px;
+    height: 30px;
+    font-size: 1.6rem;
+    border: 2px solid red;
+    border-radius: 30px;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .plan-your-trip img{
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  /* .plan-your-trip a {
+    display: flex;
+    align-items: center;
+    color: white;
+  } */
+
+  .book-button {
+    
+    font-size: 1.6rem;
+    border: 2px solid red;
+    border-radius: 30px;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .plan-your-trip a:hover {
+    color: rgba(0, 0, 3, 1);
+    text-decoration: none;
+  }
+
+
+
+  
+  

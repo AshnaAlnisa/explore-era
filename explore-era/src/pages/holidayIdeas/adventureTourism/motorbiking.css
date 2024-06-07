@@ -1,0 +1,37 @@
+.adventure-tourism-content h1{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.adventure-tourism-content p{
+    padding: 2% 15% 0% 15%;
+
+}
+
+.adventure-tourism-card{
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    padding-top: 2%;
+}
+
+
+.adventure-tourism-cards h2{
+    padding: 2% 0 1% 0;
+    margin-left: 15%;
+}
+
+.adventure-tourism-cards-all{
+    width: 20%;
+    height: 450px;
+    background-color: rgb(245, 243, 243);
+    /* color: white; */
+}
+
+.adventure-tourism-cards-all h4, .adventure-tourism-cards-all h6{
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+    font-size: 100%
+    
+}

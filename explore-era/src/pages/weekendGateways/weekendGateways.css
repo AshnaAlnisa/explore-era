@@ -1,0 +1,106 @@
+.himachal-tour-packages-content{
+    display: flex;
+    padding-bottom: 2%;
+  }
+  
+  .himachal-tour-packages-details h1{
+    /* text-align: center; */
+    padding-top: 6%;
+    padding-left: 26%;
+  
+  }
+  
+  .himachal-tour-packages-details p{
+    padding-left: 26%;
+    padding-right: 14%;
+    padding-top: 2%;
+    font-size: 110%;
+    /* line-height: 160%; */
+    /* padding: 2% 18% 2% 18%; */
+  
+  }
+  
+  .himachal-tour-packages-details span{
+    color: red;
+  }
+  
+  .himachal-tour-packages-image{
+    /* padding-left: 5%; */
+    margin-right: 10%;
+  }
+  
+  
+  .himachal-tour-packages-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    padding-bottom: 1.5%;
+    flex-wrap: wrap;
+  }
+  
+  .himachal-tour-packages-cards-yellow{
+    background-color: #fef9f4;
+  }
+  
+  .himachal-tour-packages-cards-yellow h3{
+    margin-left: 15.2%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+  }
+  
+  .all-cards h3{
+    margin-left: 15.2%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+  }
+  
+  .cards{
+    display: flex;
+    padding-bottom: 2%;
+  }
+  
+  .cards2{
+    /* padding-left: 1.3%; */
+  }
+  
+  .himachal-tour-packages-details2{
+    border: 1px solid rgb(197, 193, 193);
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-right: 8%;
+  }
+  
+  .himachal-tour-packages-details2 h3, h5{
+    padding-left: 10%;
+    padding-bottom: 1%;
+    /* padding-top: 1%; */
+  }
+  
+  .himachal-tour-packages-details2 h5{
+    color: red;
+    padding-top: 2%;
+  }
+  
+  .himachal-tour-packages-details2 p{
+    padding-left: 10%;
+    padding-bottom: 5%;
+  }
+
+  .himachal-tour-packages-details2 span{
+    font-weight: 600;
+    color: black;
+  }
+
+  .himachal-tour-packages-details2 li{
+    list-style: disc;
+    color: red;
+
+  }
+
+  .himachal-tour-packages-details2 div{
+    color: black;
+    display: inline-block;
+
+  }
+
