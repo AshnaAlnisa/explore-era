@@ -4,6 +4,11 @@ import MainLayout from "../../layout/MainLayout";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+
+  const backToTop = ()=> {
+    window.scrollTo({top:0, left:0, behavior:'smooth'})
+  }
+
   return (
     <>
       <MainLayout>
@@ -117,13 +122,13 @@ const Home = () => {
 
           <div className="weekend-photo-card">
             <div className="weekend-card">
-              <Link to="/delhi">
+              <Link to="/delhi" onClick={backToTop}>
                 <img src="images/Link → delhi-tour.webp.png" alt="" />
               </Link>
               <p className="weekend-packages">50+ Packages</p>
               <p className="weekend-state">
                 {" "}
-                <Link to="/delhi" className="link">
+                <Link to="/delhi" className="link" onClick={backToTop}>
                   Weekend Trips From Delhi
                 </Link>
               </p>

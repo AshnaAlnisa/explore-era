@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="contact-short">
           <div className="contact-short-left">
             <div className="logo footer-logo">
-              <Link to="/home">
+              <Link to="/home" onClick={backToTop}>
                 <h2>
                   <span>E</span>xplore
                   <span>E</span>ra
@@ -30,6 +30,8 @@ const Footer = () => {
             <hr className="left-small-hr" />
             <p>It's time for new Experiences</p>
           </div>
+
+          
 
 
 
@@ -106,7 +108,7 @@ const Footer = () => {
             </li>
             <li className="whatsapp">+91-8287675984</li>
           </ul>
-          <div class="social-icons-wrapper">
+          <div className="social-icons-wrapper">
             <ul className="social-app-link">
               <li>
                 <a href="/">

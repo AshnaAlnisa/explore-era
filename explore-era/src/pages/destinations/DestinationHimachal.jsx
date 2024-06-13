@@ -1,8 +1,56 @@
-import React from "react";
+import React, { useState } from 'react'; 
 import MainLayout from "../../layout/MainLayout";
 import "./destinationHimachal.css";
+import axios from 'axios'; 
+import { useNavigate } from 'react-router-dom';
 
 const DestinationHimachal = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    departureDate: '',
+    numberOfDays: '',
+    email: '',
+    contactNo: ''
+  }); 
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const payload = {
+        eventID: "1002",
+        addInfo: {
+          FULLNAME: formData.name,
+          TOURDESCRIPTION: formData.description,
+          DEPARTUREDATE: formData.departureDate,
+          NUMBEROFDAYS: formData.numberOfDays,
+          EMAIL: formData.email,
+          CONTACTNO: formData.contactNo
+        }
+    };
+
+    try {
+      const response = await axios.post('http://localhost:5164/enquiryForm', payload);
+      let res = response.data.rData.rMessage;
+      console.log(response.data, 'api response'); // handle response
+      if (res === "Successful") {
+          alert(res);
+          navigate('/himachalPradesh');
+      } 
+      else { 
+          alert(res);
+          navigate('/himachalPradesh');
+      }
+  } catch (error) {
+      console.error('Error signing up:', error);
+      alert('Error signing up. Please try again later.'); // Handle error
+  }
+};
+
+
+
+
   return (
     <>
       <MainLayout>
@@ -487,30 +535,30 @@ const DestinationHimachal = () => {
             </div>
             <div className="enquiry-form">
               <h2>Fill Enquiry Form Below</h2>
-              <form>
-                <label>
+              <form onSubmit={handleSubmit}>
+               <label>
                   Your Full Name
-                  <input type="text" name="name" />
+                  <input type="text" name="name" id="FULLNAME" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
                 </label>
                 <label>
                   Tour Description
-                  <textarea name="description" />
+                  <textarea name="description" id="TOURDESCRIPTION" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })}/>
                 </label>
                 <label>
                   Departure Date
-                  <input type="date" name="departureDate" />
+                  <input type="date" name="departureDate" id="DEPARTUREDATE" value={formData.departureDate} onChange={(e) => setFormData({ ...formData, departureDate: e.target.value })}/>
                 </label>
                 <label>
                   Number of Days
-                  <input type="number" name="numberOfDays" />
+                  <input type="number" name="numberOfDays" id="NUMBEROFDAYS" value={formData.numberOfDays} onChange={(e) => setFormData({ ...formData, numberOfDays: e.target.value })}/>
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" />
+                  <input type="email" name="email" id="EMAIL" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
                 </label>
                 <label>
                   Contact No
-                  <input type="tel" name="contactNo" />
+                  <input type="tel" name="contactNo" id="CONTACTNO" value={formData.contactNo} onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })}/>
                 </label>
                 <button type="submit">Get A Custom Quote</button>
               </form>
