@@ -54,7 +54,7 @@ const DestinationHimachal = () => {
   return (
     <>
       <MainLayout>
-        <div className="container">
+        <div className="container0">
           <main>
             <div className="content-wrapper">
               <div className="hero">

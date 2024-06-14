@@ -15,12 +15,17 @@ import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy.jsx";
 // import HimacharTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx";
 // import Delhi from "./pages/weekendGateways/Delhi.jsx";
 import DestinationHimachal from "./pages/destinations/DestinationHimachal.jsx";
+import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx";
 import MotorBiking from "./pages/holidayIdeas/adventureTourism/MotorBiking.jsx";
 import ChristianPT from "./pages/holidayIdeas/pilgrimageTourism/ChristianPT.jsx"
 import HimachalTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx"
 import ChadarTrek from "./pages/packages/fixedDepartureTour/ChadarTrek.jsx";
 import Delhi from "./pages/weekendGateways/Delhi.jsx"
-import ScrollToTop from './components/ScrollToTop.jsx';
+import Dashboard from "./components/dashboard/Dashboard.jsx"
+import Login from "./components/dashboard/Login.jsx";
+import EnquiryFormDetails from "./components/dashboard/EnquiryFormDetails.jsx";
+import BookYourTripFormDetails from "./components/dashboard/BookYourTripFormDetails.jsx";
+import AddPackages from "./components/dashboard/AddPackages.jsx";
 // import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx"
 
 
@@ -33,11 +38,11 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Home />,
   },
-  {
-    path: "/destination",
-    element: <DestinationHimachal />,
+  // {
+  //   path: "/destination",
+  //   element: <DestinationHimachal />,
     
-  },
+  // },
   {
     path: "/about",
     element: <About />,
@@ -57,6 +62,26 @@ const router = createBrowserRouter([
   {
     path: "/privacyPolicy",
     element: <PrivacyPolicy />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard/>,
+  },
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+  {
+    path: "/enquiryFormDetails",
+    element: <EnquiryFormDetails/>,
+  },
+  {
+    path: "/bookYourTripFormDetails",
+    element: <BookYourTripFormDetails/>,
+  },
+  {
+    path: "/addPackages",
+    element: <AddPackages/>,
   },
   // {
   //   path:"/motorBiking",
@@ -87,6 +112,10 @@ const router = createBrowserRouter([
     element:<DestinationHimachal/>
   },
   {
+    path:"/uttarakhand",
+    element:<DestinationUttarakhand/>
+  },
+  {
     path:"/motorBiking",
     element:<MotorBiking/>
   },
@@ -111,10 +140,6 @@ const router = createBrowserRouter([
   //   path:"/uttarakhand",
   //   element:<DestinationUttarakhand/>
   // },
-  {
-    path: "/scrollToTop", // add a route for the ScrollToTop component
-    element: <ScrollToTop />
-  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

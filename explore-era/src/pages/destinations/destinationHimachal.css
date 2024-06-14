@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.container {
+.container0 {
   text-align: center;
 }
 
@@ -62,7 +62,7 @@ body {
 }
 
 .card h2 {
-  font-size: 22px;
+  font-size: 22px; 
   margin-bottom: 10px;
 }
 
@@ -477,7 +477,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .container {
+  .container0 {
     padding: 10px; /* Reduce padding on very small screens */
   }
 

@@ -522,4 +522,4 @@ const DestinationUttarakhand = () => {
   );
 };
 
-export default DestinationHimachal;
+export default DestinationUttarakhand;

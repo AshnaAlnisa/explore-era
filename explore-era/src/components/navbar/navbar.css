@@ -9,6 +9,7 @@
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 a {
@@ -21,6 +22,7 @@ li {
 
 body {
   font-size: 1.6rem; /* 16px default */
+  overflow-x: hidden;
 }
 
 @media (max-width: 1200px) {

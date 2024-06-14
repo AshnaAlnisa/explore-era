@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --dashboard-primary-color: #0E4BF1;
+    --dashboard-panel-color: #FFF;
+    --dashboard-text-color: #000;
+    --dashboard-black-light-color: #707070;
+    --dashboard-border-color: #e6e5e5;
+    --dashboard-toggle-color: #DDD;
+    --dashboard-box1-color: #4DA3FF;
+    --dashboard-box2-color: #FFE6AC;
+    --dashboard-box3-color: #E7D1FC;
+    --dashboard-title-icon-color: #fff;
+    
+    /* ====== Transition ====== */
+    --dashboard-tran-05: all 0.5s ease;
+    --dashboard-tran-03: all 0.3s ease;
+    --dashboard-tran-03: all 0.2s ease;
+}
+
+body.dashboard-dark {
+    --dashboard-primary-color: #3A3B3C;
+    --dashboard-panel-color: #242526;
+    --dashboard-text-color: #CCC;
+    --dashboard-black-light-color: #CCC;
+    --dashboard-border-color: #4D4C4C;
+    --dashboard-toggle-color: #FFF;
+    --dashboard-box1-color: #3A3B3C;
+    --dashboard-box2-color: #3A3B3C;
+    --dashboard-box3-color: #3A3B3C;
+    --dashboard-title-icon-color: #CCC;
+}
+
+/* === Custom Scroll Bar CSS === */
+
+.dashboard-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background-color: var(--dashboard-panel-color);
+    border-right: 1px solid var(--dashboard-border-color);
+    transition: var(--dashboard-tran-05);
+}
+
+.dashboard-close {
+    width: 73px;
+}
+
+.dashboard-logo {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-logo img {
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dashboard-logo .dashboard_name {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dashboard-text-color);
+    margin-left: 14px;
+    transition: var(--dashboard-tran-05);
+}
+
+.dashboard-close .dashboard_name {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dashboard-menu-items {
+    margin-top: 40px;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dashboard-menu-items li {
+    list-style: none;
+}
+
+.dashboard-menu-items li a {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    text-decoration: none;
+    position: relative;
+}
+
+.dashboard-nav-links li a:hover:before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.dashboard-link-name{
+    padding: 30px;
+}
+
+.dashboard-nav-links{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.dashboard-nav-links li{
+    padding-top: 40px;
+    /* border: 2px solid black; */
+    border-radius: 50px;
+}
+
+body.dashboard-dark li a:hover:before {
+    background-color: var(--dashboard-text-color);
+}
+
+.dashboard-menu-items li a i {
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dashboard-black-light-color);
+}
+
+.dashboard-menu-items li a .dashboard-link-name {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dashboard-black-light-color);    
+    transition: var(--dashboard-tran-05);
+}
+
+.dashboard-close li a .dashboard-link-name {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dashboard-nav-links li a:hover i,
+.dashboard-nav-links li a:hover .dashboard-link-name {
+    color: red;
+}
+
+body.dashboard-dark .dashboard-nav-links li a:hover i,
+body.dashboard-dark .dashboard-nav-links li a:hover .dashboard-link-name {
+    color: var(--dashboard-text-color);
+}
+
+.dashboard-menu-items .dashboard-logout-mode {
+    padding-top: 10px;
+    border-top: 1px solid var(--dashboard-border-color);
+}
+
+
+.dashboard-logout{
+    background: linear-gradient(to right, red 0%, rgba(255, 0, 0, 0.267) 100%);
+    font-size: 17px;
+    color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-logout li{
+    list-style: none;
+}
+.dashboard-logout:hover{
+  letter-spacing: 1px;
+  background: linear-gradient(to right, rgba(255, 0, 0, 0.267) 0%, red 100%);
+}
+
+
+
+

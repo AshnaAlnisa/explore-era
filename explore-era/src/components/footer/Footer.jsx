@@ -10,9 +10,9 @@ const Footer = () => {
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
-  const backToTop = ()=> {
-    window.scrollTo({top:0, left:0, behavior:'smooth'})
-  }
+  const backToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -31,11 +31,6 @@ const Footer = () => {
             <p>It's time for new Experiences</p>
           </div>
 
-          
-
-
-
-
           <div className="app-container">
             <div className="contact-short-right">
               <p>Find The Perfect Escape</p>
@@ -50,14 +45,6 @@ const Footer = () => {
               <Popup onClose={() => setIsPopupVisible(false)} />
             )}
           </div>
-
-
-
-
-
-
-
-
         </div>
         <hr className="second-hr" />
 
@@ -68,13 +55,23 @@ const Footer = () => {
                 <h4>COMPANY</h4>
               </li>
               <li>
-                <Link to="/about" className="link" onClick={backToTop}>About Us</Link>
+                <Link to="/about" className="link" onClick={backToTop}>
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link to="/contactUs" className="link" onClick={backToTop}>Contact Us</Link>
+                <Link to="/contactUs" className="link" onClick={backToTop}>
+                  Contact Us
+                </Link>
               </li>
               <li>
-                <Link to="/topDestinations" className="link" onClick={backToTop}>Top Destinations</Link>
+                <Link
+                  to="/topDestinations"
+                  className="link"
+                  onClick={backToTop}
+                >
+                  Top Destinations
+                </Link>
               </li>
             </ul>
           </div>
@@ -85,10 +82,23 @@ const Footer = () => {
                 <h4>LEGAL POLICY</h4>
               </li>
               <li>
-                <Link to="/termsAndConditions" className="link" onClick={backToTop}>Terms & Conditions</Link>
+                <Link
+                  to="/termsAndConditions"
+                  className="link"
+                  onClick={backToTop}
+                >
+                  Terms & Conditions
+                </Link>
               </li>
               <li>
-                <Link to="/privacyPolicy" className="link" onClick={backToTop}>Privacy Policy</Link>
+                <Link to="/privacyPolicy" className="link" onClick={backToTop}>
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="link" onClick={backToTop}>
+                  Admin Login
+                </Link>
               </li>
             </ul>
           </div>

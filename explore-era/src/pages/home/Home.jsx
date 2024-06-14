@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <>
-      <MainLayout>
+      <MainLayout style={{ overflowX: "hidden" }}>
         <div className="india-holiday">
           <div className="india-holiday-img">
             <img src="/images/Container.png" alt="" />

@@ -7,9 +7,6 @@
 // import DropdownWeekendGateways from "../dropdown/DropdownWeekendGateways";
 // import Popup from "../popup/Popup";
 
-
-
-
 // const Navbar = () => {
 //   const [dropdown, setDropdown] = useState(false);
 //   const [dropdownHoliday, setDropdownHoliday] = useState(false);
@@ -101,9 +98,6 @@
 //             )}
 //             </div>
 
-
-
-
 //           </ul>
 //         </div>
 //       </nav>
@@ -113,10 +107,6 @@
 
 // export default Navbar;
 
-
-
-
-
 import React, { useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
@@ -125,8 +115,8 @@ import DropdownHoliday from "../dropdown/DropdownHoliday";
 import DropdownPackages from "../dropdown/DropdownPackages";
 import DropdownWeekendGateways from "../dropdown/DropdownWeekendGateways";
 import Popup from "../popup/Popup";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -160,7 +150,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className={`menu-link ${isMobileMenuVisible ? 'mobile-menu-visible' : ''}`}>
+        <div
+          className={`menu-link ${
+            isMobileMenuVisible ? "mobile-menu-visible" : ""
+          }`}
+        >
           <ul>
             <li
               className="link"
