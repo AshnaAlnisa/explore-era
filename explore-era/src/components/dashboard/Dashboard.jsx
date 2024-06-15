@@ -75,9 +75,9 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-menu-items">
           <ul className="dashboard-nav-links">
-            <li><a href="#">
+            <li><Link to="/dashboard">
               <span className="dashboard-link-name">Dashboard</span>
-            </a></li>
+            </Link></li>
             <li><Link to="/enquiryFormDetails">
               <span className="dashboard-link-name">Enquiry Form Details</span>
             </Link></li>
@@ -97,12 +97,6 @@ const Dashboard = () => {
           </ul>
         </div>
       </nav>
-      <section className="dashboard-content">
-       
-
-        <Login/>
-        
-      </section>
     </div>
   );
 }

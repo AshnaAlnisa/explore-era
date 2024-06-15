@@ -1,0 +1,58 @@
+/* Uploader Table Styles */
+.form-container {
+  height: 100vh;
+  background: linear-gradient(to right, red 0%, rgba(255, 0, 0, 0.267) 100%);
+  padding: 10% 0 0 30%;
+}
+
+
+
+.table-container h3 {
+  font-size: xx-large;
+  padding-bottom: 5%;
+  color: white;
+  margin-left: -8%;
+}
+
+.form-heading{
+  margin-left: -18% !important;
+
+}
+
+.form-table {
+  color: #fff;
+  height: auto;
+  border-spacing: 0;
+  width: 100%;
+  margin-left: -8%;
+}
+
+.form-tab{
+  margin-left: -18% !important;
+
+}
+
+.form-table th,
+.form-table td {
+  padding: 15px;
+  text-align: left;
+}
+
+.form-table button {
+  margin-right: 5px;
+  display: inline-block; /* Ensures buttons appear on the same line */
+  padding: 8px 12px; /* Adjust padding as needed */
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.form-table button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.form-table button:last-child {
+  margin-right: 0; /* No right margin for the last button */
+}

@@ -538,27 +538,27 @@ const DestinationHimachal = () => {
               <form onSubmit={handleSubmit}>
                <label>
                   Your Full Name
-                  <input type="text" name="name" id="FULLNAME" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
+                  <input type="text" name="name" id="FULLNAME" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
                 </label>
                 <label>
                   Tour Description
-                  <textarea name="description" id="TOURDESCRIPTION" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })}/>
+                  <textarea name="description" id="TOURDESCRIPTION" required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })}/>
                 </label>
                 <label>
                   Departure Date
-                  <input type="date" name="departureDate" id="DEPARTUREDATE" value={formData.departureDate} onChange={(e) => setFormData({ ...formData, departureDate: e.target.value })}/>
+                  <input type="date" name="departureDate" required id="DEPARTUREDATE" value={formData.departureDate} onChange={(e) => setFormData({ ...formData, departureDate: e.target.value })}/>
                 </label>
                 <label>
                   Number of Days
-                  <input type="number" name="numberOfDays" id="NUMBEROFDAYS" value={formData.numberOfDays} onChange={(e) => setFormData({ ...formData, numberOfDays: e.target.value })}/>
+                  <input type="number" name="numberOfDays" required id="NUMBEROFDAYS" value={formData.numberOfDays} onChange={(e) => setFormData({ ...formData, numberOfDays: e.target.value })}/>
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" id="EMAIL" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
+                  <input type="email" name="email" required id="EMAIL" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
                 </label>
                 <label>
                   Contact No
-                  <input type="tel" name="contactNo" id="CONTACTNO" value={formData.contactNo} onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })}/>
+                  <input type="tel" name="contactNo" required id="CONTACTNO" value={formData.contactNo} onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })}/>
                 </label>
                 <button type="submit">Get A Custom Quote</button>
               </form>

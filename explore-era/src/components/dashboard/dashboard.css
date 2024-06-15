@@ -51,6 +51,8 @@ body.dashboard-dark {
     background-color: var(--dashboard-panel-color);
     border-right: 1px solid var(--dashboard-border-color);
     transition: var(--dashboard-tran-05);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px 20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px 30px;
 }
 
 .dashboard-close {

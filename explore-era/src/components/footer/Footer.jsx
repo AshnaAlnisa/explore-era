@@ -96,7 +96,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard" className="link" onClick={backToTop}>
+                <Link to="/login" className="link" onClick={backToTop}>
                   Admin Login
                 </Link>
               </li>
