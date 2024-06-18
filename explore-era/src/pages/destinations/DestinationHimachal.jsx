@@ -31,7 +31,7 @@ const DestinationHimachal = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5164/enquiryForm', payload);
+      const response = await axios.post('http://localhost:5164/destination_form', payload);
       let res = response.data.rData.rMessage;
       console.log(response.data, 'api response'); // handle response
       if (res === "Successful") {
@@ -47,8 +47,6 @@ const DestinationHimachal = () => {
       alert('Error signing up. Please try again later.'); // Handle error
   }
 };
-
-
 
 
   return (

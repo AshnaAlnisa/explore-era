@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import "./dashboard.css";
-import Login from './Login';
-import { Link } from 'react-router-dom';
+import Login from "./Login";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
-
-    const backToTop = () => {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      };
+  const backToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const body = document.querySelector("body");
@@ -75,30 +74,40 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-menu-items">
           <ul className="dashboard-nav-links">
-            <li><Link to="/dashboard">
-              <span className="dashboard-link-name">Dashboard</span>
-            </Link></li>
-            <li><Link to="/enquiryFormDetails">
-              <span className="dashboard-link-name">Enquiry Form Details</span>
-            </Link></li>
-            <li><Link to="/bookYourTripFormDetails">
-              <span className="dashboard-link-name">Book Your Trip Form Details</span>
-            </Link></li>
-            <li><Link to="/addPackages">
+            <li>
+              <Link to="/adminWelcome">
+                <span className="dashboard-link-name">Dashboard</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/enquiryFormDetails">
+                <span className="dashboard-link-name">
+                  Enquiry Form Details
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/bookYourTripFormDetails">
+                <span className="dashboard-link-name">
+                  Book Your Trip Form Details
+                </span>
+              </Link>
+            </li>
+            {/* <li><Link to="/addPackages">
               <span className="dashboard-link-name">Add Packages</span>
-            </Link></li>
+            </Link></li> */}
           </ul>
           <ul className="dashboard-logout">
             <li>
-                <Link to="/home" onClick={backToTop}>
-                    Logout
-                </Link>
+              <Link to="/home" onClick={backToTop}>
+                Logout
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
     </div>
   );
-}
+};
 
 export default Dashboard;

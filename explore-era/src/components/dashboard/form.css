@@ -1,8 +1,8 @@
 /* Uploader Table Styles */
 .form-container {
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(to right, red 0%, rgba(255, 0, 0, 0.267) 100%);
-  padding: 10% 0 0 30%;
+  padding: 2% 0 0 30%;
 }
 
 
@@ -11,7 +11,7 @@
   font-size: xx-large;
   padding-bottom: 5%;
   color: white;
-  margin-left: -8%;
+  margin-left: -15%;
 }
 
 .form-heading{
@@ -24,7 +24,7 @@
   height: auto;
   border-spacing: 0;
   width: 100%;
-  margin-left: -8%;
+  margin-left: -15%;
 }
 
 .form-tab{
@@ -42,7 +42,7 @@
   margin-right: 5px;
   display: inline-block; /* Ensures buttons appear on the same line */
   padding: 8px 12px; /* Adjust padding as needed */
-  background-color: #4CAF50; /* Green background */
+  background-color: #978f8f; /* Green background */
   color: white; /* White text color */
   border: none; /* No border */
   border-radius: 4px; /* Rounded corners */
@@ -50,7 +50,7 @@
 }
 
 .form-table button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #000000; /* Darker green on hover */
 }
 
 .form-table button:last-child {

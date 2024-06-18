@@ -32,7 +32,7 @@ const adminLogin = () => {
       if (res === "Login Successfull") {
           // alert(res);
 
-          navigate('/dashboard');
+          navigate('/adminWelcome');
           
       } 
       else { 

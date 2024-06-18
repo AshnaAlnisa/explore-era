@@ -1,59 +1,43 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // Import axios for making HTTP requests
+import axios from "axios";
 import Dashboard from "./Dashboard";
 import "./form.css";
 
-const EnquiryFormDetails = () => {
-  // State to hold the uploads data fetched from the database
-  const [uploads, setUploads] = useState([
-    {
-      id: 1,
-      fullName: "Placeholder",
-      tourDescription: "Placeholder Data",
-      departureDate: "2024-07-05",
-      numberOfDays: "3",
-      email: "placeholder@example.com",
-      contactNo: "1234567890",
-    },
-  ]);
+const API = "http://localhost:5164/enquiryForm"; // Assuming this endpoint is correct
 
-  // Function to fetch data from the database
-  const fetchUploads = async () => {
+const EnquiryFormDetails = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
     try {
-      console.log("Fetching uploads...");
-      const response = await axios.post("http://localhost:5164/enquiryForm");
-      console.log("Response:", response.data); // Log response data for debugging
-      setUploads(response.data); // Update state with fetched data
+      const response = await axios.post(API, { eventID: "1002" });
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData && responseData.rData.users) {
+          setUsers(responseData.rData.users);
+          console.log("Users:", responseData.rData.users);
+        } else {
+          console.log("No users data in response");
+        }
+      }
     } catch (error) {
-      console.error("Error fetching uploads:", error);
-      // Handle error as needed
+      console.error("Error fetching users:", error);
     }
   };
-  
-
-  // useEffect to fetch data when component mounts
-  useEffect(() => {
-    fetchUploads();
-  }, []); // Empty dependency array ensures it runs only once on mount
 
   const handleEdit = (id) => {
-    // Handle edit logic
-    console.log(`Edit upload with ID ${id}`);
+    console.log(`Edit user with ID ${id}`);
+    // Implement edit logic
   };
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     // Replace with your API endpoint that deletes an upload
-  //     await axios.delete(`http://localhost:5164/deleteUpload/${id}`);
-
-  //     // Update state after successful deletion
-  //     setUploads(uploads.filter((upload) => upload.id !== id));
-  //     console.log(`Deleted upload with ID ${id}`);
-  //   } catch (error) {
-  //     console.error(`Error deleting upload with ID ${id}:`, error);
-  //     // Handle error as needed
-  //   }
-  // };
+  const handleDelete = (id) => {
+    console.log(`Delete user with ID ${id}`);
+    // Implement delete logic
+  };
 
   return (
     <>
@@ -76,22 +60,18 @@ const EnquiryFormDetails = () => {
                 </tr>
               </thead>
               <tbody>
-                {uploads.map((upload) => (
-                  <tr key={upload.id}>
-                    <td>{upload.id}</td>
-                    <td>{upload.fullName}</td>
-                    <td>{upload.tourDescription}</td>
-                    <td>{upload.departureDate}</td>
-                    <td>{upload.numberOfDays}</td>
-                    <td>{upload.email}</td>
-                    <td>{upload.contactNo}</td>
+                {users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.fullName}</td>
+                    <td>{user.tourDescription}</td>
+                    <td>{user.departureDate}</td>
+                    <td>{user.numberOfDays}</td>
+                    <td>{user.email}</td>
+                    <td>{user.contactNo}</td>
                     <td>
-                      <button onClick={() => handleEdit(upload.id)}>
-                        Edit
-                      </button>
-                      <button onClick={() => handleDelete(upload.id)}>
-                        Delete
-                      </button>
+                      {/* <button onClick={() => handleEdit(user.id)}>Edit</button> */}
+                      <button onClick={() => handleDelete(user.id)}>Delete</button>
                     </td>
                   </tr>
                 ))}

@@ -1,55 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import Dashboard from "./Dashboard";
 import "./form.css";
 
+const API = "http://localhost:5164/register";
+
 const BookYourTripFormDetails = () => {
-  const [uploads, setUploads] = useState([
-    {
-      id: 1,
-      NAME: "Inaya",
-      COUNTRY: "India",
-      EMAILID: "inaya@gmail.com",
-      TOURDESCRIPTIONS: "abcdefghijkl",
-      TRAVELDATES: "2024-07-07",
-      DURATIONOFTHESTAY: "5 days",
-      NOOFPERSON: 8,
-      CONTACTNO: 8565,
-    },
-    {
-      id: 2,
-      NAME: "Zayna",
-      COUNTRY: "India",
-      EMAILID: "zayna@gmail.com",
-      TOURDESCRIPTIONS: "abcdefghijkl",
-      TRAVELDATES: "2024-07-07",
-      DURATIONOFTHESTAY: "5 days",
-      NOOFPERSON: 4,
-      CONTACTNO: 6565,
-    },
-    {
-      id: 2,
-      NAME: "Zaira",
-      COUNTRY: "India",
-      EMAILID: "zaira@gmail.com",
-      TOURDESCRIPTIONS: "gfhffsdfghijkl",
-      TRAVELDATES: "2024-07-07",
-      DURATIONOFTHESTAY: "2 days",
-      NOOFPERSON: 2,
-      CONTACTNO: 2465,
-    },
-    
-    // Add more sample data as needed
-  ]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.post(API, { eventID: "1002" });
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData && responseData.rData.users) {
+          setUsers(responseData.rData.users);
+          console.log("Users:", responseData.rData.users);
+        } else {
+          console.log("No users data in response");
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
 
   const handleEdit = (id) => {
-    // Handle edit logic
-    console.log(`Edit upload with ID ${id}`);
+    console.log(`Edit user with ID ${id}`);
+    // Implement edit logic
   };
 
   const handleDelete = (id) => {
-    // Handle delete logic
-    console.log(`Delete upload with ID ${id}`);
-    setUploads(uploads.filter((upload) => upload.id !== id));
+    console.log(`Delete user with ID ${id}`);
+    // Implement delete logic
   };
 
   return (
@@ -75,22 +63,22 @@ const BookYourTripFormDetails = () => {
                 </tr>
               </thead>
               <tbody>
-                {uploads.map((upload) => (
-                  <tr key={upload.id}>
-                    <td>{upload.id}</td>
-                    <td>{upload.NAME}</td>
-                    <td>{upload.COUNTRY}</td>
-                    <td>{upload.EMAILID}</td>
-                    <td>{upload.TOURDESCRIPTIONS}</td>
-                    <td>{upload.TRAVELDATES}</td>
-                    <td>{upload.DURATIONOFTHESTAY}</td>
-                    <td>{upload.NOOFPERSON}</td>
-                    <td>{upload.CONTACTNO}</td>
+                {users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.name}</td>
+                    <td>{user.country}</td>
+                    <td>{user.emailId}</td>
+                    <td>{user.tourDescriptions}</td>
+                    <td>{user.travelDates}</td>
+                    <td>{user.durationOfTheStay}</td>
+                    <td>{user.noOfPerson}</td>
+                    <td>{user.contactNo}</td>
                     <td>
-                      <button onClick={() => handleEdit(upload.id)}>
+                      {/* <button onClick={() => handleEdit(user.id)}>
                         Edit
-                      </button>
-                      <button onClick={() => handleDelete(upload.id)}>
+                      </button> */}
+                      <button onClick={() => handleDelete(user.id)}>
                         Delete
                       </button>
                     </td>
@@ -105,4 +93,4 @@ const BookYourTripFormDetails = () => {
   );
 };
 
-export default BookYourTripFormDetails
+export default BookYourTripFormDetails;

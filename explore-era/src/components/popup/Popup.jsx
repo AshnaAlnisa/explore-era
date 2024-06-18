@@ -188,7 +188,7 @@ const Popup = ({ onClose }) => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5164/register', payload);
+            const response = await axios.post('http://localhost:5164/plan_your_trip', payload);
             let res = response.data.rData.rMessage;
             console.log(response.data, 'api response'); // handle response
             if (res === "Successful") {
@@ -210,7 +210,7 @@ const Popup = ({ onClose }) => {
                 <button className="close-button" onClick={onClose}>
                     <X />
                 </button>
-                <div className="form-container">
+                <div className="popup-form-container">
                     <div className="how-it-works">
                         <h2>How It Works</h2>
                         <ul>

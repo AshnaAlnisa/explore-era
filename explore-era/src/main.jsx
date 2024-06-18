@@ -25,7 +25,8 @@ import Dashboard from "./components/dashboard/Dashboard.jsx"
 import Login from "./components/dashboard/Login.jsx";
 import EnquiryFormDetails from "./components/dashboard/EnquiryFormDetails.jsx";
 import BookYourTripFormDetails from "./components/dashboard/BookYourTripFormDetails.jsx";
-import AddPackages from "./components/dashboard/AddPackages.jsx";
+import AdminWelcome from "./components/dashboard/AdminWelcome.jsx";
+
 // import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx"
 
 
@@ -80,9 +81,10 @@ const router = createBrowserRouter([
     element: <BookYourTripFormDetails/>,
   },
   {
-    path: "/addPackages",
-    element: <AddPackages/>,
+    path: "/adminWelcome",
+    element: <AdminWelcome/>,
   },
+ 
   // {
   //   path:"/motorBiking",
   //   element: <MotorBiking/>,
