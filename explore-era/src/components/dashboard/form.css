@@ -1,4 +1,4 @@
-/* Uploader Table Styles */
+
 .form-container {
   height: 100%;
   background: linear-gradient(to right, red 0%, rgba(255, 0, 0, 0.267) 100%);
@@ -50,9 +50,9 @@
 }
 
 .form-table button:hover {
-  background-color: #000000; /* Darker green on hover */
+  background-color: #000000; 
 }
 
 .form-table button:last-child {
-  margin-right: 0; /* No right margin for the last button */
+  margin-right: 0; 
 }

@@ -3,7 +3,8 @@ import axios from "axios";
 import Dashboard from "./Dashboard";
 import "./form.css";
 
-const API = "http://localhost:5164/enquiryForm"; // Assuming this endpoint is correct
+const API = "http://localhost:5164/enquiryForm";
+const DELETE_API = "http://localhost:5164/enquiryFormDeleteDetails"; // Endpoint for deleting enquiry form entries
 
 const EnquiryFormDetails = () => {
   const [users, setUsers] = useState([]);
@@ -29,18 +30,31 @@ const EnquiryFormDetails = () => {
     }
   };
 
-  const handleEdit = (id) => {
-    console.log(`Edit user with ID ${id}`);
-    // Implement edit logic
-  };
-
-  const handleDelete = (id) => {
-    console.log(`Delete user with ID ${id}`);
-    // Implement delete logic
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.post(DELETE_API, {
+        eventID: "1002",
+        addInfo: {
+          id:id
+        }
+      });
+      console.log("Delete Response:", response.data); // Log the entire response
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData.rMessage === "DELETE SUCCESSFULLY.") {
+          setUsers(users.filter(user => user.id !== id)); // Remove user from local state
+          console.log(`User with ID ${id} deleted successfully`);
+        } else {
+          console.log("Failed to delete user");
+        }
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   return (
-    <>
+    <div className="form-body">
       <Dashboard />
       <div className="form-container">
         <div className="table-container">
@@ -70,7 +84,6 @@ const EnquiryFormDetails = () => {
                     <td>{user.email}</td>
                     <td>{user.contactNo}</td>
                     <td>
-                      {/* <button onClick={() => handleEdit(user.id)}>Edit</button> */}
                       <button onClick={() => handleDelete(user.id)}>Delete</button>
                     </td>
                   </tr>
@@ -80,7 +93,7 @@ const EnquiryFormDetails = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

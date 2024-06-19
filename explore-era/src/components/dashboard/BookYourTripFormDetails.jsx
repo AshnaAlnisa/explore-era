@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import "./form.css";
 
 const API = "http://localhost:5164/register";
+const DELETE_API = "http://localhost:5164/plan_your_trip_delete_details";
 
 const BookYourTripFormDetails = () => {
   const [users, setUsers] = useState([]);
@@ -30,18 +31,34 @@ const BookYourTripFormDetails = () => {
     }
   };
 
-  const handleEdit = (id) => {
-    console.log(`Edit user with ID ${id}`);
-    // Implement edit logic
-  };
 
-  const handleDelete = (id) => {
-    console.log(`Delete user with ID ${id}`);
-    // Implement delete logic
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.post(DELETE_API, {
+        eventID: "1002",
+        addInfo: {
+          id:id
+        }
+      });
+      console.log("Delete Response:", response.data); // Log the entire response
+      if (response.status === 200) {
+        const responseData = response.data;
+        if (responseData.rData.rMessage === "DELETE SUCCESSFULLY.") {
+          setUsers(users.filter(user => user.id !== id)); // Remove user from local state
+          console.log(`User with ID ${id} deleted successfully`);
+        } else {
+          console.log("Failed to delete user");
+        }
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   return (
     <>
+    <div className="form-body">
       <Dashboard />
       <div className="form-container">
         <div className="table-container">
@@ -88,6 +105,7 @@ const BookYourTripFormDetails = () => {
             </table>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

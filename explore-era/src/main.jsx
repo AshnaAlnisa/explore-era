@@ -22,10 +22,10 @@ import HimachalTourPackages from "./pages/packages/packagesBystate/HimacharTourP
 import ChadarTrek from "./pages/packages/fixedDepartureTour/ChadarTrek.jsx";
 import Delhi from "./pages/weekendGateways/Delhi.jsx"
 import Dashboard from "./components/dashboard/Dashboard.jsx"
-import Login from "./components/dashboard/Login.jsx";
 import EnquiryFormDetails from "./components/dashboard/EnquiryFormDetails.jsx";
 import BookYourTripFormDetails from "./components/dashboard/BookYourTripFormDetails.jsx";
 import AdminWelcome from "./components/dashboard/AdminWelcome.jsx";
+import AdminLogin from "./components/dashboard/AdminLogin.jsx";
 
 // import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx"
 
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <AdminLogin/>,
   },
   {
     path: "/enquiryFormDetails",

@@ -1,9 +1,20 @@
-.dashboard-details{
-    margin-top: 15%;
-    width: 50%;
-    border: 5px solid red;
+.admin-welcome-wrapper {
+    display: flex;
+  }
+  
+  .admin-welcome-body {
+    flex: 1;
+    height: 100vh; /* Adjust as needed */
+    padding: 20px;
     background: linear-gradient(to right, red 0%, rgba(255, 0, 0, 0.267) 100%);
-    color: white;
+  }
+  
+  .dashboard-details {
+    margin-top: 10%;
+    height: 60%;
+    width: 50%;
+    background: white;
+    color: rgb(163, 163, 163);
     border-radius: 20px;
     margin-left: 30%;
     display: flex;
@@ -11,8 +22,9 @@
     align-items: center;
     justify-content: center;
     font-size: xx-large;
+  }
+  
+  .dashboard-details .name {
+    color: red;
 }
-
-.dashboard-details .name{
-    /* color: black; */
-}
+  

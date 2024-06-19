@@ -37,6 +37,14 @@ const DestinationHimachal = () => {
       if (res === "Successful") {
           alert(res);
           navigate('/himachalPradesh');
+          setFormData({
+            name: '',
+            description: '',
+            departureDate: '',
+            numberOfDays: '',
+            email: '',
+            contactNo: ''
+          });
       } 
       else { 
           alert(res);
