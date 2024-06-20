@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./adminWelcome.css";
 import Dashboard from './Dashboard';
+import { useNavigate } from 'react-router-dom';
 
 const AdminWelcome = () => {
+
+
+  const usenavigate = useNavigate() ;
+  useEffect(()=>{
+    let emailId = sessionStorage.getItem("EMAILID");
+    if(emailId==='' || emailId === null)
+      usenavigate('/login');
+  }, []);
+
+
   return (
     <div className='admin-welcome-wrapper'>
       <Dashboard />

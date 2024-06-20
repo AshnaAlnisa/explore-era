@@ -194,6 +194,16 @@ const Popup = ({ onClose }) => {
             if (res === "Successful") {
                 alert(res);
                 navigate('/himachalPradesh');
+                setFormData({
+                    name: '',
+                    country: '',
+                    emailid: '',
+                    tourDescriptions: '',
+                    travelDates: '',
+                    durationOfTheStay: '',
+                    noOfPerson: '',
+                    contactNo: ''
+                  });
             } else { 
                 alert(res);
                 navigate('/himachalPradesh');

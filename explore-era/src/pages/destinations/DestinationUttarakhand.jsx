@@ -316,14 +316,35 @@ const DestinationUttarakhand = () => {
           </p>
 
           <h2 className="main-info-heading">
-          Waterfalls: Serene and great for a picnic!
+            Waterfalls: Serene and great for a picnic!
           </h2>
           <p className="main-info-details">
-          Waterfalls in Uttarakhand, are the beautiful places from where you can frame a perfect picture of water descending from a height with the gushing sound of water. And that's not all because the picture can never be complete without the mighty snow-capped peaks of Uttarakhand, painted in the background. Most of these charismatic waterfalls are perfect for a short trek, away from the busy tourist attractions in Uttarakhand, whereas there are few like the Kempty Falls in Mussoorie that remain unbelievably crowded throughout the year. Most of these falls have an average height of 126 m and are situated at an approximate elevation of 1400 m above the sea level. <br /><br />
-
-One of the best things about these waterfalls is that they add more charm to the nearby cities and towns like Mussoorie, Haridwar, Pithoragarh, Rishikesh giving visitors another reason to plan a holiday here. These small yet dreamy falls in Mussoorie are a delight if you are looking for a peaceful retreat away from the city.<br /><br />
-
-Another must visit waterfall is the Mossy Falls, which gets its name from the covering of mossy that envelopes the whole area making the place look even beautiful. Jimi Ghat Waterfalls in the Pithoragarh District is another popular waterfall which offers scintillating views of the Nanda Devi range, and is surrounded by the rhododendrons and birch.
+            Waterfalls in Uttarakhand, are the beautiful places from where you
+            can frame a perfect picture of water descending from a height with
+            the gushing sound of water. And that's not all because the picture
+            can never be complete without the mighty snow-capped peaks of
+            Uttarakhand, painted in the background. Most of these charismatic
+            waterfalls are perfect for a short trek, away from the busy tourist
+            attractions in Uttarakhand, whereas there are few like the Kempty
+            Falls in Mussoorie that remain unbelievably crowded throughout the
+            year. Most of these falls have an average height of 126 m and are
+            situated at an approximate elevation of 1400 m above the sea level.{" "}
+            <br />
+            <br />
+            One of the best things about these waterfalls is that they add more
+            charm to the nearby cities and towns like Mussoorie, Haridwar,
+            Pithoragarh, Rishikesh giving visitors another reason to plan a
+            holiday here. These small yet dreamy falls in Mussoorie are a
+            delight if you are looking for a peaceful retreat away from the
+            city.
+            <br />
+            <br />
+            Another must visit waterfall is the Mossy Falls, which gets its name
+            from the covering of mossy that envelopes the whole area making the
+            place look even beautiful. Jimi Ghat Waterfalls in the Pithoragarh
+            District is another popular waterfall which offers scintillating
+            views of the Nanda Devi range, and is surrounded by the
+            rhododendrons and birch.
           </p>
 
           <h2 className="main-info-heading">

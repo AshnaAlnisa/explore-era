@@ -2,12 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Dashboard from "./Dashboard";
 import "./form.css";
+import { useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/enquiryForm";
 const DELETE_API = "http://localhost:5164/enquiryFormDeleteDetails"; // Endpoint for deleting enquiry form entries
 
 const EnquiryFormDetails = () => {
   const [users, setUsers] = useState([]);
+
+
+  const usenavigate = useNavigate() ;
+  useEffect(()=>{
+    let emailId = sessionStorage.getItem("EMAILID");
+    if(emailId==='' || emailId === null)
+      usenavigate('/login');
+  }, []);
+
 
   useEffect(() => {
     fetchUsers();

@@ -9,11 +9,6 @@ import ContactUs from "./pages/contactUs/ContactUs.jsx";
 import TermsAndConditions from "./pages/termsAndConditions/TermsAndConditions.jsx";
 import TopDestinations from "./pages/topDestinations/TopDestinations.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy.jsx";
-// import MotorBiking from './pages/holidayIdeas/adventureTourism/MotorBiking.jsx'
-// import HimachalTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx";
-// import ChristianPT from "./pages/holidayIdeas/pilgrimageTourism/ChristianPT.jsx";
-// import HimacharTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx";
-// import Delhi from "./pages/weekendGateways/Delhi.jsx";
 import DestinationHimachal from "./pages/destinations/DestinationHimachal.jsx";
 import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx";
 import MotorBiking from "./pages/holidayIdeas/adventureTourism/MotorBiking.jsx";
@@ -21,7 +16,7 @@ import ChristianPT from "./pages/holidayIdeas/pilgrimageTourism/ChristianPT.jsx"
 import HimachalTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx"
 import ChadarTrek from "./pages/packages/fixedDepartureTour/ChadarTrek.jsx";
 import Delhi from "./pages/weekendGateways/Delhi.jsx"
-import Dashboard from "./components/dashboard/Dashboard.jsx"
+// import Dashboard from "./components/dashboard/Dashboard.jsx"
 import EnquiryFormDetails from "./components/dashboard/EnquiryFormDetails.jsx";
 import BookYourTripFormDetails from "./components/dashboard/BookYourTripFormDetails.jsx";
 import AdminWelcome from "./components/dashboard/AdminWelcome.jsx";
@@ -64,10 +59,10 @@ const router = createBrowserRouter([
     path: "/privacyPolicy",
     element: <PrivacyPolicy />,
   },
-  {
-    path: "/dashboard",
-    element: <Dashboard/>,
-  },
+  // {
+  //   path: "/dashboard",
+  //   element: <Dashboard/>,
+  // },
   {
     path: "/login",
     element: <AdminLogin/>,

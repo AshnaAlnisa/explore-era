@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./login.css";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 const AdminLogin = () => {
+
+  useEffect(()=>{
+    sessionStorage.clear();
+  })
+
+
   const [formData, setFormData] = useState({
     emailId: '',
     password: ''
@@ -27,6 +33,7 @@ const AdminLogin = () => {
       console.log(response.data, 'api response');
 
       if (res === "Login Successfull") {
+        sessionStorage.setItem("EMAILID",emailId);
         navigate('/adminWelcome');
       } else {
         setErrorMessage('Username or Password incorrect. Please try again.');

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./dashboard.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  
+ 
   return (
     <div>
       <nav className="dashboard-nav">

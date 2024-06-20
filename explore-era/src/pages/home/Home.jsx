@@ -1,9 +1,14 @@
 import React from "react";
 import "./home.css";
 import MainLayout from "../../layout/MainLayout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
+
+  useEffect(()=>{
+    sessionStorage.clear();
+  })
 
   const backToTop = ()=> {
     window.scrollTo({top:0, left:0, behavior:'smooth'})
@@ -84,33 +89,33 @@ const Home = () => {
           {/* <div className="trending-main"></div> */}
           <div className="trending-photo-card">
             <div className="trending-card">
-              <Link to='/'><img src="images/Link → uttarakhand02-package.webp.png" alt="" /></Link>
+              <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → uttarakhand02-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/' className="link">Uttarakhand </Link></p>
+              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Uttarakhand </Link></p>
             </div>
 
             <div className="trending-card">
-              <Link to=''><img src="images/Link → kerala02-package.webp.png" alt="" /></Link>
+              <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → kerala02-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/' className="link">Kerala</Link></p>
+              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Kerala</Link></p>
             </div>
 
             <div className="trending-card">
-              <Link to='/'><img src="images/Link → sikkim01-package.webp.png" alt="" /></Link>
+              <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → sikkim01-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/' className="link">Sikkim </Link></p>
+              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Sikkim </Link></p>
             </div>
 
             <div className="trending-card">
-            <Link to='/'><img src="images/Link → bhutan-package.webp.png" alt="" /></Link>
+            <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → bhutan-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/' className="link">Bhutan</Link></p>
+              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Bhutan</Link></p>
             </div>
 
             <div className="trending-card">
-            <Link to='/'><img src="images/Link → thailand-package.webp.png" alt="" /></Link>
+            <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → thailand-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/' className="link">Thailand</Link></p>
+              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Himachal Pradesh</Link></p>
             </div>
           </div>
         </div>
@@ -135,39 +140,39 @@ const Home = () => {
             </div>
 
             <div className="weekend-card">
-              <Link to="">
+              <Link to="/delhi" onClick={backToTop}>
                 {" "}
                 <img src="images/Link → mumbai-tour.webp.png" alt="" />
               </Link>
               <p className="weekend-packages">50+ Packages</p>
               <p className="weekend-state">
-                <Link to="/" className="link">
+                <Link to="/delhi" className="link" onClick={backToTop}>
                   Weekend Trips From Mumbai
                 </Link>
               </p>
             </div>
 
             <div className="weekend-card">
-              <Link to="">
+              <Link to="/delhi" onClick={backToTop}>
                 {" "}
                 <img src="images/Link → banglore-tour.webp.png" alt="" />
               </Link>
               <p className="weekend-packages">50+ Packages</p>
               <p className="weekend-state">
-                <Link to="/" className="link">
+                <Link to="/delhi" className="link" onClick={backToTop}>
                   Weekend Trips From Bangalore{" "}
                 </Link>
               </p>
             </div>
 
             <div className="weekend-card">
-              <Link to="/">
+              <Link to="/delhi" onClick={backToTop}>
                 {" "}
                 <img src="images/Link → chennai-tour.webp.png" alt="" />
               </Link>
               <p className="weekend-packages">50+ Packages</p>
               <p className="weekend-state">
-                <Link to="/" className="link">
+                <Link to="/delhi" className="link" onClick={backToTop}>
                   Weekend Trips From Chennai
                 </Link>
               </p>
