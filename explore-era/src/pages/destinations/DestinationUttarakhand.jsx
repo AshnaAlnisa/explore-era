@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../layout/MainLayout";
 import "./destinationHimachal.css";
+import axios from "axios";
+
+const API = "http://localhost:5164/destination_card";
 
 const DestinationUttarakhand = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
+  const fetchItems = async () => {
+    try {
+      const response = await axios.post(API, { eventID: "1002" , addInfo: { id: 1 }});
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          setItems(responseData.rData.items);
+          console.log("Items:", responseData.rData.items);
+        } else {
+          console.log(
+            "No items data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
   return (
     <>
       <MainLayout>
@@ -476,53 +511,20 @@ const DestinationUttarakhand = () => {
           <section className="best-places">
             <h2>Best Places to Visit in Himachal Pradesh</h2>
             <div className="places">
-              <div className="place">
-                <img src="images/himachal6.webp.png" alt="Shimla" />
-                <h3>Shimla</h3>
-                <p>
-                  Explore colonial architecture, hang out at The Mall & enjoy
-                  the gorgeous views greeting you everywhere.
-                </p>
-                <div className="tags-button">
-                  <div className="tags">
-                    <span>Hill Station</span>
-                    <span>Architecture</span>
+              {items.map((item) => (
+                <div className="place" key={item.id}>
+                  <img src={item.image} alt={item.heading}/>
+                  <h3>{item.heading}</h3>
+                  <p>{item.details}</p>
+                  <div className="tags-button">
+                    <div className="tags">
+                      <span>{item.block1}</span>
+                      <span>{item.block2}</span>
+                    </div>
+                    <button className="view-more">{item.view_more}</button>
                   </div>
-                  <button className="view-more">View more</button>
                 </div>
-              </div>
-              <div className="place">
-                <img src="images/himachal5.webp.png" alt="Kullu Manali" />
-                <h3>Kullu Manali</h3>
-                <p>
-                  Manali is a top tourist attraction for its tourist sites like
-                  Hidimba Devi Temple, Old Manali, bazaar & a rich cultural
-                  heritage.
-                </p>
-                <div className="tags-button">
-                  <div className="tags">
-                    <span>Hill Station</span>
-                    <span>Temple</span>
-                  </div>
-                  <button className="view-more">View more</button>
-                </div>
-              </div>
-              <div className="place">
-                <img src="images/himachal4.webp.png" alt="Chamba" />
-                <h3>Chamba</h3>
-                <p>
-                  Visit Chamba for its lakes, streams, fertile valley and the
-                  rich wildlife. There are several historical & architectural
-                  sites to be discovered.
-                </p>
-                <div className="tags-button">
-                  <div className="tags">
-                    <span>Lakes</span>
-                    <span>Wildlife</span>
-                  </div>
-                  <button className="view-more">View more</button>
-                </div>
-              </div>
+              ))}
             </div>
           </section>
 
