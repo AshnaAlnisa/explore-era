@@ -14,7 +14,8 @@ const DestinationUttarakhand = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.post(API, { eventID: "1002" , addInfo: { id: 1 }});
+      // Fetch all items from the API
+      const response = await axios.post(API, { eventID: "1002" });
       console.log("Response:", response.data); // Log the entire response data for debugging
 
       if (response.status === 200) {
@@ -22,8 +23,13 @@ const DestinationUttarakhand = () => {
         console.log("Response Data:", responseData); // Log the response data object
 
         if (responseData.rData && responseData.rData.items) {
-          setItems(responseData.rData.items);
-          console.log("Items:", responseData.rData.items);
+          // Filter items based on specific IDs
+          const filteredItems = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '1' || item.id === '2' || item.id === '3';
+          });
+          setItems(filteredItems);
+          console.log("Filtered Items:", filteredItems);
         } else {
           console.log(
             "No items data in response or invalid structure:",
@@ -513,7 +519,7 @@ const DestinationUttarakhand = () => {
             <div className="places">
               {items.map((item) => (
                 <div className="place" key={item.id}>
-                  <img src={item.image} alt={item.heading}/>
+                  <img src={`data:image/jpeg;base64,${item.image}`}  alt={item.heading}/>
                   <h3>{item.heading}</h3>
                   <p>{item.details}</p>
                   <div className="tags-button">
