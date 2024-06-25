@@ -16,13 +16,13 @@ export const DestinationsDropdown = [
     {
         id: 3,
         title : "Kerala",
-        path : "/himachalPradesh",
+        path : "/kerala",
         cName : "submenu-item",
     },
     {
         id: 4,
         title : "Goa",
-        path : "/himachalPradesh",
+        path : "/goa",
         cName : "submenu-item",
     },
     {

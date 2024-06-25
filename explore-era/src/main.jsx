@@ -11,6 +11,7 @@ import TopDestinations from "./pages/topDestinations/TopDestinations.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy.jsx";
 import DestinationHimachal from "./pages/destinations/DestinationHimachal.jsx";
 import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx";
+import DestinationKerala from "./pages/destinations/DestinationKerala.jsx";
 import MotorBiking from "./pages/holidayIdeas/adventureTourism/MotorBiking.jsx";
 import ChristianPT from "./pages/holidayIdeas/pilgrimageTourism/ChristianPT.jsx"
 import HimachalTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx"
@@ -21,6 +22,7 @@ import EnquiryFormDetails from "./components/dashboard/EnquiryFormDetails.jsx";
 import BookYourTripFormDetails from "./components/dashboard/BookYourTripFormDetails.jsx";
 import AdminWelcome from "./components/dashboard/AdminWelcome.jsx";
 import AdminLogin from "./components/dashboard/AdminLogin.jsx";
+import DestinationGoa from "./pages/destinations/DestinationGoa.jsx";
 
 // import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx"
 
@@ -111,6 +113,14 @@ const router = createBrowserRouter([
   {
     path:"/uttarakhand",
     element:<DestinationUttarakhand/>
+  },
+  {
+    path:"/kerala",
+    element:<DestinationKerala/>
+  },
+  {
+    path:"/goa",
+    element:<DestinationGoa/>
   },
   {
     path:"/motorBiking",

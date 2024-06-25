@@ -25,64 +25,7 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 1200px) {
-  html {
-      font-size: 58%; /* Slightly smaller font size for large screens */
-  }
-}
 
-.hamburger-menu {
-  display: none;
-  grid-column: 1/2;
-  justify-self: start;
-  align-self: center;
-  cursor: pointer;
-  font-size: 2.5rem;
-}
-
-@media (max-width: 768px) {
-  .main-nav {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .hamburger-menu {
-    display: block;
-  }
-
-  .menu-link {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    position: absolute;
-    top: 8rem;
-    left: 0;
-    background-color: white;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  }
-
-  .mobile-menu-visible {
-    display: flex;
-  }
-
-  .menu-link ul {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 0;
-  }
-
-  .menu-link ul li {
-    width: 100%;
-    text-align: left;
-    padding: 1rem 2rem;
-  }
-
-  .details-desktop {
-    display: none;
-  }
-}
 
 /* Normal Styles for Larger Screens */
 .main-nav {
@@ -205,3 +148,5 @@ body {
   color: rgba(0, 0, 3, 1);
   text-decoration: none;
 }
+
+

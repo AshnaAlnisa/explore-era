@@ -2,11 +2,64 @@ import React, { useEffect, useState } from "react";
 import MainLayout from "../../layout/MainLayout";
 import "./destinationHimachal.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/destination_card";
 
 const DestinationUttarakhand = () => {
   const [items, setItems] = useState([]);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    departureDate: '',
+    numberOfDays: '',
+    email: '',
+    contactNo: ''
+  }); 
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const payload = {
+        eventID: "1002",
+        addInfo: {
+          FULLNAME: formData.name,
+          TOURDESCRIPTION: formData.description,
+          DEPARTUREDATE: formData.departureDate,
+          NUMBEROFDAYS: formData.numberOfDays,
+          EMAIL: formData.email,
+          CONTACTNO: formData.contactNo
+        }
+    };
+
+    try {
+      const response = await axios.post('http://localhost:5164/destination_form', payload);
+      let res = response.data.rData.rMessage;
+      console.log(response.data, 'api response'); // handle response
+      if (res === "Successful") {
+          alert(res);
+          navigate('/himachalPradesh');
+          setFormData({
+            name: '',
+            description: '',
+            departureDate: '',
+            numberOfDays: '',
+            email: '',
+            contactNo: ''
+          });
+      } 
+      else { 
+          alert(res);
+          navigate('/himachalPradesh');
+      }
+  } catch (error) {
+      console.error('Error signing up:', error);
+      alert('Error signing up. Please try again later.'); // Handle error
+  }
+};
+
 
   useEffect(() => {
     fetchItems();
@@ -53,7 +106,7 @@ const DestinationUttarakhand = () => {
               <div className="hero">
                 <img
                   className="himachal-img"
-                  src="images/uttarakhand-banner.webp.png"
+                  src="images/uttarakhand-banner.webp"
                   alt="Himachal Pradesh"
                 />
               </div>
@@ -67,22 +120,19 @@ const DestinationUttarakhand = () => {
                   <div className="card">
                     <h2>Hill Stations</h2>
                     <p>
-                      Himachal Pradesh tourism opens its doors to nature lovers,
-                      offering solace to the mind and soul.
+                      Escape the city life to be united with nature at surreal hill stations in Uttarakhand.
                     </p>
                   </div>
                   <div className="card">
-                    <h2>Trekking</h2>
+                    <h2>Adventure</h2>
                     <p>
-                      A thrilling & scenic trekking experience awaits you warmly
-                      in Himachal Pradesh.
+                    Uttarakhand has a bagful of adventure tourism activities to gift to its visitors.
                     </p>
                   </div>
                   <div className="card">
-                    <h2>Paragliding</h2>
-                    <p>
-                      Head to Bir Billing which claims to be the second-highest
-                      paragliding spot in the world.
+                    <h2>Pilgrimage</h2>
+                    <p> destination 
+                    Uttarakhand destination to find your spiritual self
                     </p>
                   </div>
                 </div>
@@ -265,18 +315,6 @@ const DestinationUttarakhand = () => {
           </p>
 
           <h2 className="main-info-heading">
-            Pristine Wilderness and Exotic Wildlife of Himachal Pradesh
-          </h2>
-          <p className="main-info-details">
-            Himachal is very popular for its national parks. These are home to
-            rare and endangered animals. The most famous of these is Great
-            Himalayan National Park, a UNESCO World Heritage Site. You can spot
-            high altitude Himalayan animals like Himalayan Tahr, Himalayan Brown
-            Bear, blue sheep and snow leopard. The vast floral and faunal you
-            can spot the exotic Himalayan wildlife are Pin Valley & Inderkilla.
-          </p>
-
-          <h2 className="main-info-heading">
             Spot rare & exotic Himalayan wildlife & other animals!{" "}
           </h2>
           <p className="main-info-details">
@@ -389,82 +427,66 @@ const DestinationUttarakhand = () => {
           </p>
 
           <h2 className="main-info-heading">
-            Top 10 Most Visited Tourist Destinations of Himachal Pradesh
+          Fairs and festivals: local customs, folk dance, music & celebrations!
+          </h2>
+          <p className="main-info-details">
+          The two regions of Uttarakhand, Garhwal and Kumaon host a number of fairs and festivals throughout the year. One of the grandest and renowned all over the country is the Kumbh Mela, which is held every 12 years in Haridwar. Another famous festival which is famous throughout the country and attracts people both from India and abroad is the International Yoga Festival. The festival is held over a week and is marked with over 70 hours of different styles of Yoga including Vinyasa, Bhakti, Iyengar and Kundalini. <br/> <br/>
+          Other famous festivals held in Uttarakhand are Sharadotsav, Gindi Mela, Baikunth-Chaturdashi Mela, Gauchar Mela, Hariyali Devi Mela, Nanda Raj-Jat, Nanda Devi, Binsar Mela, Uttarayni. The much-celebrated festivals in the state include Auli Festival, Dikar Puja, Bhitauli, Harela, Olgia or Ghee Sankranti, Kandali, Hilljatra, Basant Panchami, Phool Dei, Vat Savitri, Ganga Dussehra, Ghughutia, Khatarua, Ghuian Ekadashi, Kumaoni Holi, and Janopunyu A trip to Uttarakhand during any of these fairs and festivals let the tourists witness the zeal of locals preparing for the festivities and greeting each other with pure hearts and love.
+          </p>
+
+          <h2 className="main-info-heading">
+          Top 10 Most Visited Tourist Destinations of Uttarakhand
           </h2>
           <p className="main-info-details">
             <ul>
               <li>
                 <div>
-                  <span>Shimla :</span> Visit the neo gothic Christ Church,
-                  Viceregal Lodge & other colonial architecture. Hang out at The
-                  Mall & attend the Ice Skating Carnival from November.
+                  <span>Rishikesh  :</span> Internationally known as the Yoga capital, spiritual, religious and adventurous tourism hub, Rishikesh is one of the top visited places in Uttarakhand in the Himalayas and is visited by domestic and international tourists every year.
                 </div>
               </li>
               <li>
                 <div>
-                  <span> Manali : </span>Famous for its rich cultural heritage &
-                  age old traditions. Visit its tourist sites like Hidimba Devi
-                  & Manu Temple. Visit the bazaar & explore Old Manali.
+                  <span> Nainital  : </span>Nainital is one of the top 10 most visited tourist destinations of Uttarakhand not just for its charming Naini Lake, but other sightseeing opportunities & a rich colonial heritage.
                 </div>
               </li>
               <li>
                 <div>
-                  <span>Kullu :</span> It’s blessed by nature’s bounty. The
-                  Kullu Dusshera in October is celebrated with great vigour.
-                  Adventure activities like rafting, camping & hiking are
-                  popular.
+                  <span>Mussoorie  :</span> What makes Mussoorie counted among the top 10 most visited tourist destinations of Uttarakhand is Kempty Falls, temples, boating,Cable Car Ride & Mall Road.
                 </div>
               </li>
               <li>
                 <div>
-                  <span> Dharamshala :</span> Visit Mcleodganj & find out why
-                  it’s called Little Lhasa. A few tourist places are Bhagsunag
-                  Falls, Kangra Art Museum & War Memorial.
+                  <span> Corbett National Park :</span> Visit Corbett National Park, the oldest national park in India as well as the largest tiger reserve. It’s one of the best places to spot the Royal Bengal Tiger in India.
                 </div>
               </li>
               <li>
                 <div>
-                  <span> Paonta Sahib : </span>Guru Gobind Singh, the 10th Guru,
-                  lived here for 10 years. Seek blessings. Enjoy the views of
-                  Doon Valley. Go for a picnic at Khodri Dakpathar, about 25
-                  kilometres from here.
+                  <span> Valley of Flowers : </span> Valley of Flowers is a UNESCO World Heritage Site and is home to more than 350 species of flowers. Red fox and musk deer are some of the exotic animals found.
                 </div>
               </li>
               <li>
                 <div>
-                  <span> Kangra : </span>Its history dates back to more than
-                  3,500 years. Its top tourist attractions are Kangra Fort,
-                  Shree Bajreshwari Devi Temple and Baijnath Shiv Temple.
+                  <span> Auli  : </span>Auli is one of the top skiing destinations in India & the world & most visited destinations in Uttarakhand by skiing enthusiasts. Tourists can also enjoy camping & sightseeing.
                 </div>
               </li>
               <li>
                 <div>
-                  <span> Dalhousie :</span> This hill station will win you over
-                  with its rich colonial architecture, including churches. The
-                  Mall Road, Subhash Baoli & spectacular beauty are its prime
-                  attractions.
+                  <span> Kedarnath Dham :</span> Kedarnath Dham is one of the most visited tourist pilgrimage destinations of Uttarakhand. Situated at 3,584 meters, it’s one of the 12 Jyotirlingas & most important among Panch Kedars.
                 </div>
               </li>
               <li>
                 <div>
-                  <span> Kinnaur :</span> India’s last village, views of Mt.
-                  Kinner Kailash & apple orchards, it’s all here in Kinnaur. A
-                  few tourist sites are Nichar, Moorang and Kothi.
+                  <span> Haridwar  :</span> Har Ki Pauri is one of the most sacred ghats in Haridwar which is said to contain the foot imprints of Lord Vishnu. The evening Ganga Aarti is a major attraction.
                 </div>
               </li>
               <li>
                 <div>
-                  <span>Chamba :</span> Its landscape is dotted with lakes,
-                  streams, rich wildlife & fertile valleys. It is also dotted
-                  with significant historical and architectural landmarks.
+                  <span>Chopta - Tungnath :</span>  Chopta is one of the most visited tourist attractions in Uttarakhand for its Tungnath Temple, the highest Shiva Temple in the world. Sightseeing, camping & trekking are also popular.
                 </div>
               </li>
               <li>
                 <div>
-                  <span>Hamirpur : </span>Dense pine forests and fertile valleys
-                  form a major part of its landscape. Two of its major tourist
-                  attractions are the historic fort at Sujanpur Tihra & Baba
-                  Balak Nath Temple.
+                  <span>Chakrata  : </span>Chakrata finds a place among the most visited tourist attractions of Uttarakhand because of its spectacular views, Tiger Falls, ambience and a picnic spot.
                 </div>
               </li>
             </ul>
@@ -473,17 +495,16 @@ const DestinationUttarakhand = () => {
 
         <div className="container2">
           <section className="best-time">
-            <h2>Best Time to Visit Himachal Pradesh</h2>
+            <h2>Best Time to Visit Uttarakhand </h2>
             <div className="seasons">
               <div className="season">
                 <img src="images/summer-ico.png.png" alt="Summer Season" />
                 <br />
                 <br />
                 <div>
-                  <h3>Summer Season In Himachal Pradesh</h3>
+                  <h3>Summer Season In Uttarakhand </h3>
                   <p>
-                    Summers in Sikkim last from April to June. Temperature
-                    ranges between 5°C to 24°C.
+                  The summer season between March and June in Uttarakhand is quite pleasant with temperature ranging from 20°C to 30°C.
                   </p>
                 </div>
               </div>
@@ -492,10 +513,9 @@ const DestinationUttarakhand = () => {
                 <br />
                 <br />
                 <div>
-                  <h3>Monsoon Season In Himachal Pradesh</h3>
+                  <h3>Monsoon Season In Uttarakhand </h3>
                   <p>
-                    Monsoon arrives in mid June and lasts till September.
-                    Temperature ranges between 15°C to 21°C.
+                  Monsoon begins from June and ends in September in Uttarakhand. The state experiences heavy rainfall during monsoons.
                   </p>
                 </div>
               </div>
@@ -504,10 +524,9 @@ const DestinationUttarakhand = () => {
                 <br />
                 <br />
                 <div>
-                  <h3>Winter Season In Himachal Pradesh</h3>
+                  <h3>Winter Season In Uttarakhand </h3>
                   <p>
-                    Winters start from November and last till March. It can be
-                    extremely cold. The temperature ranges between 14°C to 21°C.
+                  Winter season in Uttarakhand is from November to February when the weather gets chilly and the temperature drops to sub-zero.
                   </p>
                 </div>
               </div>
@@ -515,7 +534,7 @@ const DestinationUttarakhand = () => {
           </section>
 
           <section className="best-places">
-            <h2>Best Places to Visit in Himachal Pradesh</h2>
+            <h2>Best Places to Visit in Uttarakhand </h2>
             <div className="places">
               {items.map((item) => (
                 <div className="place" key={item.id}>
@@ -535,35 +554,29 @@ const DestinationUttarakhand = () => {
           </section>
 
           <section className="top-things">
-            <h2>Top Things to Do in Himachal Pradesh</h2>
+            <h2>Top Things to Do in Uttarakhand </h2>
             <div className="activities">
               <div className="activity">
-                <img src="images/himachal3.webp.png" alt="Adventure" />
-                <h3>Adventure</h3>
+                <img src="images/trekking-in-uttarakhand.webp" alt="Adventure" />
+                <h3>Trekking and Hiking</h3>
                 <p>
-                  Himachal Pradesh offers opportunities for a wide variety of
-                  adventure sports like river rafting, mountain cycling, skiing,
-                  rock climbing & mountaineering.
+                Embark on adventurous journeys on a plethora of enthralling treks in Uttarakhand.
                 </p>
                 <button className="view-more">View more</button>
               </div>
               <div className="activity">
-                <img src="images/himachal2.webp.png" alt="Wildlife" />
-                <h3>Wildlife</h3>
+                <img src="images/rafting.webp" alt="Wildlife" />
+                <h3>River Rafting Adventure</h3>
                 <p>
-                  You can spot a wide variety of exotic Himalayan wildlife in
-                  Himachal. Two famous ones are Great Himalayan National Park &
-                  Pin Valley National Park.
+                Enjoy the playful side of Ganges and Tons with river rafting adventure on them in Uttarakhand.
                 </p>
                 <button className="view-more">View more</button>
               </div>
               <div className="activity">
-                <img src="images/himachal1.webp.png" alt="Lakes" />
-                <h3>Lakes</h3>
+                <img src="images/wildlife.webp" alt="Lakes" />
+                <h3>Wildlife Safari</h3>
                 <p>
-                  There are more than 25 lakes in Himachal. Many of them play a
-                  part in Hindu mythology. Others are biking, angling, kayaking
-                  & water rafting.
+                Explore the rich flora & fauna of Uttarakhand and go on enthralling wildlife and tiger safaris.
                 </p>
                 <button className="view-more">View more</button>
               </div>
@@ -572,118 +585,88 @@ const DestinationUttarakhand = () => {
 
           <div className="container3">
             <div className="info-last">
-              <h2>Himachal Pradesh Essential Information</h2>
+              <h2>Uttarakhand  Essential Information</h2>
               <section>
-                <h2>Where to stay in Himachal Pradesh</h2>
+                <h2>Where to stay in Uttarakhand</h2>
                 <p>
-                  There are a wide variety of accommodation facilities available
-                  in Himachal Pradesh. You can choose from budget to luxury
-                  hotels, from 4 star to 5 star ones. Guest houses and lodges
-                  are available in all the popular locations of Himachal Pradesh
-                  including Shimla, Manali, Dharamshala and Kullu. TMI also
-                  offers best deals on{" "}
-                  <a href="#">hotel bookings in Himachal Pradesh</a>.
+                Uttarakhand with its impressive Himalayan mountains and stunning landscape is quite a popular tourist destination in India. As far as where to stay in Uttarakhand is concerned, there is a wide range of accommodations available at every tourist destination. The Himalayan state has a warm hospitality to offer. <br/> <br/>
+                From budget to luxury to heritage hotels to camps and homestay, Uttarakhand leaves one spoilt for choice when it comes to staying options. <br/><br/>
+                Tour My India has association with the top most hotels and resorts of Uttarakhand and offers best deals & discounts on every hotel booking made with us. Best prices and excellent services are always a guarantee with us!
                 </p>
               </section>
               <section>
-                <h2>Major activities for tourists in Himachal Pradesh</h2>
+                <h2>Top Activities & Things to Do in Uttarakhand for Tourists</h2>
                 <p>
-                  There are a wide range of activities that you can try out in
-                  Himachal Pradesh. You can explore its rich colonial past in
-                  hill stations like Shimla, Manali and Kasuali. If adventure
-                  and thrill is what you are after, there's plenty of options.
-                  You can try river rafting, mountaineering, skiing, trekking
-                  and rock climbing, to name a few.
+                Uttarakhand as a tourist destination has so much to offer to its visitors. There are a plethora of activities for its visitors to choose from. The Himalayan state offers great opportunities for trekking for beginners and experienced alike. It gives the chance to enjoy the finest skiing adventure in Auli, river rafting and bungee jumping in Rishikesh, and wildlife safari in many national parks including Corbett and Rajaji.
                 </p>
                 <p>
-                  At wildlife parks like Great Himalayan National Parks, you can
-                  spot rare and exotic Himalayan wildlife. Having a spiritual
-                  bent of mind & looking for spiritual places to visit? There
-                  are plenty of churches, monasteries, temples and gurudwaras.
-                </p>
-                <p>
-                  You can also shop for authentic handicrafts, shawls, Tibetan
-                  jewellery & Kanga paintings from its lively bazaars. Visiting
-                  the serene lakes, trying out the cuisine, attending festivals
-                  & visiting the museums are other activities on offer.
+                Uttarakhand also offers the best pilgrimage, mountain biking, and water sports like kayaking and jet skiing experiences. Boating and angling & fishing are activities that are also enjoyed in the state.
                 </p>
               </section>
               <section>
                 <h2>
-                  Official Guidelines and Travel Tips by Himachal Pradesh
-                  Tourism
+                Travel Tips for Uttarakhand
                 </h2>
                 <ul>
                   <li>
-                    Always carry your identity card/passport while travelling.
+                  Always carry an ID proof with you at all times, you never know when you might need it.
                   </li>
                   <li>
-                    You require permission for photography & filming at some
-                    monuments. Contact the Tourism Office to know which ones
-                    require permission.
+                  Choose the right time to visit Uttarakhand. The time between October and June is the best.
                   </li>
                   <li>
-                    Ensure that your vehicle is locked before you leave it.
-                    Don't leave cash or jewellery behind in your vehicle.
+                  The accommodation options in Uttarakhand are many. In remote destinations, homestay options and camping are also available.
                   </li>
                   <li>
-                    Do not encourage beggars by offering them money or other
-                    stuff.
+                  In monsoons, the rains can be heavy, therefore, it is advised to check the weather forecast before travelling.
                   </li>
                   <li>
-                    Always shop at Government Emporiums, where prices are
-                    reasonable & quality is assured.
+                  Before planning a trip to Uttarakhand, read about the state’s policy about birds and animals, entering sacred places, eco-tourism, and interacting with tribals.
+
                   </li>
                   <li>
-                    Cover yourself with travel insurance for theft, loss and
-                    mediclaim.
+                  There are many high altitude destinations in Uttarakhand where breathing problems and altitude sickness are common. Make sure to take the necessary medicines when travelling.
+
                   </li>
                   <li>
-                    Keep your cash divided in separate pockets. Do not leave
-                    your cash and valuables in your hotel rooms.
+                  If you are going trekking or peak climbing, make sure you carry a comfortable pair of shoes that have great friction.
                   </li>
                   <li>
-                    Be careful while driving in Himachal Pradesh during the
-                    monsoons. The road is slippery and landslides/rockfalls are
-                    common.
+                  Don’t forget to carry the emergency or first-aid kit with medication and other essentials.
                   </li>
                   <li>
-                    The normal banking hours are 10:00 AM to 4:00 PM. Banks
-                    remain closed on Sundays and gazetted holidays.
+                  The best time to enjoy peak climbing is during the summer season between March and June, post-monsoon and winter season between October and February.
                   </li>
-                  <li>Always be patient, respectful and friendly.</li>
-                  <li>
-                    STD/ISD/FAX facilities are available throughout the state.
-                  </li>
+  
                 </ul>
               </section>
             </div>
             <div className="enquiry-form">
               <h2>Fill Enquiry Form Below</h2>
-              <form>
-                <label>
+              <form onSubmit={handleSubmit}>
+               <label>
                   Your Full Name
-                  <input type="text" name="name" />
+                  <input type="text" name="name" id="FULLNAME" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
                 </label>
                 <label>
                   Tour Description
-                  <textarea name="description" />
+                  <textarea name="description" id="TOURDESCRIPTION" required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })}/>
                 </label>
                 <label>
                   Departure Date
-                  <input type="date" name="departureDate" />
+                  <input type="date" name="departureDate" required id="DEPARTUREDATE" value={formData.departureDate} onChange={(e) => setFormData({ ...formData, departureDate: e.target.value })}/>
                 </label>
                 <label>
                   Number of Days
-                  <input type="number" name="numberOfDays" />
+                  <input type="number" name="numberOfDays" required id="NUMBEROFDAYS" value={formData.numberOfDays} onChange={(e) => setFormData({ ...formData, numberOfDays: e.target.value })}/>
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" />
+                  <input type="email" name="email" required id="EMAIL" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
                 </label>
                 <label>
                   Contact No
-                  <input type="tel" name="contactNo" />
+                  <input type="tel" name="contactNo" required id="CONTACTNO" value={formData.contactNo} onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })}/>
                 </label>
                 <button type="submit">Get A Custom Quote</button>
               </form>
