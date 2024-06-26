@@ -27,8 +27,8 @@ export const DestinationsDropdown = [
     },
     {
         id: 5,
-        title : "Chandigarh",
-        path : "/himachalPradesh",
+        title : "Rajasthan",
+        path : "/rajasthan",
         cName : "submenu-item",
     },
 ]
@@ -80,7 +80,7 @@ export const WeekendGatewaysDropdown = [
     {
         id: 2,
         title : "Weekend Gateways Bangalore",
-        path: "/delhi",
+        path: "/bangalore",
         cName: "submenu-item",
 
     },

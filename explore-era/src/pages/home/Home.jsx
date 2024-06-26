@@ -91,25 +91,25 @@ const Home = () => {
             <div className="trending-card">
               <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → uttarakhand02-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Uttarakhand </Link></p>
+              <p className="trending-state"><Link to='/uttarakhand' onClick={backToTop} className="link">Uttarakhand </Link></p>
             </div>
 
             <div className="trending-card">
               <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → kerala02-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Kerala</Link></p>
+              <p className="trending-state"><Link to='/kerala' onClick={backToTop} className="link">Kerala</Link></p>
             </div>
 
             <div className="trending-card">
               <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → sikkim01-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Sikkim </Link></p>
+              <p className="trending-state"><Link to='/goa' onClick={backToTop} className="link">Goa </Link></p>
             </div>
 
             <div className="trending-card">
             <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → bhutan-package.webp.png" alt="" /></Link>
               <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Bhutan</Link></p>
+              <p className="trending-state"><Link to='/rajasthan' onClick={backToTop} className="link">Rajasthan</Link></p>
             </div>
 
             <div className="trending-card">
@@ -159,7 +159,7 @@ const Home = () => {
               </Link>
               <p className="weekend-packages">50+ Packages</p>
               <p className="weekend-state">
-                <Link to="/delhi" className="link" onClick={backToTop}>
+                <Link to="/bangalore" className="link" onClick={backToTop}>
                   Weekend Trips From Bangalore{" "}
                 </Link>
               </p>

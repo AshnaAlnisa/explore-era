@@ -34,28 +34,28 @@ const Delhi = () => {
           <div className="himachal-tour-packages-cards">
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-1.png" alt="" />
-              <h6>4 Nights - 5 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Corbett Weekend Tour</h4>
             </div>
 
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-2.png" alt="" />
-              <h6>6 Nights - 7 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Ranthambore Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-3.png" alt="" />
-              <h6>6 Nights - 7 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Agra Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-4.png" alt="" />
-              <h6>8 Nights - 9 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Haridwar and Rishikesh Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-5.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Mathura and Vrindavan Tour</h4>
             </div>
           </div>
@@ -66,27 +66,27 @@ const Delhi = () => {
           <div className="cards">
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-1.png" alt="" />
-              <h6>4 Nights - 5 Days</h6>
+              <h6>2 Nights - 3 Days</h6>              
               <h4>Delhi Corbett Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-2.png" alt="" />
-              <h6>4 Nights - 5 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Ranthambore Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-6.png" alt="" />
-              <h6>6 Nights - 7 Days</h6>
-              <h4>Delhi Sariska Weekend Tour</h4>
+              <h6>2 Nights - 3 Days</h6>             
+               <h4>Delhi Sariska Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-7.png" alt="" />
-              <h6>8 Nights - 9 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Rajaji Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-8.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Bharatpur Weekend Tour</h4>
             </div>
           </div>
@@ -94,27 +94,27 @@ const Delhi = () => {
           <div className="cards cards2">
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-9.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Sultanpur Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-10.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Dhikala Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-11.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Shimla Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-12.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Nainital Weekend Tour</h4>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/d-13.png" alt="" />
-              <h6>3 Nights - 4 Days</h6>
+              <h6>2 Nights - 3 Days</h6>
               <h4>Delhi Mussoorie Weekend Tour</h4>
             </div>
           </div>

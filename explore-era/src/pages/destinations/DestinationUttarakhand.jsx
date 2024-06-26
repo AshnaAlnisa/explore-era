@@ -79,7 +79,7 @@ const DestinationUttarakhand = () => {
           // Filter items based on specific IDs
           const filteredItems = responseData.rData.items.filter(item => {
             // Replace '1', '2', '3' with your specific IDs or conditions
-            return item.id === '1' || item.id === '2' || item.id === '3';
+            return item.id === '2' || item.id === '3' || item.id === '1';
           });
           setItems(filteredItems);
           console.log("Filtered Items:", filteredItems);
@@ -96,6 +96,8 @@ const DestinationUttarakhand = () => {
       console.error("Error fetching items:", error);
     }
   };
+
+  
 
   return (
     <>

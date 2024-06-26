@@ -17,14 +17,13 @@ import ChristianPT from "./pages/holidayIdeas/pilgrimageTourism/ChristianPT.jsx"
 import HimachalTourPackages from "./pages/packages/packagesBystate/HimacharTourPackages.jsx"
 import ChadarTrek from "./pages/packages/fixedDepartureTour/ChadarTrek.jsx";
 import Delhi from "./pages/weekendGateways/Delhi.jsx"
-// import Dashboard from "./components/dashboard/Dashboard.jsx"
+import Bangalore from "./pages/weekendGateways/Bangalore.jsx"
 import EnquiryFormDetails from "./components/dashboard/EnquiryFormDetails.jsx";
 import BookYourTripFormDetails from "./components/dashboard/BookYourTripFormDetails.jsx";
 import AdminWelcome from "./components/dashboard/AdminWelcome.jsx";
 import AdminLogin from "./components/dashboard/AdminLogin.jsx";
 import DestinationGoa from "./pages/destinations/DestinationGoa.jsx";
-
-// import DestinationUttarakhand from "./pages/destinations/DestinationUttarakhand.jsx"
+import DestinationRajasthan from "./pages/destinations/DestinationRajasthan.jsx";
 
 
 const router = createBrowserRouter([
@@ -36,11 +35,6 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Home />,
   },
-  // {
-  //   path: "/destination",
-  //   element: <DestinationHimachal />,
-    
-  // },
   {
     path: "/about",
     element: <About />,
@@ -61,10 +55,6 @@ const router = createBrowserRouter([
     path: "/privacyPolicy",
     element: <PrivacyPolicy />,
   },
-  // {
-  //   path: "/dashboard",
-  //   element: <Dashboard/>,
-  // },
   {
     path: "/login",
     element: <AdminLogin/>,
@@ -82,30 +72,6 @@ const router = createBrowserRouter([
     element: <AdminWelcome/>,
   },
  
-  // {
-  //   path:"/motorBiking",
-  //   element: <MotorBiking/>,
-  // }
-  // {
-  //   path: "/himachalTourPackages",
-  //   element: <HimachalTourPackages />,
-  // },
-  // {
-  //   path: "/christianPilgrimageTourism",
-  //   element: <ChristianPT/>,
-  // },
-  // {
-  //   path: "/himachalTourPackages",
-  //   element: <HimacharTourPackages/>,
-  // },
-  // {
-  //   path: "/delhi",
-  //   element: <Delhi/>,
-  // },
-  // {
-  //   path: "/chadarTrek",
-  //   element: <ChadarTrek/>,
-  // },
   {
     path:"/himachalPradesh",
     element:<DestinationHimachal/>
@@ -121,6 +87,10 @@ const router = createBrowserRouter([
   {
     path:"/goa",
     element:<DestinationGoa/>
+  },
+  {
+    path:"/rajasthan",
+    element:<DestinationRajasthan/>
   },
   {
     path:"/motorBiking",
@@ -142,11 +112,11 @@ const router = createBrowserRouter([
     path:"/delhi",
     element:<Delhi/>
   },
+  {
+    path:"/bangalore",
+    element:<Bangalore/>
+  },
 
-  // {
-  //   path:"/uttarakhand",
-  //   element:<DestinationUttarakhand/>
-  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
