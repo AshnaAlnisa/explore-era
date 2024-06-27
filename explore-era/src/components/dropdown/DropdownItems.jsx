@@ -86,8 +86,15 @@ export const WeekendGatewaysDropdown = [
     },
     {
         id: 3,
-        title : "Weekend Gateways Kolkata",
-        path: "/delhi",
+        title : "Weekend Gateways mumbai",
+        path: "/mumbai",
+        cName: "submenu-item",
+
+    },
+    {
+        id: 3,
+        title : "Weekend Gateways chennai",
+        path: "/chennai",
         cName: "submenu-item",
 
     },

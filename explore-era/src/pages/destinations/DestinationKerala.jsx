@@ -5,10 +5,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/destination_card";
+const API1 = "http://localhost:5164/destination1View";
+const API2 = "http://localhost:5164/best_view";
+
 
 const DestinationKerala = () => {
 
     const [items, setItems] = useState([]);
+    const [items1, setItems1] = useState([]);
+    const [items2, setItems2] = useState([]);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -62,9 +67,77 @@ const DestinationKerala = () => {
     };
     
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
+    useEffect(() => {
+      fetchItems1();
+      fetchItems2();
+      fetchItems();
+    }, []);
+    
+    const fetchItems1 = async () => {
+      try {
+        // Fetch all items from the API
+        const response = await axios.post(API1, { eventID: "1002" });
+        console.log("Response:", response.data); // Log the entire response data for debugging
+    
+        if (response.status === 200) {
+          const responseData = response.data;
+          console.log("Response Data:", responseData); // Log the response data object
+    
+          if (responseData.rData && responseData.rData.items1) {
+            // Filter items based on specific IDs
+            const filteredItems1 = responseData.rData.items1.filter(item1 => {
+              // Replace '1', '2', '3' with your specific IDs or conditions
+              return item1.id === '62' ;
+            });
+            setItems1(filteredItems1);
+            console.log("Filtered Items1:", filteredItems1);
+          } else {
+            console.log(
+              "No items1 data in response or invalid structure:",
+              responseData
+            );
+          }
+        } else {
+          console.log("Unexpected response status:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
+
+
+    const fetchItems2 = async () => {
+      try {
+        // Fetch all items from the API
+        const response = await axios.post(API2, { eventID: "1002" });
+        console.log("Response:", response.data); // Log the entire response data for debugging
+    
+        if (response.status === 200) {
+          const responseData = response.data;
+          console.log("Response Data:", responseData); // Log the response data object
+    
+          if (responseData.rData && responseData.rData.items2) {
+            // Filter items based on specific IDs
+            const filteredItems2 = responseData.rData.items2.filter(item2 => {
+              // Replace '1', '2', '3' with your specific IDs or conditions
+              return item2.id === '14' || item2.id === '15' || item2.id === '16' ;
+            });
+            setItems2(filteredItems2);
+            console.log("Filtered Items2:", filteredItems2);
+          } else {
+            console.log(
+              "No items2 data in response or invalid structure:",
+              responseData
+            );
+          }
+        } else {
+          console.log("Unexpected response status:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
+    
 
   const fetchItems = async () => {
     try {
@@ -80,7 +153,7 @@ const DestinationKerala = () => {
           // Filter items based on specific IDs
           const filteredItems = responseData.rData.items.filter(item => {
             // Replace '1', '2', '3' with your specific IDs or conditions
-            return item.id === '1' || item.id === '2' || item.id === '3';
+            return item.id === '27' || item.id === '28' || item.id === '29';
           });
           setItems(filteredItems);
           console.log("Filtered Items:", filteredItems);
@@ -101,61 +174,58 @@ const DestinationKerala = () => {
   return (
     <>
     <MainLayout>
-      <div className="container">
-        <main>
-          <div className="content-wrapper">
-            <div className="hero">
-              <img
-                className="himachal-img"
-                src="images/kerala-tourism.webp"
-                alt="Himachal Pradesh"
-              />
+    {items1.map((item1) => (
+        <div className="container0" key={item1.id}>
+          <main>
+            <div className="content-wrapper">
+              <div className="hero">
+                <img
+                  className="himachal-img"
+                  src={`data:image/jpeg;base64,${item1.image}`}
+                  alt="Himachal Pradesh"
+                />
+              </div>
+              <section className="intro">
+                <h1>{item1.main_heading}</h1>
+                <p>{item1.sub_heading}</p>
+                <div className="cards">
+                  <div className="card">
+                    <h2>{item1.box_heading1}</h2>
+                    <p>{item1.box_details1}</p>
+                  </div>
+                  <div className="card">
+                    <h2>{item1.box_heading2}</h2>
+                    <p>{item1.box_details2}</p>
+                  </div>
+                  <div className="card">
+                    <h2>{item1.box_heading3}</h2>
+                    <p>{item1.box_details3}</p>
+                  </div>
+                </div>
+              </section>
             </div>
-            <section className="intro">
-              <h1>Kerala  Tourism</h1>
-              <p>The scenic and serene hill stations in Kerala offer ultimate rejuvenation to a tired soul.</p>
-
-              <div className="cards">
-                <div className="card">
-                  <h2>Hill Stations</h2>
-                  <p>
-                    Escape the city life to be united with nature at surreal hill stations in Uttarakhand.
-                  </p>
+          </main>
+          <div className="info-background">
+            <div className="info-background-content">
+              <button className="see-map">See Map</button>
+              <div className="info">
+                <div className="info-item">
+                  <span>Best time to visit</span>
+                  <p>{item1.best_time_to_visit}</p>
                 </div>
-                <div className="card">
-                  <h2>Backwater</h2>
-                  <p>The picturesque emerald backwaters of Kerala take you on a tour of the unique lifestyle of the villages in the state.</p>
-
+                <div className="info-item">
+                  <span>Ideal Duration</span>
+                  <p>{item1.ideal_duration}</p>
                 </div>
-                <div className="card">
-                  <h2>Beaches</h2>
-                  <p>The sandy beaches of Kerala with azure waters are undoubtedly the perfect places for a beach holiday in South India.</p>
-
+                <div className="info-item">
+                  <span>Visa</span>
+                  <p>{item1.visa}</p>
                 </div>
-              </div>
-            </section>
-          </div>
-        </main>
-        <div className="info-background">
-          <div className="info-background-content">
-            <button className="see-map">See Map</button>
-            <div className="info">
-              <div className="info-item">
-                <span>Best time to visit</span>
-                <p>Oct - Feb</p>
-              </div>
-              <div className="info-item">
-                <span>Ideal Duration</span>
-                <p>5-8 Days</p>
-              </div>
-              <div className="info-item">
-                <span>Visa</span>
-                <p>Not Required</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
 
       <div className="main-info">
         <h2 className="main-info-heading">About Kerala  Tourism</h2>

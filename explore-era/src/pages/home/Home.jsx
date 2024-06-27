@@ -153,7 +153,7 @@ const Home = () => {
             </div>
 
             <div className="weekend-card">
-              <Link to="/delhi" onClick={backToTop}>
+              <Link to="/bangalore" onClick={backToTop}>
                 {" "}
                 <img src="images/Link → banglore-tour.webp.png" alt="" />
               </Link>

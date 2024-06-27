@@ -5,10 +5,16 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/destination_card";
+const API1 = "http://localhost:5164/destination1View";
+const API2 = "http://localhost:5164/best_view";
+
 
 const DestinationRajasthan = () => {
 
     const [items, setItems] = useState([]);
+    const [items1, setItems1] = useState([]);
+    const [items2, setItems2] = useState([]);
+
 
   const [formData, setFormData] = useState({
     name: '',
@@ -62,9 +68,78 @@ const DestinationRajasthan = () => {
 };
 
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
+useEffect(() => {
+  fetchItems1();
+  fetchItems2();
+  fetchItems();
+}, []);
+
+const fetchItems1 = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API1, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items1) {
+        // Filter items based on specific IDs
+        const filteredItems1 = responseData.rData.items1.filter(item1 => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item1.id === '64' ;
+        });
+        setItems1(filteredItems1);
+        console.log("Filtered Items1:", filteredItems1);
+      } else {
+        console.log(
+          "No items1 data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
+
+
+const fetchItems2 = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API2, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items2) {
+        // Filter items based on specific IDs
+        const filteredItems2 = responseData.rData.items2.filter(item2 => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item2.id === '20' || item2.id === '21' || item2.id === '22' ;
+        });
+        setItems2(filteredItems2);
+        console.log("Filtered Items2:", filteredItems2);
+      } else {
+        console.log(
+          "No items2 data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
+
+
 
   const fetchItems = async () => {
     try {
@@ -80,7 +155,7 @@ const DestinationRajasthan = () => {
           // Filter items based on specific IDs
           const filteredItems = responseData.rData.items.filter(item => {
             // Replace '1', '2', '3' with your specific IDs or conditions
-            return item.id === '7' || item.id === '2' || item.id === '3';
+            return item.id === '33' || item.id === '34' || item.id === '35';
           });
           setItems(filteredItems);
           console.log("Filtered Items:", filteredItems);
@@ -101,58 +176,58 @@ const DestinationRajasthan = () => {
   return (
     <>
     <MainLayout>
-      <div className="container">
-        <main>
-          <div className="content-wrapper">
-            <div className="hero">
-              <img
-                className="himachal-img"
-                src="images/rajasthan-home-banner.webp"
-                alt="Rajasthan"
-              />
+    {items1.map((item1) => (
+        <div className="container0" key={item1.id}>
+          <main>
+            <div className="content-wrapper">
+              <div className="hero">
+                <img
+                  className="himachal-img"
+                  src={`data:image/jpeg;base64,${item1.image}`}
+                  alt="Himachal Pradesh"
+                />
+              </div>
+              <section className="intro">
+                <h1>{item1.main_heading}</h1>
+                <p>{item1.sub_heading}</p>
+                <div className="cards">
+                  <div className="card">
+                    <h2>{item1.box_heading1}</h2>
+                    <p>{item1.box_details1}</p>
+                  </div>
+                  <div className="card">
+                    <h2>{item1.box_heading2}</h2>
+                    <p>{item1.box_details2}</p>
+                  </div>
+                  <div className="card">
+                    <h2>{item1.box_heading3}</h2>
+                    <p>{item1.box_details3}</p>
+                  </div>
+                </div>
+              </section>
             </div>
-            <section className="intro">
-              <h1>Rajasthan Tourism</h1>
-              <p>
-              A Land of Exotic Architecture, Vibrant Culture, Rich Wildlife and Warm Hospitality
-              </p>
-              <div className="cards">
-                <div className="card">
-                  <h2>Heritage</h2>
-                  <p>Witness the Unprecedented Architectural Grandeur.</p>
+          </main>
+          <div className="info-background">
+            <div className="info-background-content">
+              <button className="see-map">See Map</button>
+              <div className="info">
+                <div className="info-item">
+                  <span>Best time to visit</span>
+                  <p>{item1.best_time_to_visit}</p>
                 </div>
-                <div className="card">
-                  <h2>Wildlife</h2>
-                  <p>Marvel at the Unique Ecosystem and Diverse Wildlife.</p>
+                <div className="info-item">
+                  <span>Ideal Duration</span>
+                  <p>{item1.ideal_duration}</p>
                 </div>
-                <div className="card">
-                  <h2>Festivals</h2>
-                  <p>Take a Plunge in the Rich Culture- Fairs & Festivals.</p>
+                <div className="info-item">
+                  <span>Visa</span>
+                  <p>{item1.visa}</p>
                 </div>
-              </div>
-            </section>
-          </div>
-        </main>
-        <div className="info-background">
-          <div className="info-background-content">
-            <button className="see-map">See Map</button>
-            <div className="info">
-              <div className="info-item">
-                <span>Best time to visit</span>
-                <p>Round the year</p>
-              </div>
-              <div className="info-item">
-                <span>Ideal Duration</span>
-                <p>5-8 Days</p>
-              </div>
-              <div className="info-item">
-                <span>Visa</span>
-                <p>Not Required</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
 
       <div className="main-info">
         <h2 className="main-info-heading">About Rajasthan  Tourism</h2>

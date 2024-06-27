@@ -5,9 +5,17 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/destination_card";
+const API1 = "http://localhost:5164/destination1View";
+const API2 = "http://localhost:5164/best_view";
+
+
 
 const DestinationUttarakhand = () => {
   const [items, setItems] = useState([]);
+  const [items1, setItems1] = useState([]);
+  const [items2, setItems2] = useState([]);
+
+
 
   const [formData, setFormData] = useState({
     name: '',
@@ -61,9 +69,76 @@ const DestinationUttarakhand = () => {
 };
 
 
-  useEffect(() => {
-    fetchItems();
-  }, []);
+useEffect(() => {
+  fetchItems1();
+  fetchItems2();
+  fetchItems();
+}, []);
+
+const fetchItems1 = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API1, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items1) {
+        // Filter items based on specific IDs
+        const filteredItems1 = responseData.rData.items1.filter(item1 => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item1.id === '61' ;
+        });
+        setItems1(filteredItems1);
+        console.log("Filtered Items1:", filteredItems1);
+      } else {
+        console.log(
+          "No items1 data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
+
+
+const fetchItems2 = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API2, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items2) {
+        // Filter items based on specific IDs
+        const filteredItems2 = responseData.rData.items2.filter(item2 => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item2.id === '11' || item2.id === '12' || item2.id === '13' ;
+        });
+        setItems2(filteredItems2);
+        console.log("Filtered Items2:", filteredItems2);
+      } else {
+        console.log(
+          "No items2 data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
 
   const fetchItems = async () => {
     try {
@@ -79,7 +154,7 @@ const DestinationUttarakhand = () => {
           // Filter items based on specific IDs
           const filteredItems = responseData.rData.items.filter(item => {
             // Replace '1', '2', '3' with your specific IDs or conditions
-            return item.id === '2' || item.id === '3' || item.id === '1';
+            return item.id === '24' || item.id === '25' || item.id === '26';
           });
           setItems(filteredItems);
           console.log("Filtered Items:", filteredItems);
@@ -102,40 +177,32 @@ const DestinationUttarakhand = () => {
   return (
     <>
       <MainLayout>
-        <div className="container">
+      {items1.map((item1) => (
+        <div className="container0" key={item1.id}>
           <main>
             <div className="content-wrapper">
               <div className="hero">
                 <img
                   className="himachal-img"
-                  src="images/uttarakhand-banner.webp"
+                  src={`data:image/jpeg;base64,${item1.image}`}
                   alt="Himachal Pradesh"
                 />
               </div>
               <section className="intro">
-                <h1>Uttarakhand Tourism</h1>
-                <p>
-                  The Himalayan Mountains, Crisp Air, Sacred Temples, and
-                  Enthralling Adventure Call You to Uttarakhand
-                </p>
+                <h1>{item1.main_heading}</h1>
+                <p>{item1.sub_heading}</p>
                 <div className="cards">
                   <div className="card">
-                    <h2>Hill Stations</h2>
-                    <p>
-                      Escape the city life to be united with nature at surreal hill stations in Uttarakhand.
-                    </p>
+                    <h2>{item1.box_heading1}</h2>
+                    <p>{item1.box_details1}</p>
                   </div>
                   <div className="card">
-                    <h2>Adventure</h2>
-                    <p>
-                    Uttarakhand has a bagful of adventure tourism activities to gift to its visitors.
-                    </p>
+                    <h2>{item1.box_heading2}</h2>
+                    <p>{item1.box_details2}</p>
                   </div>
                   <div className="card">
-                    <h2>Pilgrimage</h2>
-                    <p> destination 
-                    Uttarakhand destination to find your spiritual self
-                    </p>
+                    <h2>{item1.box_heading3}</h2>
+                    <p>{item1.box_details3}</p>
                   </div>
                 </div>
               </section>
@@ -147,20 +214,21 @@ const DestinationUttarakhand = () => {
               <div className="info">
                 <div className="info-item">
                   <span>Best time to visit</span>
-                  <p>Round the year</p>
+                  <p>{item1.best_time_to_visit}</p>
                 </div>
                 <div className="info-item">
                   <span>Ideal Duration</span>
-                  <p>5-8 Days</p>
+                  <p>{item1.ideal_duration}</p>
                 </div>
                 <div className="info-item">
                   <span>Visa</span>
-                  <p>Not Required</p>
+                  <p>{item1.visa}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      ))}
 
         <div className="main-info">
           <h2 className="main-info-heading">About Uttarakhand Tourism</h2>

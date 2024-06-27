@@ -1,10 +1,20 @@
-import React, { useState } from 'react'; 
+import React, { useEffect, useState } from 'react'; 
 import MainLayout from "../../layout/MainLayout";
 import "./destinationHimachal.css";
 import axios from 'axios'; 
 import { useNavigate } from 'react-router-dom';
 
+const API = "http://localhost:5164/destination_card";
+const API1 = "http://localhost:5164/destination1View";
+const API2 = "http://localhost:5164/best_view";
+
 const DestinationHimachal = () => {
+
+  const [items, setItems] = useState([]);
+  const [items1, setItems1] = useState([]);
+  const [items2, setItems2] = useState([]);
+
+
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -57,46 +67,142 @@ const DestinationHimachal = () => {
 };
 
 
+useEffect(() => {
+  fetchItems1();
+  fetchItems2();
+  fetchItems();
+}, []);
+
+const fetchItems1 = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API1, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items1) {
+        // Filter items based on specific IDs
+        const filteredItems1 = responseData.rData.items1.filter(item1 => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item1.id === '60' ;
+        });
+        setItems1(filteredItems1);
+        console.log("Filtered Items1:", filteredItems1);
+      } else {
+        console.log(
+          "No items1 data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
+
+
+const fetchItems2 = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API2, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items2) {
+        // Filter items based on specific IDs
+        const filteredItems2 = responseData.rData.items2.filter(item2 => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item2.id === '8' || item2.id === '9' || item2.id === '10' ;
+        });
+        setItems2(filteredItems2);
+        console.log("Filtered Items2:", filteredItems2);
+      } else {
+        console.log(
+          "No items2 data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
+
+
+
+const fetchItems = async () => {
+  try {
+    // Fetch all items from the API
+    const response = await axios.post(API, { eventID: "1002" });
+    console.log("Response:", response.data); // Log the entire response data for debugging
+
+    if (response.status === 200) {
+      const responseData = response.data;
+      console.log("Response Data:", responseData); // Log the response data object
+
+      if (responseData.rData && responseData.rData.items) {
+        // Filter items based on specific IDs
+        const filteredItems = responseData.rData.items.filter(item => {
+          // Replace '1', '2', '3' with your specific IDs or conditions
+          return item.id === '21' || item.id === '22' || item.id === '23';
+        });
+        setItems(filteredItems);
+        console.log("Filtered Items:", filteredItems);
+      } else {
+        console.log(
+          "No items data in response or invalid structure:",
+          responseData
+        );
+      }
+    } else {
+      console.log("Unexpected response status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error fetching items:", error);
+  }
+};
+
+
+
   return (
     <>
       <MainLayout>
-        <div className="container0">
+      {items1.map((item1) => (
+        <div className="container0" key={item1.id}>
           <main>
             <div className="content-wrapper">
               <div className="hero">
                 <img
                   className="himachal-img"
-                  src="images/destination-himachal.webp.png"
+                  src={`data:image/jpeg;base64,${item1.image}`}
                   alt="Himachal Pradesh"
                 />
               </div>
               <section className="intro">
-                <h1>Himachal Pradesh Tourism</h1>
-                <p>
-                  Himachal, the hub of adventure, nature, culture, history &
-                  spirituality.
-                </p>
+                <h1>{item1.main_heading}</h1>
+                <p>{item1.sub_heading}</p>
                 <div className="cards">
                   <div className="card">
-                    <h2>Hill Stations</h2>
-                    <p>
-                      Himachal Pradesh tourism opens its doors to nature lovers,
-                      offering solace to the mind and soul.
-                    </p>
+                    <h2>{item1.box_heading1}</h2>
+                    <p>{item1.box_details1}</p>
                   </div>
                   <div className="card">
-                    <h2>Trekking</h2>
-                    <p>
-                      A thrilling & scenic trekking experience awaits you warmly
-                      in Himachal Pradesh.
-                    </p>
+                    <h2>{item1.box_heading2}</h2>
+                    <p>{item1.box_details2}</p>
                   </div>
                   <div className="card">
-                    <h2>Paragliding</h2>
-                    <p>
-                      Head to Bir Billing which claims to be the second-highest
-                      paragliding spot in the world.
-                    </p>
+                    <h2>{item1.box_heading3}</h2>
+                    <p>{item1.box_details3}</p>
                   </div>
                 </div>
               </section>
@@ -108,20 +214,21 @@ const DestinationHimachal = () => {
               <div className="info">
                 <div className="info-item">
                   <span>Best time to visit</span>
-                  <p>April - June</p>
+                  <p>{item1.best_time_to_visit}</p>
                 </div>
                 <div className="info-item">
                   <span>Ideal Duration</span>
-                  <p>5-8 Days</p>
+                  <p>{item1.ideal_duration}</p>
                 </div>
                 <div className="info-item">
                   <span>Visa</span>
-                  <p>Not Required</p>
+                  <p>{item1.visa}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      ))}
 
         <div className="main-info">
           <h2 className="main-info-heading">About Himachal Pradesh Tourism</h2>
@@ -323,96 +430,60 @@ const DestinationHimachal = () => {
           <section className="best-time">
             <h2>Best Time to Visit Himachal Pradesh</h2>
             <div className="seasons">
-              <div className="season">
-                <img src="images/summer-ico.png.png" alt="Summer Season" />
-                <br />
-                <br />
-                <div>
-                  <h3>Summer Season In Himachal Pradesh</h3>
-                  <p>
-                    Summers in Sikkim last from April to June. Temperature
-                    ranges between 5°C to 24°C.
-                  </p>
-                </div>
-              </div>
-              <div className="season">
-                <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
-                <br />
-                <br />
-                <div>
-                  <h3>Monsoon Season In Himachal Pradesh</h3>
-                  <p>
-                    Monsoon arrives in mid June and lasts till September.
-                    Temperature ranges between 15°C to 21°C.
-                  </p>
-                </div>
-              </div>
-              <div className="season">
-                <img src="images/winter-ico.png.png" alt="Winter Season" />
-                <br />
-                <br />
-                <div>
-                  <h3>Winter Season In Himachal Pradesh</h3>
-                  <p>
-                    Winters start from November and last till March. It can be
-                    extremely cold. The temperature ranges between 14°C to 21°C.
-                  </p>
-                </div>
+            <div className="season">
+              <img src="images/summer-ico.png.png" alt="Summer Season" />
+              <br />
+              <br />
+              <div>
+                <h3>Summer Season In Goa  </h3>
+                <p>
+                The summer season between March and June in Goa is quite hot with temperature ranging between 25°C and 40°C.
+                </p>
               </div>
             </div>
+            <div className="season">
+              <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
+              <br />
+              <br />
+              <div>
+                <h3>Monsoon Season In Goa  </h3>
+                <p>
+                Monsoon in Goa is between July and August. Goa receives medium to high rainfall leaving beaches closed but the state greener.
+                </p>
+              </div>
+            </div>
+            <div className="season">
+              <img src="images/winter-ico.png.png" alt="Winter Season" />
+              <br />
+              <br />
+              <div>
+                <h3>Winter Season In Goa  </h3>
+                <p>
+                Winter season is from November to February and is the best time to plan a visit to Goa.
+                </p>
+              </div>
+            </div>
+          </div>
           </section>
 
           <section className="best-places">
             <h2>Best Places to Visit in Himachal Pradesh</h2>
             <div className="places">
-              <div className="place">
-                <img src="images/himachal6.webp.png" alt="Shimla" />
-                <h3>Shimla</h3>
-                <p>
-                  Explore colonial architecture, hang out at The Mall & enjoy
-                  the gorgeous views greeting you everywhere.
-                </p>
+            {items.map((item) => (
+              <div className="place" key={item.id}>
+                <img src={`data:image/jpeg;base64,${item.image}`}  alt={item.heading}/>
+                <h3>{item.heading}</h3>
+                <p>{item.details}</p>
                 <div className="tags-button">
                   <div className="tags">
-                    <span>Hill Station</span>
-                    <span>Architecture</span>
+                    <span>{item.block1}</span>
+                    <span>{item.block2}</span>
                   </div>
-                  <button className="view-more">View more</button>
+                  <button className="view-more">{item.view_more}</button>
                 </div>
               </div>
-              <div className="place">
-                <img src="images/himachal5.webp.png" alt="Kullu Manali" />
-                <h3>Kullu Manali</h3>
-                <p>
-                  Manali is a top tourist attraction for its tourist sites like
-                  Hidimba Devi Temple, Old Manali, bazaar & a rich cultural
-                  heritage.
-                </p>
-                <div className="tags-button">
-                  <div className="tags">
-                    <span>Hill Station</span>
-                    <span>Temple</span>
-                  </div>
-                  <button className="view-more">View more</button>
-                </div>
-              </div>
-              <div className="place">
-                <img src="images/himachal4.webp.png" alt="Chamba" />
-                <h3>Chamba</h3>
-                <p>
-                  Visit Chamba for its lakes, streams, fertile valley and the
-                  rich wildlife. There are several historical & architectural
-                  sites to be discovered.
-                </p>
-                <div className="tags-button">
-                  <div className="tags">
-                    <span>Lakes</span>
-                    <span>Wildlife</span>
-                  </div>
-                  <button className="view-more">View more</button>
-                </div>
-              </div>
-            </div>
+            ))}
+          </div>
           </section>
 
           <section className="top-things">

@@ -24,6 +24,8 @@ import AdminWelcome from "./components/dashboard/AdminWelcome.jsx";
 import AdminLogin from "./components/dashboard/AdminLogin.jsx";
 import DestinationGoa from "./pages/destinations/DestinationGoa.jsx";
 import DestinationRajasthan from "./pages/destinations/DestinationRajasthan.jsx";
+import Mumbai from "./pages/weekendGateways/Mumbai.jsx";
+import Chennai from "./pages/weekendGateways/Chennai.jsx";
 
 
 const router = createBrowserRouter([
@@ -115,6 +117,14 @@ const router = createBrowserRouter([
   {
     path:"/bangalore",
     element:<Bangalore/>
+  },
+  {
+    path:"/mumbai",
+    element:<Mumbai/>,
+  },
+  {
+    path:"/chennai",
+    element:<Chennai/>
   },
 
 ]);
