@@ -1,234 +1,263 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from "react";
 import MainLayout from "../../layout/MainLayout";
 import "./destinationHimachal.css";
-import axios from 'axios'; 
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/destination_card";
 const API1 = "http://localhost:5164/destination1View";
 const API2 = "http://localhost:5164/best_view";
+const API3 = "http://localhost:5164/destination_card1";
 
 const DestinationHimachal = () => {
-
   const [items, setItems] = useState([]);
   const [items1, setItems1] = useState([]);
   const [items2, setItems2] = useState([]);
-
+  const [items3, setItems3] = useState([]);
 
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    departureDate: '',
-    numberOfDays: '',
-    email: '',
-    contactNo: ''
-  }); 
+    name: "",
+    description: "",
+    departureDate: "",
+    numberOfDays: "",
+    email: "",
+    contactNo: "",
+  });
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-        eventID: "1002",
-        addInfo: {
-          FULLNAME: formData.name,
-          TOURDESCRIPTION: formData.description,
-          DEPARTUREDATE: formData.departureDate,
-          NUMBEROFDAYS: formData.numberOfDays,
-          EMAIL: formData.email,
-          CONTACTNO: formData.contactNo
-        }
+      eventID: "1002",
+      addInfo: {
+        FULLNAME: formData.name,
+        TOURDESCRIPTION: formData.description,
+        DEPARTUREDATE: formData.departureDate,
+        NUMBEROFDAYS: formData.numberOfDays,
+        EMAIL: formData.email,
+        CONTACTNO: formData.contactNo,
+      },
     };
 
     try {
-      const response = await axios.post('http://localhost:5164/destination_form', payload);
+      const response = await axios.post(
+        "http://localhost:5164/destination_form",
+        payload
+      );
       let res = response.data.rData.rMessage;
-      console.log(response.data, 'api response'); // handle response
+      console.log(response.data, "api response"); // handle response
       if (res === "Successful") {
-          alert(res);
-          navigate('/himachalPradesh');
-          setFormData({
-            name: '',
-            description: '',
-            departureDate: '',
-            numberOfDays: '',
-            email: '',
-            contactNo: ''
+        alert(res);
+        navigate("/himachalPradesh");
+        setFormData({
+          name: "",
+          description: "",
+          departureDate: "",
+          numberOfDays: "",
+          email: "",
+          contactNo: "",
+        });
+      } else {
+        alert(res);
+        navigate("/himachalPradesh");
+      }
+    } catch (error) {
+      console.error("Error signing up:", error);
+      alert("Error signing up. Please try again later."); // Handle error
+    }
+  };
+
+  useEffect(() => {
+    fetchItems1();
+    fetchItems2();
+    fetchItems();
+    fetchItems3();
+  }, []);
+
+  const fetchItems1 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API1, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items1) {
+          // Filter items based on specific IDs
+          const filteredItems1 = responseData.rData.items1.filter((item1) => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item1.id === "60";
           });
-      } 
-      else { 
-          alert(res);
-          navigate('/himachalPradesh');
-      }
-  } catch (error) {
-      console.error('Error signing up:', error);
-      alert('Error signing up. Please try again later.'); // Handle error
-  }
-};
-
-
-useEffect(() => {
-  fetchItems1();
-  fetchItems2();
-  fetchItems();
-}, []);
-
-const fetchItems1 = async () => {
-  try {
-    // Fetch all items from the API
-    const response = await axios.post(API1, { eventID: "1002" });
-    console.log("Response:", response.data); // Log the entire response data for debugging
-
-    if (response.status === 200) {
-      const responseData = response.data;
-      console.log("Response Data:", responseData); // Log the response data object
-
-      if (responseData.rData && responseData.rData.items1) {
-        // Filter items based on specific IDs
-        const filteredItems1 = responseData.rData.items1.filter(item1 => {
-          // Replace '1', '2', '3' with your specific IDs or conditions
-          return item1.id === '60' ;
-        });
-        setItems1(filteredItems1);
-        console.log("Filtered Items1:", filteredItems1);
+          setItems1(filteredItems1);
+          console.log("Filtered Items1:", filteredItems1);
+        } else {
+          console.log(
+            "No items1 data in response or invalid structure:",
+            responseData
+          );
+        }
       } else {
-        console.log(
-          "No items1 data in response or invalid structure:",
-          responseData
-        );
+        console.log("Unexpected response status:", response.status);
       }
-    } else {
-      console.log("Unexpected response status:", response.status);
+    } catch (error) {
+      console.error("Error fetching items:", error);
     }
-  } catch (error) {
-    console.error("Error fetching items:", error);
-  }
-};
+  };
 
+  const fetchItems2 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API2, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
 
-const fetchItems2 = async () => {
-  try {
-    // Fetch all items from the API
-    const response = await axios.post(API2, { eventID: "1002" });
-    console.log("Response:", response.data); // Log the entire response data for debugging
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
 
-    if (response.status === 200) {
-      const responseData = response.data;
-      console.log("Response Data:", responseData); // Log the response data object
-
-      if (responseData.rData && responseData.rData.items2) {
-        // Filter items based on specific IDs
-        const filteredItems2 = responseData.rData.items2.filter(item2 => {
-          // Replace '1', '2', '3' with your specific IDs or conditions
-          return item2.id === '8' || item2.id === '9' || item2.id === '10' ;
-        });
-        setItems2(filteredItems2);
-        console.log("Filtered Items2:", filteredItems2);
+        if (responseData.rData && responseData.rData.items2) {
+          // Filter items based on specific IDs
+          const filteredItems2 = responseData.rData.items2.filter((item2) => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item2.id === "8" || item2.id === "9" || item2.id === "10";
+          });
+          setItems2(filteredItems2);
+          console.log("Filtered Items2:", filteredItems2);
+        } else {
+          console.log(
+            "No items2 data in response or invalid structure:",
+            responseData
+          );
+        }
       } else {
-        console.log(
-          "No items2 data in response or invalid structure:",
-          responseData
-        );
+        console.log("Unexpected response status:", response.status);
       }
-    } else {
-      console.log("Unexpected response status:", response.status);
+    } catch (error) {
+      console.error("Error fetching items:", error);
     }
-  } catch (error) {
-    console.error("Error fetching items:", error);
-  }
-};
+  };
 
+  const fetchItems = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
 
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
 
-const fetchItems = async () => {
-  try {
-    // Fetch all items from the API
-    const response = await axios.post(API, { eventID: "1002" });
-    console.log("Response:", response.data); // Log the entire response data for debugging
-
-    if (response.status === 200) {
-      const responseData = response.data;
-      console.log("Response Data:", responseData); // Log the response data object
-
-      if (responseData.rData && responseData.rData.items) {
-        // Filter items based on specific IDs
-        const filteredItems = responseData.rData.items.filter(item => {
-          // Replace '1', '2', '3' with your specific IDs or conditions
-          return item.id === '21' || item.id === '22' || item.id === '23';
-        });
-        setItems(filteredItems);
-        console.log("Filtered Items:", filteredItems);
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems = responseData.rData.items.filter((item) => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === "21" || item.id === "22" || item.id === "23";
+          });
+          setItems(filteredItems);
+          console.log("Filtered Items:", filteredItems);
+        } else {
+          console.log(
+            "No items data in response or invalid structure:",
+            responseData
+          );
+        }
       } else {
-        console.log(
-          "No items data in response or invalid structure:",
-          responseData
-        );
+        console.log("Unexpected response status:", response.status);
       }
-    } else {
-      console.log("Unexpected response status:", response.status);
+    } catch (error) {
+      console.error("Error fetching items:", error);
     }
-  } catch (error) {
-    console.error("Error fetching items:", error);
-  }
-};
+  };
 
+  const fetchItems3 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API3, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
 
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems3 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '37' || item.id === '38' || item.id === '39';
+          });
+          setItems3(filteredItems3);
+          console.log("Filtered Items3:", filteredItems3);
+        } else {
+          console.log(
+            "No items3 data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
 
   return (
     <>
       <MainLayout>
-      {items1.map((item1) => (
-        <div className="container0" key={item1.id}>
-          <main>
-            <div className="content-wrapper">
-              <div className="hero">
-                <img
-                  className="himachal-img"
-                  src={`data:image/jpeg;base64,${item1.image}`}
-                  alt="Himachal Pradesh"
-                />
+        {items1.map((item1) => (
+          <div className="container0" key={item1.id}>
+            <main>
+              <div className="content-wrapper">
+                <div className="hero">
+                  <img
+                    className="himachal-img"
+                    src={`data:image/jpeg;base64,${item1.image}`}
+                    alt="Himachal Pradesh"
+                  />
+                </div>
+                <section className="intro">
+                  <h1>{item1.main_heading}</h1>
+                  <p>{item1.sub_heading}</p>
+                  <div className="cards">
+                    <div className="card">
+                      <h2>{item1.box_heading1}</h2>
+                      <p>{item1.box_details1}</p>
+                    </div>
+                    <div className="card">
+                      <h2>{item1.box_heading2}</h2>
+                      <p>{item1.box_details2}</p>
+                    </div>
+                    <div className="card">
+                      <h2>{item1.box_heading3}</h2>
+                      <p>{item1.box_details3}</p>
+                    </div>
+                  </div>
+                </section>
               </div>
-              <section className="intro">
-                <h1>{item1.main_heading}</h1>
-                <p>{item1.sub_heading}</p>
-                <div className="cards">
-                  <div className="card">
-                    <h2>{item1.box_heading1}</h2>
-                    <p>{item1.box_details1}</p>
+            </main>
+            <div className="info-background">
+              <div className="info-background-content">
+                <button className="see-map">See Map</button>
+                <div className="info">
+                  <div className="info-item">
+                    <span>Best time to visit</span>
+                    <p>{item1.best_time_to_visit}</p>
                   </div>
-                  <div className="card">
-                    <h2>{item1.box_heading2}</h2>
-                    <p>{item1.box_details2}</p>
+                  <div className="info-item">
+                    <span>Ideal Duration</span>
+                    <p>{item1.ideal_duration}</p>
                   </div>
-                  <div className="card">
-                    <h2>{item1.box_heading3}</h2>
-                    <p>{item1.box_details3}</p>
+                  <div className="info-item">
+                    <span>Visa</span>
+                    <p>{item1.visa}</p>
                   </div>
-                </div>
-              </section>
-            </div>
-          </main>
-          <div className="info-background">
-            <div className="info-background-content">
-              <button className="see-map">See Map</button>
-              <div className="info">
-                <div className="info-item">
-                  <span>Best time to visit</span>
-                  <p>{item1.best_time_to_visit}</p>
-                </div>
-                <div className="info-item">
-                  <span>Ideal Duration</span>
-                  <p>{item1.ideal_duration}</p>
-                </div>
-                <div className="info-item">
-                  <span>Visa</span>
-                  <p>{item1.visa}</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
 
         <div className="main-info">
           <h2 className="main-info-heading">About Himachal Pradesh Tourism</h2>
@@ -430,97 +459,56 @@ const fetchItems = async () => {
           <section className="best-time">
             <h2>Best Time to Visit Himachal Pradesh</h2>
             <div className="seasons">
-            <div className="season">
-              <img src="images/summer-ico.png.png" alt="Summer Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Summer Season In Goa  </h3>
-                <p>
-                The summer season between March and June in Goa is quite hot with temperature ranging between 25°C and 40°C.
-                </p>
-              </div>
+              {items2.map((item2) => (
+                <div className="season" key={item2.id}>
+                  <img src={`data:image/jpeg;base64,${item2.image}`} />
+                  <br />
+                  <br />
+                  <div>
+                    <h3>{item2.sub_heading}</h3>
+                    <p>{item2.details}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="season">
-              <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Monsoon Season In Goa  </h3>
-                <p>
-                Monsoon in Goa is between July and August. Goa receives medium to high rainfall leaving beaches closed but the state greener.
-                </p>
-              </div>
-            </div>
-            <div className="season">
-              <img src="images/winter-ico.png.png" alt="Winter Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Winter Season In Goa  </h3>
-                <p>
-                Winter season is from November to February and is the best time to plan a visit to Goa.
-                </p>
-              </div>
-            </div>
-          </div>
           </section>
 
           <section className="best-places">
             <h2>Best Places to Visit in Himachal Pradesh</h2>
             <div className="places">
-            {items.map((item) => (
-              <div className="place" key={item.id}>
-                <img src={`data:image/jpeg;base64,${item.image}`}  alt={item.heading}/>
-                <h3>{item.heading}</h3>
-                <p>{item.details}</p>
-                <div className="tags-button">
-                  <div className="tags">
-                    <span>{item.block1}</span>
-                    <span>{item.block2}</span>
+              {items.map((item) => (
+                <div className="place" key={item.id}>
+                  <img
+                    src={`data:image/jpeg;base64,${item.image}`}
+                    alt={item.heading}
+                  />
+                  <h3>{item.heading}</h3>
+                  <p>{item.details}</p>
+                  <div className="tags-button">
+                    <div className="tags">
+                      <span>{item.block1}</span>
+                      <span>{item.block2}</span>
+                    </div>
+                    <button className="view-more">{item.view_more}</button>
                   </div>
-                  <button className="view-more">{item.view_more}</button>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
           </section>
 
           <section className="top-things">
-            <h2>Top Things to Do in Himachal Pradesh</h2>
-            <div className="activities">
-              <div className="activity">
-                <img src="images/himachal3.webp.png" alt="Adventure" />
-                <h3>Adventure</h3>
-                <p>
-                  Himachal Pradesh offers opportunities for a wide variety of
-                  adventure sports like river rafting, mountain cycling, skiing,
-                  rock climbing & mountaineering.
-                </p>
-                <button className="view-more">View more</button>
-              </div>
-              <div className="activity">
-                <img src="images/himachal2.webp.png" alt="Wildlife" />
-                <h3>Wildlife</h3>
-                <p>
-                  You can spot a wide variety of exotic Himalayan wildlife in
-                  Himachal. Two famous ones are Great Himalayan National Park &
-                  Pin Valley National Park.
-                </p>
-                <button className="view-more">View more</button>
-              </div>
-              <div className="activity">
-                <img src="images/himachal1.webp.png" alt="Lakes" />
-                <h3>Lakes</h3>
-                <p>
-                  There are more than 25 lakes in Himachal. Many of them play a
-                  part in Hindu mythology. Others are biking, angling, kayaking
-                  & water rafting.
-                </p>
-                <button className="view-more">View more</button>
-              </div>
+          <h2>Top Things to Do in Himachal Pradesh </h2>
+          <div className="activities">
+          {items3.map((item) => (
+            <div className="activity" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="Adventure" />
+              <h3>{item.heading}</h3>
+              <p>{item.details}</p>
+              <button className="view-more">{item.view_more}</button>
             </div>
-          </section>
+          ))}
+          </div>
+        </section>
 
           <div className="container3">
             <div className="info-last">
@@ -613,29 +601,85 @@ const fetchItems = async () => {
             <div className="enquiry-form">
               <h2>Fill Enquiry Form Below</h2>
               <form onSubmit={handleSubmit}>
-               <label>
+                <label>
                   Your Full Name
-                  <input type="text" name="name" id="FULLNAME" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}/>
+                  <input
+                    type="text"
+                    name="name"
+                    id="FULLNAME"
+                    required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                  />
                 </label>
                 <label>
                   Tour Description
-                  <textarea name="description" id="TOURDESCRIPTION" required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })}/>
+                  <textarea
+                    name="description"
+                    id="TOURDESCRIPTION"
+                    required
+                    value={formData.description}
+                    onChange={(e) =>
+                      setFormData({ ...formData, description: e.target.value })
+                    }
+                  />
                 </label>
                 <label>
                   Departure Date
-                  <input type="date" name="departureDate" required id="DEPARTUREDATE" value={formData.departureDate} onChange={(e) => setFormData({ ...formData, departureDate: e.target.value })}/>
+                  <input
+                    type="date"
+                    name="departureDate"
+                    required
+                    id="DEPARTUREDATE"
+                    value={formData.departureDate}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        departureDate: e.target.value,
+                      })
+                    }
+                  />
                 </label>
                 <label>
                   Number of Days
-                  <input type="number" name="numberOfDays" required id="NUMBEROFDAYS" value={formData.numberOfDays} onChange={(e) => setFormData({ ...formData, numberOfDays: e.target.value })}/>
+                  <input
+                    type="number"
+                    name="numberOfDays"
+                    required
+                    id="NUMBEROFDAYS"
+                    value={formData.numberOfDays}
+                    onChange={(e) =>
+                      setFormData({ ...formData, numberOfDays: e.target.value })
+                    }
+                  />
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" required id="EMAIL" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}/>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    id="EMAIL"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                  />
                 </label>
                 <label>
                   Contact No
-                  <input type="tel" name="contactNo" required id="CONTACTNO" value={formData.contactNo} onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })}/>
+                  <input
+                    type="tel"
+                    name="contactNo"
+                    required
+                    id="CONTACTNO"
+                    value={formData.contactNo}
+                    onChange={(e) =>
+                      setFormData({ ...formData, contactNo: e.target.value })
+                    }
+                  />
                 </label>
                 <button type="submit">Get A Custom Quote</button>
               </form>

@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./home.css";
 import MainLayout from "../../layout/MainLayout";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import axios from "axios";
+
+const API1 = "http://localhost:5164/homeView";
+const API2 = "http://localhost:5164/homeView2";
+// const API3 = "http://localhost:5164/homeView";
+// const API4 = "http://localhost:5164/homeView";
+// const API5 = "http://localhost:5164/homeView";
+// const API6 = "http://localhost:5164/homeView";
+// const API7 = "http://localhost:5164/homeView";
+// const API8 = "http://localhost:5164/homeView";
+// const API9 = "http://localhost:5164/homeView";
+// const API10 = "http://localhost:5164/homeView";
 
 const Home = () => {
+
+  const [items1, setItems1] = useState([]);
+  const [items2, setItems2] = useState([]);
+  const [items3, setItems3] = useState([]);
+  const [items4, setItems4] = useState([]);
+  const [items5, setItems5] = useState([]);
+  const [items6, setItems6] = useState([]);
+  const [items7, setItems7] = useState([]);
+  const [items8, setItems8] = useState([]);
+  const [items9, setItems9] = useState([]);
+  const [items10, setItems10] = useState([]);
+
 
   useEffect(()=>{
     sessionStorage.clear();
@@ -14,25 +38,123 @@ const Home = () => {
     window.scrollTo({top:0, left:0, behavior:'smooth'})
   }
 
+  useEffect(() => {
+    fetchItems1();
+    fetchItems2();
+    // fetchItems3();
+    // fetchItems4();
+    // fetchItems5();
+    // fetchItems6();
+    // fetchItems7();
+    // fetchItems8();
+    // fetchItems9();
+    // fetchItems9();
+  }, []);
+
+
+  // const fetchItems1 = async () => {
+  //   try {
+  //     const response = await axios.post(API, { eventID: "1002" });
+  //     if (response.status === 200) {
+  //       const responseData = response.data;
+  //       if (responseData.rData && responseData.rData.users) {
+  //         setUsers(responseData.rData.users);
+  //         console.log("Users:", responseData.rData.users);
+  //       } else {
+  //         console.log("No users data in response");
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching users:", error);
+  //   }
+  // };
+
+  const fetchItems1 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API1, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems1 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '1';
+          });
+          setItems1(filteredItems1);
+          console.log("Filtered Items1:", filteredItems1);
+        } else {
+          console.log(
+            "No items data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+  const fetchItems2 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API2, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems2 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '2' || item.id === '3' || item.id === '4' || item.id === '5' || item.id === '6';
+          });
+          setItems2(filteredItems2);
+          console.log("Filtered Items2:", filteredItems2);
+        } else {
+          console.log(
+            "No items2 data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+
+
   return (
     <>
-      <MainLayout style={{ overflowX: "hidden" }}>
-        <div className="india-holiday">
+      <MainLayout>
+      
+      <div className="home">
+      {items1.map((item) => (
+        <div className="india-holiday" key={item.id}>
           <div className="india-holiday-img">
-            <img src="/images/Container.png" alt="" />
+            <img src={`data:image/jpeg;base64,${item.image}`} alt="" />
           </div>
-          <div className="india-holiday-para">
+          <div className="india-holiday-para" >
             <p className="india-holiday-para-1">
-              Let us plan you a <br /> perfect <span>India Holiday</span>
+              {item.heading} <br /> perfect <span>India Holiday</span>
             </p>
             <br />
             <br />
-            <p className="india-holiday-para-2">
-              Custom-Crafted Tour Packages for Unforgettable Holiday Experiences
-              in India.
-            </p>
+            <p className="india-holiday-para-2">{item.details}</p>
           </div>
         </div>
+      ))}
         <br />
         <br />
         {/* <div className="region">
@@ -87,37 +209,17 @@ const Home = () => {
             <p>Top Trending Destinations</p>
           </div>
           {/* <div className="trending-main"></div> */}
-          <div className="trending-photo-card">
-            <div className="trending-card">
-              <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → uttarakhand02-package.webp.png" alt="" /></Link>
-              <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/uttarakhand' onClick={backToTop} className="link">Uttarakhand </Link></p>
+          
+          <div className="trending-photo-card" >
+          {items2.map((item) => (
+            <div className="trending-card" key={item.id}>
+              <Link to='/himachalPradesh' onClick={backToTop}><img src={`data:image/jpeg;base64,${item.image}`} alt="" /></Link>
+              <p className="trending-packages">{item.details}</p>
+              <p className="trending-state"><Link to='/uttarakhand' onClick={backToTop} className="link">{item.heading} </Link></p>
             </div>
-
-            <div className="trending-card">
-              <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → kerala02-package.webp.png" alt="" /></Link>
-              <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/kerala' onClick={backToTop} className="link">Kerala</Link></p>
-            </div>
-
-            <div className="trending-card">
-              <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → sikkim01-package.webp.png" alt="" /></Link>
-              <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/goa' onClick={backToTop} className="link">Goa </Link></p>
-            </div>
-
-            <div className="trending-card">
-            <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → bhutan-package.webp.png" alt="" /></Link>
-              <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/rajasthan' onClick={backToTop} className="link">Rajasthan</Link></p>
-            </div>
-
-            <div className="trending-card">
-            <Link to='/himachalPradesh' onClick={backToTop}><img src="images/Link → thailand-package.webp.png" alt="" /></Link>
-              <p className="trending-packages">50+ Packages</p>
-              <p className="trending-state"><Link to='/himachalPradesh' onClick={backToTop} className="link">Himachal Pradesh</Link></p>
-            </div>
+          ))}
           </div>
+        
         </div>
 
         <div className="weekend">
@@ -375,6 +477,8 @@ const Home = () => {
           </div>
           <hr />
         </div>
+        </div>
+    
       </MainLayout>
     </>
   );

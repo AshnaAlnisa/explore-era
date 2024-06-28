@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const API = "http://localhost:5164/destination_card";
 const API1 = "http://localhost:5164/destination1View";
 const API2 = "http://localhost:5164/best_view";
+const API3 = "http://localhost:5164/destination_card1";
 
 
 const DestinationRajasthan = () => {
@@ -14,6 +15,7 @@ const DestinationRajasthan = () => {
     const [items, setItems] = useState([]);
     const [items1, setItems1] = useState([]);
     const [items2, setItems2] = useState([]);
+    const [items3, setItems3] = useState([]);
 
 
   const [formData, setFormData] = useState({
@@ -72,6 +74,7 @@ useEffect(() => {
   fetchItems1();
   fetchItems2();
   fetchItems();
+  fetchItems3();
 }, []);
 
 const fetchItems1 = async () => {
@@ -162,6 +165,39 @@ const fetchItems2 = async () => {
         } else {
           console.log(
             "No items data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+
+  const fetchItems3 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API3, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems3 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '49' || item.id === '50' || item.id === '51';
+          });
+          setItems3(filteredItems3);
+          console.log("Filtered Items3:", filteredItems3);
+        } else {
+          console.log(
+            "No items3 data in response or invalid structure:",
             responseData
           );
         }
@@ -355,47 +391,25 @@ const fetchItems2 = async () => {
       </div>
 
       <div className="container2">
-        <section className="best-time">
-          <h2>Best Time to Visit Rajasthan </h2>
-          <div className="seasons">
-            <div className="season">
-              <img src="images/summer-ico.png.png" alt="Summer Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Summer Season In Rajasthan </h3>
-                <p>
-                Summer in Rajasthan starts from April and lasts till June. The temperature ranges from 24°C to 48°C. Heat can be very uncomfortable for tourists. This season is not favourable for trave.
-                </p>
-              </div>
+      <section className="best-time">
+            <h2>Best Time to Visit Rajasthan</h2>
+            <div className="seasons">
+              {items2.map((item2) => (
+                <div className="season" key={item2.id}>
+                  <img src={`data:image/jpeg;base64,${item2.image}`} />
+                  <br />
+                  <br />
+                  <div>
+                    <h3>{item2.sub_heading}</h3>
+                    <p>{item2.details}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="season">
-              <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Monsoon Season In Rajasthan </h3>
-                <p>
-                Monsoon in Rajasthan begins in July and ends in September. The temperature ranges from 21°C to 35°C. During Monsoon thunderclap paves the way for heavy rainfall. This season is also favourable for travel.
-                </p>
-              </div>
-            </div>
-            <div className="season">
-              <img src="images/winter-ico.png.png" alt="Winter Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Winter Season In Rajasthan </h3>
-                <p>
-                Winter in Rajasthan begins in October and ends in March. The temperature ranges from 13°C to 30°C. The weather is favourable for travel due to pleasant daytime temperatures.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
 
         <section className="best-places">
-          <h2>Best Places to Visit in Uttarakhand </h2>
+          <h2>Best Places to Visit in Rajasthan </h2>
           <div className="places">
             {items.map((item) => (
               <div className="place" key={item.id}>
@@ -417,24 +431,14 @@ const fetchItems2 = async () => {
         <section className="top-things">
           <h2>Top Things to Do in Rajasthan </h2>
           <div className="activities">
-            <div className="activity">
-              <img src="images/wildlife-safari.webp" alt="Adventure" />
-              <h3>Wildlife Safari</h3>
-              <p>Enjoy sighting tigers and other animals on an enthralling wildlife safari in Rajasthan’s best wildlife reserves.</p>
-              <button className="view-more">View more</button>
+          {items3.map((item) => (
+            <div className="activity" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="Adventure" />
+              <h3>{item.heading}</h3>
+              <p>{item.details}</p>
+              <button className="view-more">{item.view_more}</button>
             </div>
-            <div className="activity">
-              <img src="images/hot-air-ballooning.webp" alt="Wildlife" />
-              <h3>Hot-Air Ballooning</h3>
-              <p>Soar high in the sky and experience the best hot-air ballooning in Jaipur, Pushkar, and Ranthambore.</p>
-              <button className="view-more">View more</button>
-            </div>
-            <div className="activity">
-              <img src="images/desert-camping.webp" alt="Lakes" />
-              <h3>Desert Camping</h3>
-              <p>Relish the experience of camping in the vast Thar Desert under the starlit sky for the best Rajasthan memories.</p>
-              <button className="view-more">View more</button>
-            </div>
+          ))}
           </div>
         </section>
 

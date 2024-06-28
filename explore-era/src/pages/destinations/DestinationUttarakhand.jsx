@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const API = "http://localhost:5164/destination_card";
 const API1 = "http://localhost:5164/destination1View";
 const API2 = "http://localhost:5164/best_view";
+const API3 = "http://localhost:5164/destination_card1";
 
 
 
@@ -14,7 +15,7 @@ const DestinationUttarakhand = () => {
   const [items, setItems] = useState([]);
   const [items1, setItems1] = useState([]);
   const [items2, setItems2] = useState([]);
-
+  const [items3, setItems3] = useState([]);
 
 
   const [formData, setFormData] = useState({
@@ -73,6 +74,7 @@ useEffect(() => {
   fetchItems1();
   fetchItems2();
   fetchItems();
+  fetchItems3();
 }, []);
 
 const fetchItems1 = async () => {
@@ -161,6 +163,38 @@ const fetchItems2 = async () => {
         } else {
           console.log(
             "No items data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+  const fetchItems3 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API3, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems3 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '40' || item.id === '41' || item.id === '42';
+          });
+          setItems3(filteredItems3);
+          console.log("Filtered Items3:", filteredItems3);
+        } else {
+          console.log(
+            "No items3 data in response or invalid structure:",
             responseData
           );
         }
@@ -564,94 +598,57 @@ const fetchItems2 = async () => {
         </div>
 
         <div className="container2">
-          <section className="best-time">
-            <h2>Best Time to Visit Uttarakhand </h2>
+        <section className="best-time">
+            <h2>Best Time to Visit Uttarakhand</h2>
             <div className="seasons">
-              <div className="season">
-                <img src="images/summer-ico.png.png" alt="Summer Season" />
-                <br />
-                <br />
-                <div>
-                  <h3>Summer Season In Uttarakhand </h3>
-                  <p>
-                  The summer season between March and June in Uttarakhand is quite pleasant with temperature ranging from 20°C to 30°C.
-                  </p>
-                </div>
-              </div>
-              <div className="season">
-                <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
-                <br />
-                <br />
-                <div>
-                  <h3>Monsoon Season In Uttarakhand </h3>
-                  <p>
-                  Monsoon begins from June and ends in September in Uttarakhand. The state experiences heavy rainfall during monsoons.
-                  </p>
-                </div>
-              </div>
-              <div className="season">
-                <img src="images/winter-ico.png.png" alt="Winter Season" />
-                <br />
-                <br />
-                <div>
-                  <h3>Winter Season In Uttarakhand </h3>
-                  <p>
-                  Winter season in Uttarakhand is from November to February when the weather gets chilly and the temperature drops to sub-zero.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="best-places">
-            <h2>Best Places to Visit in Uttarakhand </h2>
-            <div className="places">
-              {items.map((item) => (
-                <div className="place" key={item.id}>
-                  <img src={`data:image/jpeg;base64,${item.image}`}  alt={item.heading}/>
-                  <h3>{item.heading}</h3>
-                  <p>{item.details}</p>
-                  <div className="tags-button">
-                    <div className="tags">
-                      <span>{item.block1}</span>
-                      <span>{item.block2}</span>
-                    </div>
-                    <button className="view-more">{item.view_more}</button>
+              {items2.map((item2) => (
+                <div className="season" key={item2.id}>
+                  <img src={`data:image/jpeg;base64,${item2.image}`} />
+                  <br />
+                  <br />
+                  <div>
+                    <h3>{item2.sub_heading}</h3>
+                    <p>{item2.details}</p>
                   </div>
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="top-things">
-            <h2>Top Things to Do in Uttarakhand </h2>
-            <div className="activities">
-              <div className="activity">
-                <img src="images/trekking-in-uttarakhand.webp" alt="Adventure" />
-                <h3>Trekking and Hiking</h3>
-                <p>
-                Embark on adventurous journeys on a plethora of enthralling treks in Uttarakhand.
-                </p>
-                <button className="view-more">View more</button>
+          <section className="best-places">
+          <h2>Best Places to Visit in Uttarakhand </h2>
+          <div className="places">
+            {items.map((item) => (
+              <div className="place" key={item.id}>
+                <img src={`data:image/jpeg;base64,${item.image}`}  alt={item.heading}/>
+                <h3>{item.heading}</h3>
+                <p>{item.details}</p>
+                <div className="tags-button">
+                  <div className="tags">
+                    <span>{item.block1}</span>
+                    <span>{item.block2}</span>
+                  </div>
+                  <button className="view-more">{item.view_more}</button>
+                </div>
               </div>
-              <div className="activity">
-                <img src="images/rafting.webp" alt="Wildlife" />
-                <h3>River Rafting Adventure</h3>
-                <p>
-                Enjoy the playful side of Ganges and Tons with river rafting adventure on them in Uttarakhand.
-                </p>
-                <button className="view-more">View more</button>
-              </div>
-              <div className="activity">
-                <img src="images/wildlife.webp" alt="Lakes" />
-                <h3>Wildlife Safari</h3>
-                <p>
-                Explore the rich flora & fauna of Uttarakhand and go on enthralling wildlife and tiger safaris.
-                </p>
-                <button className="view-more">View more</button>
-              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="top-things">
+          <h2>Top Things to Do in Uttarakhand </h2>
+          <div className="activities">
+          {items3.map((item) => (
+            <div className="activity" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="Adventure" />
+              <h3>{item.heading}</h3>
+              <p>{item.details}</p>
+              <button className="view-more">{item.view_more}</button>
             </div>
-          </section>
+          ))}
+          </div>
+        </section>
+
 
           <div className="container3">
             <div className="info-last">

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const API = "http://localhost:5164/destination_card";
 const API1 = "http://localhost:5164/destination1View";
 const API2 = "http://localhost:5164/best_view";
+const API3 = "http://localhost:5164/destination_card1";
 
 
 const DestinationKerala = () => {
@@ -14,6 +15,7 @@ const DestinationKerala = () => {
     const [items, setItems] = useState([]);
     const [items1, setItems1] = useState([]);
     const [items2, setItems2] = useState([]);
+    const [items3, setItems3] = useState([]);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -71,6 +73,7 @@ const DestinationKerala = () => {
       fetchItems1();
       fetchItems2();
       fetchItems();
+      fetchItems3();
     }, []);
     
     const fetchItems1 = async () => {
@@ -160,6 +163,38 @@ const DestinationKerala = () => {
         } else {
           console.log(
             "No items data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+  const fetchItems3 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API3, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems3 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '43' || item.id === '44' || item.id === '45';
+          });
+          setItems3(filteredItems3);
+          console.log("Filtered Items3:", filteredItems3);
+        } else {
+          console.log(
+            "No items3 data in response or invalid structure:",
             responseData
           );
         }
@@ -302,44 +337,22 @@ const DestinationKerala = () => {
       </div>
 
       <div className="container2">
-        <section className="best-time">
-          <h2>Best Time to Visit Kerala </h2>
-          <div className="seasons">
-            <div className="season">
-              <img src="images/summer-ico.png.png" alt="Summer Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Summer Season In Kerala </h3>
-                <p>
-                The summer season between March and June in Kerala can be extremely hot with temperature going above 35°C.
-                </p>
-              </div>
+      <section className="best-time">
+            <h2>Best Time to Visit Kerala</h2>
+            <div className="seasons">
+              {items2.map((item2) => (
+                <div className="season" key={item2.id}>
+                  <img src={`data:image/jpeg;base64,${item2.image}`} />
+                  <br />
+                  <br />
+                  <div>
+                    <h3>{item2.sub_heading}</h3>
+                    <p>{item2.details}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="season">
-              <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Monsoon Season In Kerala </h3>
-                <p>
-                Monsoon begins from June and ends in September in Kerala. The state experiences heavy rainfall and extreme humidity during monsoons.
-                </p>
-              </div>
-            </div>
-            <div className="season">
-              <img src="images/winter-ico.png.png" alt="Winter Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Winter Season In Kerala </h3>
-                <p>
-                Winter season in Kerala is from November to February when the weather is pleasant and the temperature remains under 30°C.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
 
         <section className="best-places">
           <h2>Best Places to Visit in Kerala </h2>
@@ -364,27 +377,14 @@ const DestinationKerala = () => {
         <section className="top-things">
           <h2>Top Things to Do in Kerala </h2>
           <div className="activities">
-            <div className="activity">
-              <img src="images/kerala_ayurveda.webp" alt="Adventure" />
-              <h3>Ayurveda Treatments & Therapies</h3>
-              <p>Avail a wide range of Ayurveda treatments in Kerala that has many wellness resorts and centres. </p>
-
-              <button className="view-more">View more</button>
+          {items3.map((item) => (
+            <div className="activity" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="Adventure" />
+              <h3>{item.heading}</h3>
+              <p>{item.details}</p>
+              <button className="view-more">{item.view_more}</button>
             </div>
-            <div className="activity">
-              <img src="images/houseboats.webp" alt="Wildlife" />
-              <h3>Houseboat Stay & Cruise</h3>
-              <p>Relish one-of-its-kind experience of staying and cruising in a houseboat on the backwaters of Kerala.</p>
-
-              <button className="view-more">View more</button>
-            </div>
-            <div className="activity">
-              <img src="images/kerala_wildlife.webp" alt="Lakes" />
-              <h3>Wildlife Safari & Birdwatching</h3>
-              <p>Enjoy enthralling wildlife safari and sight the rich flora & fauna of Kerala at its various wildlife reserves.</p>
-
-              <button className="view-more">View more</button>
-            </div>
+          ))}
           </div>
         </section>
 

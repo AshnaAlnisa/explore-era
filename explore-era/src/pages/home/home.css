@@ -78,8 +78,11 @@
     padding-top: 3%;
 }
 
+
 .trending-card img{
     border-radius: 1%;
+    height: 318.75px;
+    width: 238px;
 }
 
 .trending-packages{
@@ -99,7 +102,7 @@
     justify-content: center;
     align-items: center;
     gap: 1%;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 

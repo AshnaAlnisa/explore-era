@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const API = "http://localhost:5164/destination_card";
 const API1 = "http://localhost:5164/destination1View";
 const API2 = "http://localhost:5164/best_view";
+const API3 = "http://localhost:5164/destination_card1";
 
 
 const DestinationGoa = () => {
@@ -14,6 +15,7 @@ const DestinationGoa = () => {
     const [items, setItems] = useState([]);
     const [items1, setItems1] = useState([]);
     const [items2, setItems2] = useState([]);
+    const [items3, setItems3] = useState([]);
 
 
 
@@ -73,6 +75,8 @@ const DestinationGoa = () => {
       fetchItems1();
       fetchItems2();
       fetchItems();
+      fetchItems3();
+
     }, []);
     
     const fetchItems1 = async () => {
@@ -164,6 +168,39 @@ const DestinationGoa = () => {
         } else {
           console.log(
             "No items data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+
+  const fetchItems3 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API3, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems3 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '52' || item.id === '53' || item.id === '54';
+          });
+          setItems3(filteredItems3);
+          console.log("Filtered Items3:", filteredItems3);
+        } else {
+          console.log(
+            "No items3 data in response or invalid structure:",
             responseData
           );
         }
@@ -305,44 +342,22 @@ const DestinationGoa = () => {
       </div>
 
       <div className="container2">
-        <section className="best-time">
-          <h2>Best Time to Visit Goa  </h2>
-          <div className="seasons">
-            <div className="season">
-              <img src="images/summer-ico.png.png" alt="Summer Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Summer Season In Goa  </h3>
-                <p>
-                The summer season between March and June in Goa is quite hot with temperature ranging between 25°C and 40°C.
-                </p>
-              </div>
+      <section className="best-time">
+            <h2>Best Time to Visit Goa</h2>
+            <div className="seasons">
+              {items2.map((item2) => (
+                <div className="season" key={item2.id}>
+                  <img src={`data:image/jpeg;base64,${item2.image}`} />
+                  <br />
+                  <br />
+                  <div>
+                    <h3>{item2.sub_heading}</h3>
+                    <p>{item2.details}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="season">
-              <img src="images/mansoon-ico.png.png" alt="Monsoon Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Monsoon Season In Goa  </h3>
-                <p>
-                Monsoon in Goa is between July and August. Goa receives medium to high rainfall leaving beaches closed but the state greener.
-                </p>
-              </div>
-            </div>
-            <div className="season">
-              <img src="images/winter-ico.png.png" alt="Winter Season" />
-              <br />
-              <br />
-              <div>
-                <h3>Winter Season In Goa  </h3>
-                <p>
-                Winter season is from November to February and is the best time to plan a visit to Goa.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
 
         <section className="best-places">
           <h2>Best Places to Visit in Goa  </h2>
@@ -365,28 +380,16 @@ const DestinationGoa = () => {
         </section>
 
         <section className="top-things">
-          <h2>Top Things to Do in Goa  </h2>
+          <h2>Top Things to Do in Goa </h2>
           <div className="activities">
-            <div className="activity">
-              <img src="images/scuba-diving.webp" alt="Adventure" />
-              <h3>Scuba Diving</h3>
-              <p>Enjoy exploring the exciting and colourful underwater world at the top beaches in Goa.</p>
-              <button className="view-more">View more</button>
+          {items3.map((item) => (
+            <div className="activity" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="Adventure" />
+              <h3>{item.heading}</h3>
+              <p>{item.details}</p>
+              <button className="view-more">{item.view_more}</button>
             </div>
-            <div className="activity">
-              <img src="images/water-sports.webp" alt="Wildlife" />
-              <h3>Water Sports</h3>
-              <p>From Banana boat ride to water skiing, the beaches in Goa offer thrilling water activities to enjoy</p>
-
-              <button className="view-more">View more</button>
-            </div>
-            <div className="activity">
-              <img src="images/bungee-jumping.webp" alt="Lakes" />
-              <h3>Bungee Jumping</h3>
-              <p>Jump from the height of 55m from Goa’s first permanent bungee-site to feel the adrenaline rush.</p>
-
-              <button className="view-more">View more</button>
-            </div>
+          ))}
           </div>
         </section>
 
