@@ -11,7 +11,7 @@ const ChadarTrek = () => {
           <span>(Attractive Discount Including Airfare)</span>{" "}
         </h1>
         <img src="images/chadarTrek.png" alt="" />
-
+        <div className="package">
         <h2>Chadar Trek:</h2>
         <p>
           Chadar trek or frozen river trek, it is one of most challenging trek
@@ -42,14 +42,14 @@ const ChadarTrek = () => {
           <span> Season: </span> Mid Jan to End Feb{" "}
         </p>
 
-        <h5>Day 01: Delhi – Leh (Complete Rest in Leh for acclimatisation)</h5>
+        <h5><span>Day 01:</span> <br/> Delhi – Leh (Complete Rest in Leh for acclimatisation)</h5>
         <p>
           Take the morning flight for Leh. Check into the guest house and relax
           the whole day. This is necessary for getting acclimatised. Overnight
           at the guesthouse.
         </p>
 
-        <h5>Day 02: Leh – Shey – Thiksey - Hemis</h5>
+        <h5><span>Day 02:</span><br/> Leh – Shey – Thiksey - Hemis</h5>
         <p>
           On this day you will go a sightseeing trip to some ancient monasteries
           in this area. <br />
@@ -71,72 +71,73 @@ const ChadarTrek = () => {
           fronted by long Mani walls. Overnight stay at the guest house.
         </p>
 
-        <h5>Day 03: Leh - Chilling(5 hrs drive)</h5>
+        <h5><span>Day 03:</span><br/> Leh - Chilling(5 hrs drive)</h5>
         <p>
           In the morning drive to chilling along with our porters from Pishu
           village of Zanskar, visit coppersmith workshops. Dinner and overnight
           stay at guest house.
         </p>
 
-        <h5>Day 04: Chilling - Zaribago</h5>
+        <h5><span>Day 04:</span><br/> Chilling - Zaribago</h5>
         <p>
           We begin our Chadar trek by walking on the frozen Zanskar river from
           Chilling to Zaribago. The trek is of about 5 hours. Overnight at Camp.
         </p>
 
-        <h5>Day 05: Zaribago - Deepyokma</h5>
+        <h5><span>Day 05:</span><br/> Zaribago - Deepyokma</h5>
         <p>
           Walk on the frozen Zanskar river for about 4 hours from Zaribago to
           Deepyokma. Overnight at Camp.
         </p>
 
-        <h5>Day 06: Deepyokma - Nyarakpulu</h5>
+        <h5><span>Day 06:</span><br/> Deepyokma - Nyarakpulu</h5>
         <p>
           Walk for almost 4 to 5 hours from Deepyokma to reach Nyarakpulu below
           the Nyarak village. Over night at Camp.
         </p>
 
-        <h5>Day 07: Nyarakpulu - Lingshed</h5>
+        <h5><span>Day 07:</span> <br/> Nyarakpulu - Lingshed</h5>
         <p>
           Frozen River (Chadar) Trek Leaving Nyarakpulu it's a one hour walk to
           the small village of Lingshed. Enjoy the comfort and cozy atmosphere
           of a private house with central heating.
         </p>
 
-        <h5>Day 08: Lingshed</h5>
+        <h5><span>Day 08:</span><br/> Lingshed</h5>
         <p>
           Spend rest of the day in the warmth of a private home in Lingshed.
           Explore the nearby monasteries, meet the monks and and hospitable
           people of the village. Overnight stay at the private home.
         </p>
 
-        <h5>Day 09: Lingshed - Nyarakpulu</h5>
+        <h5><span>Day 09:</span><br/> Lingshed - Nyarakpulu</h5>
         <p>
           Lingshed to Nyarakpulu - a walk of about five hours to the campsite.
         </p>
 
-        <h5>Day 10: Nyarakpulu - Tso Mopoaldar</h5>
+        <h5><span>Day 10:</span><br/> Nyarakpulu - Tso Mopoaldar</h5>
         <p>Nyarakpulu to Tso Mopoaldar a four hour walk to the campsite.</p>
 
-        <h5>Day 11: Tso Mopoaldar - Tilatdo</h5>
+        <h5><span>Day 11:</span> <br/> Tso Mopoaldar - Tilatdo</h5>
         <p>
           Frozen River (Chadar) Trek Mopoaldar to Tilatdo - another day of
           walking about 5 hours.
         </p>
 
-        <h5>Day 12: Tilatdo - Chilling - Leh</h5>
+        <h5><span>Day 12:</span><br/> Tilatdo - Chilling - Leh</h5>
         <p>
           From Tilatdo walk up to Chilling village from where a Jeep will take
           you back to the hotel in Leh by evening. Overnight stay at hotel.
         </p>
 
-        <h5>Day 13: Leh - Delhi</h5>
+        <h5><span>Day 13:</span><br/> Leh - Delhi</h5>
         <p>
           Early in the morning transfer to airport and from here catch a flight
           for Delhi.
         </p>
 
-        <h5>End of the services</h5>
+        <h5><span>End of the services</span></h5>
+        </div>
       </div>
     </MainLayout>
   );

@@ -26,6 +26,16 @@ import DestinationGoa from "./pages/destinations/DestinationGoa.jsx";
 import DestinationRajasthan from "./pages/destinations/DestinationRajasthan.jsx";
 import Mumbai from "./pages/weekendGateways/Mumbai.jsx";
 import Chennai from "./pages/weekendGateways/Chennai.jsx";
+import LehLadakh from "./pages/packages/AllPackages/LehLadakh.jsx";
+import Shimla from "./pages/packages/AllPackages/Himachal/Shimla.jsx";
+import KulluManali from "./pages/packages/AllPackages/Himachal/KulluManali.jsx";
+import Chamba from "./pages/packages/AllPackages/Himachal/Chamba.jsx";
+import Nainital from "./pages/packages/AllPackages/Uttarakhand/Nainital.jsx";
+import Haridwar from "./pages/packages/AllPackages/Uttarakhand/Haridwar.jsx";
+import Mussoorie from "./pages/packages/AllPackages/Uttarakhand/Mussoorie.jsx";
+import Munnar from "./pages/packages/AllPackages/Kerala/Munnar.jsx";
+import Kochi from "./pages/packages/AllPackages/Kerala/Kochi.jsx";
+import Alleppey from "./pages/packages/AllPackages/Kerala/Alleppey.jsx";
 
 
 const router = createBrowserRouter([
@@ -125,6 +135,46 @@ const router = createBrowserRouter([
   {
     path:"/chennai",
     element:<Chennai/>
+  },
+  {
+    path:"/lehLadakh",
+    element:<LehLadakh/>
+  },
+  {
+    path:"/shimla",
+    element:<Shimla/>
+  },
+  {
+    path:"/kulluManali",
+    element:<KulluManali/>
+  },
+  {
+    path:"/chamba",
+    element:<Chamba/>
+  },
+  {
+    path:"/nainital",
+    element:<Nainital/>
+  },
+  {
+    path:"/haridwar",
+    element:<Haridwar/>
+  },
+  {
+    path:"/mussoorie",
+    element:<Mussoorie/>
+  },
+  {
+    path:"/munnar",
+    element:<Munnar/>
+  },
+  {
+    path:"/kochi",
+    element:<Kochi/>
+  },
+  {
+    path:"/alleppey",
+    element:<Alleppey/>
   },
 
 ]);

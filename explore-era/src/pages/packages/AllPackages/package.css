@@ -1,0 +1,55 @@
+.chadar-trek{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 15% 0% 15%;
+}
+
+.chadar-trek img{
+    padding-bottom: 3%;
+    height: 750px;
+}
+
+.chadar-trek h1 span{
+    color: red;
+}
+
+.chadar-trek p span{
+    font-weight: 600;
+}
+
+.chadar-trek h1{
+    font-weight: 800;
+    padding-bottom: 2%;
+}
+
+.chadar-trek h2{
+    padding-bottom: 2%;
+}
+
+.chadar-trek p{
+    line-height: 145%;
+    padding-bottom: 1%;
+}
+
+.chadar-trek h6{
+    color: red;
+    font-size: large;
+    
+}
+
+.chadar-trek h5{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    margin-left: -10%;
+    font-size: large;
+    font-weight: 600;
+}
+
+.chadar-trek h5 span{
+    color: red;
+}
+
+.package{
+    border: 2px solid rgb(224, 217, 217);
+    padding: 2%;
+}

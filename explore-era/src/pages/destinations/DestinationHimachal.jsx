@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainLayout from "../../layout/MainLayout";
 import "./destinationHimachal.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const API = "http://localhost:5164/destination_card";
 const API1 = "http://localhost:5164/destination1View";
@@ -14,6 +14,10 @@ const DestinationHimachal = () => {
   const [items1, setItems1] = useState([]);
   const [items2, setItems2] = useState([]);
   const [items3, setItems3] = useState([]);
+
+  const backToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -489,7 +493,9 @@ const DestinationHimachal = () => {
                       <span>{item.block1}</span>
                       <span>{item.block2}</span>
                     </div>
+                    <Link to={item.link} onClick={backToTop}>
                     <button className="view-more">{item.view_more}</button>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -504,7 +510,9 @@ const DestinationHimachal = () => {
               <img src={`data:image/jpeg;base64,${item.image}`} alt="Adventure" />
               <h3>{item.heading}</h3>
               <p>{item.details}</p>
-              <button className="view-more">{item.view_more}</button>
+              <Link to={item.link} onClick={backToTop}>
+                    <button className="view-more">{item.view_more}</button>
+                    </Link>
             </div>
           ))}
           </div>
