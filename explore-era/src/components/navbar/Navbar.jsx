@@ -81,9 +81,9 @@ const Navbar = () => {
           <ul className="details-desktop">
             <li className="phone-number">8287675984</li>
 
-            <div>
+            <div className="p-y-t">
               <li className="plan-your-trip">
-                {/* <a href="#"> */}
+             
                   <img src="/images/icons8-location-64.png" alt="" />
                   <button
                     className="book-button"
@@ -91,7 +91,7 @@ const Navbar = () => {
                   >
                     Plan Your Trip
                   </button>
-                {/* </a> */}
+          
               </li>
               {isPopupVisible && (
               <Popup onClose={() => setIsPopupVisible(false)} />

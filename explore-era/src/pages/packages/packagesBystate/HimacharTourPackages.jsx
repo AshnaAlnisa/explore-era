@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./packages.css";
 import MainLayout from "../../../layout/MainLayout";
+import { Link } from "react-router-dom";
 
 const HimacharTourPackages = () => {
   return (
@@ -39,28 +40,38 @@ const HimacharTourPackages = () => {
             <div className="himachal-tour-packages-cards-all">
               <img src="images/kullu-manali-tour.png" alt="" />
               <h6>4 Nights - 5 Days</h6>
+              <Link to="#" className="link">
               <h4>Kullu Manali Tour</h4>
+              </Link>
             </div>
 
             <div className="himachal-tour-packages-cards-all">
               <img src="images/exotic-himachal.png" alt="" />
               <h6>6 Nights - 7 Days</h6>
+              <Link to="#" className="link">
               <h4>Exotic Himachal Tour</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/himachal-honeymoon-package.png" alt="" />
               <h6>6 Nights - 7 Days</h6>
+              <Link to="#" className="link">
               <h4>Himachal Honeymoon Tour</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/shimla-manali-by-volvo.png" alt="" />
               <h6>8 Nights - 9 Days</h6>
+              <Link to="#" className="link">
               <h4>Shimla Manali Volvo Tour</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/dharamshala-hill-station.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Dharamshala Hill Station Tour</h4>
+              </Link>
             </div>
           </div>
         </div>
@@ -71,27 +82,37 @@ const HimacharTourPackages = () => {
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-1.png" alt="" />
               <h6>4 Nights - 5 Days</h6>
+              <Link to="#" className="link">
               <h4>Beauty of Himachal</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-2.png" alt="" />
               <h6>4 Nights - 5 Days</h6>
+              <Link to="#" className="link">
               <h4>Best of Himachal with Amritsar</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-3.png" alt="" />
               <h6>6 Nights - 7 Days</h6>
+              <Link to="#" className="link">
               <h4>Manali Tour Package</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-4.png" alt="" />
               <h6>8 Nights - 9 Days</h6>
+              <Link to="#" className="link">
               <h4>Shimla and Around Tour</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-5.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Himachal Hill Station Tour</h4>
+              </Link>
             </div>
           </div>
 
@@ -99,27 +120,37 @@ const HimacharTourPackages = () => {
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-6.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Shimla Hill Station Tour</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-7.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Shimla Manali Tour Package</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-8.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Manali Volvo Package from Delhi</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-9.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Shimla - Manali Amritsar Tour</h4>
+              </Link>
             </div>
             <div className="himachal-tour-packages-cards-all">
               <img src="images/f-10.png" alt="" />
               <h6>3 Nights - 4 Days</h6>
+              <Link to="#" className="link">
               <h4>Shimla Toy Train Weekend Package</h4>
+              </Link>
             </div>
           </div>
         </div>

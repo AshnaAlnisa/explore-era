@@ -22,209 +22,366 @@
 }
 
 
-
-.region-heading{
-    font-size: 325%;
-    font-weight: bolder; 
-    padding-left: 16%;
-    padding-bottom: 1%;
-    padding-top: 1%;
-}
-
-.region-photos{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    /* gap: 0.5%; */
-}
-
-.region-photo-1,
-.region-photo-2,
-.region-photo-3,
-.region-photo-4,
-.region-photo-5,
-.region-photo-6 {
-    margin: 5px; /* Adjust the initial spacing between images */
-    flex: 1 0 30%; /* Adjust the size of the images */
-}
-
-/* Media query for responsiveness */
-@media (max-width: 768px) {
-    .region-photo-1,
-    .region-photo-2,
-    .region-photo-3,
-    .region-photo-4,
-    .region-photo-5,
-    .region-photo-6 {
-        flex-basis: 45%; /* Adjust the size of images on smaller screens */
-    }
-}
-
-
-/* .region-small-photos img{
-    padding: 0.1%;
-} */
-
-
-/* .trending{
-    
-} */
-
-.trending-heading{
-    font-size: 325%;
-    font-weight: bolder; 
-    padding-left: 16%;
-    padding-bottom: 1%;
-    padding-top: 3%;
-}
-
-
-.trending-card img{
-    border-radius: 1%;
-    height: 318.75px;
-    width: 238px;
-}
-
-.trending-packages{
-    line-height: 250%;
-    font-size: 150%;
-    color: gray;
-}
-
-.trending-state{
-    font-size: 150%;
-    font-weight: bold;
-}
-
-.trending-photo-card{
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1%;
-    /* flex-wrap: wrap; */
-}
-
-
-/* .weekend{
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-} */
-
-
-
-.weekend-heading{
-    font-size: 325%;
-    font-weight: bolder; 
-    padding-left: 16%;
-    padding-bottom: 1%;
-    padding-top: 3%;
-}
-
-.weekend-card{
-    height: 310px;
-    width: 16.5%;
-    /* border: 2px solid; */
-    display: flex;
-    flex-direction: column;
-}
-
-.weekend-card img{
-    border-radius: 1%;
-}
-
-.weekend-packages{
-    line-height: 250%;
-    font-size: 150%;
-    color: gray;
-}
-
-.weekend-state{
-    font-size: 150%;
-    font-weight: bold;
-    color: black;
-}
-
-.link{
-    color: black;
-}
-
-.link:hover{
-    color: red;
-}
-
-/* .weekend-state Link:hover{
-    text-decoration: none;
-    color: red;
-} */
-
-.weekend-photo-card{
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1%;
-}
-
-.choose-cards{
-    display: flex;
-    justify-content: center;
-    gap: 2%;
-}
-
-.choose-heading{
+.trending-heading {
     font-size: 325%;
     font-weight: bolder;
     padding-left: 16%;
     padding-bottom: 1%;
     padding-top: 3%;
-}
-
-.choose-card{
-    /* display: flex; */
-    flex-direction: column;
+  }
+  
+  .trending-card img {
+    border-radius: 1%;
+    height: 318.75px;
+    width: 238px;
+  }
+  
+  .trending-packages {
+    line-height: 250%;
+    font-size: 150%;
+    color: gray;
+  }
+  
+  .trending-state {
+    font-size: 150%;
+    font-weight: bold;
+  }
+  
+  .trending-photo-card {
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
-    width: 15.5%;
-    /* border: 2px solid black; */
-    padding: 1.5%;
-}
+    gap: 1%;
+    flex-wrap: wrap;
+  }
+  
+  .trending-card {
+    transition: transform 0.5s;
+  }
+  
+  .trending-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .trending-heading {
+      font-size: 300%;
+      padding-left: 10%;
+    }
+    
+    .trending-card img {
+      height: 280px;
+      width: 210px;
+    }
+    
+    .trending-packages,
+    .trending-state {
+      font-size: 140%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .trending-heading {
+      font-size: 250%;
+      padding-left: 8%;
+    }
+    
+    .trending-card img {
+      height: 240px;
+      width: 180px;
+    }
+    
+    .trending-packages,
+    .trending-state {
+      font-size: 130%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .trending-heading {
+      font-size: 200%;
+      padding-left: 6%;
+    }
+    
+    .trending-card img {
+      height: 200px;
+      width: 150px;
+    }
+    
+    .trending-packages,
+    .trending-state {
+      font-size: 120%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .trending-heading {
+      font-size: 175%;
+      padding-left: 4%;
+      text-align: center;
+    }
+    
+    .trending-photo-card {
+      flex-direction: column;
+      gap: 2%;
+    }
+    
+    .trending-card img {
+      height: 180px;
+      width: 135px;
+    }
+    
+    .trending-packages,
+    .trending-state {
+      font-size: 110%;
+      text-align: center;
+    }
+  }
+  
 
-.choose-card img{
-    height: 8%;
-    width: 17%;
-    margin-top: 5%;
-    margin-left: 35%;
-}
 
-.choose-card-heading{
+/* Base Styles */
+.weekend-heading {
+    font-size: 325%;
+    font-weight: bolder;
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+  }
+  
+  .weekend-photo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0% 3% 0% 3%;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  }
+  
+  .weekend-card {
+    height: 310px;
+    width: 16.5%;
+    margin: 1%; /* Add margin between cards */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s;
+  }
+  
+  .weekend-card img {
+    border-radius: 1%;
+    max-width: 100%; /* Ensure images don't overflow their containers */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .weekend-packages {
+    line-height: 150%;
+    font-size: 130%;
+    color: gray;
+  }
+  
+  .weekend-state {
+    font-size: 150%;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .link {
+    color: black;
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .link:hover {
+    color: red;
+  }
+  
+  .weekend-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .weekend-heading {
+      font-size: 300%;
+      padding-left: 10%;
+    }
+    
+    .weekend-card {
+      width: 24%; /* Adjust card width for better fit */
+      height: 280px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .weekend-heading {
+      font-size: 250%;
+      padding-left: 8%;
+    }
+    
+    .weekend-card {
+      width: 30%; /* Further adjust card width */
+      height: 260px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .weekend-heading {
+      font-size: 200%;
+      padding-left: 6%;
+    }
+    
+    .weekend-card {
+      width: 46%; /* Adjust card width for smaller screens */
+      height: 240px;
+    }
+    
+    .weekend-packages {
+      font-size: 85%; /* Reduce font size for smaller screens */
+    }
+    
+    .weekend-state {
+      font-size: 95%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .weekend-heading {
+      font-size: 175%;
+      padding-left: 4%;
+      text-align: center; /* Center align heading on small screens */
+    }
+    
+    .weekend-card {
+      width: 100%; /* Full width cards for mobile */
+      height: auto; /* Adjust height as needed */
+    }
+    
+    .weekend-packages {
+      font-size: 80%;
+      line-height: 130%; /* Adjust line height for better readability */
+      text-align: left; /* Left align text on small screens */
+    }
+    
+    .weekend-state {
+      font-size: 90%;
+      text-align: left; /* Left align text on small screens */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .weekend-card {
+      height: 220px; /* Further adjust card height for very small screens */
+    }
+  }
+  
+
+/* Base Styles */
+.choose-heading {
+    font-size: 325%;
+    font-weight: bolder;
+    padding-left: 16%;
+    padding-bottom: 1%;
+    padding-top: 3%;
+  }
+  
+  .choose-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Ensure even spacing between cards */
+    /* gap: 1%; */
+    padding: 0% 10% 0% 10%;
+  }
+  
+  .choose-card {
+    flex: 0 0 calc(25% - 1%); /* Four cards per row on large screens */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: auto;
+    max-width: 20%; /* Limit card width */
+    padding: 2%;
+    margin: 1%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .choose-card img {
+    height: auto;
+    width: 60px;
+    margin-top: 10%;
+  }
+  
+  .choose-card-heading {
     font-size: 170%;
     font-weight: 600;
     padding-top: 10%;
-}
-
-.choose-card-details{
-    font-size: 125%;
+  }
+  
+  .choose-card-details {
+    font-size: 100%;
     padding-top: 4%;
-}
-
-.year{
-    background-color: #EFF4EF;
-}
-
-.team{
-    background-color: #EEF5F8;
-}
-
-.verified{
-    background-color: #FBF2F1;
-}
-
-.value{
-    background-color: #FDFAEE;
-}
+  }
+  
+  /* Specific Card Styles */
+  .year {
+    background-color: #eff4ef;
+  }
+  
+  .team {
+    background-color: #eef5f8;
+  }
+  
+  .verified {
+    background-color: #fbf2f1;
+  }
+  
+  .value {
+    background-color: #fdfaee;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .choose-card {
+      flex: 0 0 calc(50% - 1%);
+      max-width: 48%; /* Two cards per row on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .choose-card {
+      flex: 0 0 calc(50% - 1%);
+      max-width: 100%; /* Full width cards on smaller tablets */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .choose-heading {
+      font-size: 175%; /* Adjust heading size */
+      padding-left: 4%; /* Adjust padding */
+    }
+  
+    .choose-cards {
+      flex-direction: column; /* Stack cards vertically on mobile */
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .choose-card {
+      flex: 0 0 calc(100% - 4%);
+      max-width: 96%; /* Full width cards on mobile */
+      margin: 2% 0; /* Adjust margin for spacing */
+    }
+  
+    .choose-card-heading {
+      font-size: 130%; /* Further adjust heading size */
+    }
+  
+    .choose-card-details {
+      font-size: 85%; /* Further adjust details font size */
+    }
+  }
+  
 
 .incredible-india-heading{
     font-size: 325%;
@@ -252,102 +409,116 @@
     padding-left: 5%;
 } */
 
-.climate-visa{
+/* Base Styles */
+/* Base Styles */
+.climate-visa {
     display: flex;
+    flex-wrap: wrap; /* Ensure content wraps on smaller screens */
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align items at the start of the container */
     gap: 1%;
     padding-top: 5%;
-    
-}
+  }
   
-.climate{
-    height: 600px;
+  .climate, .visa {
+    height: 50em;
     width: 33.5%;
     background-color: #F8F8FC;
-}
-
-.visa{
-    height: 600px;
-    width: 33.5%;
-    background-color: #F8F8FC;
-}
-
-.climate-heading{
+  }
+  
+  .climate-heading, .visa-heading {
     font-size: 260%;
     font-weight: bold;
     color: #38404F;
-    align-items: center;
-    height: 12%;
+    height: auto; /* Allow height to adjust based on content */
     padding-left: 5%;
     padding-top: 3%;
-}
-
-.climate-details{
+  }
+  
+  .climate-details, .visa-details {
     width: 90%;
     padding-left: 5%;
     font-size: 120%;
     color: #38404F;
     padding-top: 5%;
-}
-
-.visa-heading{
-    font-size: 260%;
-    font-weight: bold;
-    color: #38404F;
-    align-items: center;
-    height: 12%;
-    padding-left: 5%;
-    padding-top: 3%;
-}
-
-.visa-details{
-    width: 90%;
-    padding-left: 5%;
-    font-size: 120%;
-    color: #38404F;
-    padding-top: 5%;
-}
-
-.visa-details a{
+  }
+  
+  .visa-details a {
     color: red;
-}
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1200px) {
+    .climate, .visa {
+      width: 48%; /* Two items in a row on medium screens */
+      height: 50em;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .climate, .visa {
+      width: 100%; /* Full width on smaller screens */
+      height: 70em;
+      margin-bottom: 5%; /* Add spacing between sections */
+    }
+  }
+  
+  
 
 
-.travel-info-heading{
+  .travel-info-heading {
     font-size: 325%;
     font-weight: bolder;
     padding-left: 16%;
     padding-bottom: 1%;
     padding-top: 3%;
-}
-
-.travel-info{
-    width: 135%;
+  }
+  
+  .travel-info {
+    width: 100%; /* Adjusted to full width */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 5%; */
-}
-
-.best{
-    /* height: 380px; */
-    width: 50%;
+    gap: 5%; /* Gap between sections */
+    padding: 0 16%; /* Padding on the sides */
+  }
+  
+  .best {
+    width: 100%; /* Full width for each item */
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 110%;
-    gap: 3%;
-    margin-right: 26%;
-}
-
-.travel-info .details-heading{
+    gap: 3%; /* Gap between items */
+  }
+  
+  .travel-info .details-heading {
     font-size: 170%;
     font-weight: 800;
     padding-bottom: 1%;
-}
-
+  }
+  
+  /* Media Queries for Responsive Design */
+  
+  @media (max-width: 1200px) {
+    .travel-info {
+      padding: 0 10%; /* Increase padding on larger screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .travel-info-heading {
+      font-size: 200%; /* Adjust font size for smaller screens */
+    }
+    
+    .best {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      gap: 5%; /* Increase gap between stacked items */
+      text-align: center; /* Center-align text */
+    }
+  }
+  
 
 
 

@@ -56,3 +56,8 @@
 .form-table button:last-child {
   margin-right: 0; 
 }
+
+tbody tr:hover{
+  background: rgb(163, 160, 160);
+  border-radius: 20px;
+}

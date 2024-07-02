@@ -1,8 +1,139 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./weekendGateways.css";
 import MainLayout from "../../layout/MainLayout";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+const API1 = "http://localhost:5164/viewWeekendGateways1";
+const API2 = "http://localhost:5164/viewWeekendGateways2";
+const API3 = "http://localhost:5164/viewWeekendGateways3";
 
 const Delhi = () => {
+
+  const [items1, setItems1] = useState([]);
+  const [items2, setItems2] = useState([]);
+  const [items3, setItems3] = useState([]);
+
+
+  useEffect(() => {
+    fetchItems1();
+    fetchItems2();
+    fetchItems3();
+  }, []);
+
+
+
+  const fetchItems1 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API1, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems1 = responseData.rData.items.filter(item => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return item.id === '1' || item.id==='2' || item.id === '3' || item.id==='4' || item.id==='5' ;
+          });
+          setItems1(filteredItems1);
+          console.log("Filtered Items1:", filteredItems1);
+        } else {
+          console.log(
+            "No items1 data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+
+  const fetchItems2 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API2, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems2 = responseData.rData.items.filter((item) => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return (
+              item.id === "6" ||
+              item.id === "7" ||
+              item.id === "8" ||
+              item.id === "9" ||
+              item.id === "10"
+            );
+          });
+          setItems2(filteredItems2);
+          console.log("Filtered Items2:", filteredItems2);
+        } else {
+          console.log(
+            "No items2 data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+
+  const fetchItems3 = async () => {
+    try {
+      // Fetch all items from the API
+      const response = await axios.post(API3, { eventID: "1002" });
+      console.log("Response:", response.data); // Log the entire response data for debugging
+
+      if (response.status === 200) {
+        const responseData = response.data;
+        console.log("Response Data:", responseData); // Log the response data object
+
+        if (responseData.rData && responseData.rData.items) {
+          // Filter items based on specific IDs
+          const filteredItems3 = responseData.rData.items.filter((item) => {
+            // Replace '1', '2', '3' with your specific IDs or conditions
+            return (
+              item.id === "11" ||
+              item.id === "12" ||
+              item.id === "13" ||
+              item.id === "14" ||
+              item.id === "15" 
+                        );
+          });
+          setItems3(filteredItems3);
+          console.log("Filtered Items3:", filteredItems3);
+        } else {
+          console.log(
+            "No items3 data in response or invalid structure:",
+            responseData
+          );
+        }
+      } else {
+        console.log("Unexpected response status:", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
+
   return (
     <MainLayout>
       <div className="main-himachal-tour-packages">
@@ -32,91 +163,44 @@ const Delhi = () => {
           <h3>Best Selling Weekend Packages from Delhi</h3>
 
           <div className="himachal-tour-packages-cards">
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-1.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Corbett Weekend Tour</h4>
-            </div>
+            {items1.map((item) => (
 
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-2.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Ranthambore Weekend Tour</h4>
+            <div className="himachal-tour-packages-cards-all" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="" />
+              <h6>{item.details}</h6>
+              <Link to="/" className="link">
+              <h4>{item.heading}</h4>
+              </Link>
             </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-3.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Agra Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-4.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Haridwar and Rishikesh Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-5.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Mathura and Vrindavan Tour</h4>
-            </div>
+            ))}
           </div>
         </div>
 
         <div className="all-cards">
-          <h3>Popular Himachal Tour Packages</h3>
+          <h3>Popular Weekend Tour Packages from Delhi</h3>
+          
           <div className="cards">
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-1.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>              
-              <h4>Delhi Corbett Weekend Tour</h4>
+          {items2.map((item) => (
+            <div className="himachal-tour-packages-cards-all" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="" />
+              <h6>{item.details}</h6>              
+              <Link to="/" className="link">
+              <h4>{item.heading}</h4>
+              </Link>
             </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-2.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Ranthambore Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-6.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>             
-               <h4>Delhi Sariska Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-7.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Rajaji Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-8.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Bharatpur Weekend Tour</h4>
-            </div>
+          ))}
           </div>
 
           <div className="cards cards2">
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-9.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Sultanpur Weekend Tour</h4>
+          {items3.map((item) => (
+            <div className="himachal-tour-packages-cards-all" key={item.id}>
+              <img src={`data:image/jpeg;base64,${item.image}`} alt="" />
+              <h6>{item.details}</h6>              
+              <Link to="/" className="link">
+              <h4>{item.heading}</h4>
+              </Link>
             </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-10.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Dhikala Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-11.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Shimla Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-12.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Nainital Weekend Tour</h4>
-            </div>
-            <div className="himachal-tour-packages-cards-all">
-              <img src="images/d-13.png" alt="" />
-              <h6>2 Nights - 3 Days</h6>
-              <h4>Delhi Mussoorie Weekend Tour</h4>
-            </div>
+          ))}
           </div>
         </div>
 

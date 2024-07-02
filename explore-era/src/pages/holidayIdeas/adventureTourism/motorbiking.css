@@ -1,37 +1,83 @@
-.adventure-tourism-content h1{
+.adventure-tourism-content h1 {
     padding-top: 5%;
     text-align: center;
 }
 
-.adventure-tourism-content p{
-    padding: 2% 15% 0% 15%;
-
+.adventure-tourism-content p {
+    padding: 2% 10%;
 }
 
-.adventure-tourism-card{
+.adventure-tourism-card {
     display: flex;
     justify-content: center;
     gap: 5%;
     padding-top: 2%;
+    flex-wrap: wrap; /* Allow the items to wrap on smaller screens */
 }
 
-
-.adventure-tourism-cards h2{
+.adventure-tourism-cards h2 {
     padding: 2% 0 1% 0;
     margin-left: 15%;
 }
 
-.adventure-tourism-cards-all{
+.adventure-tourism-cards-all {
     width: 20%;
-    height: 450px;
     background-color: rgb(245, 243, 243);
-    /* color: white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.adventure-tourism-cards-all h4, .adventure-tourism-cards-all h6{
+.adventure-tourism-cards-all img {
+    max-width: 100%;
+    height: auto;
+}
+
+.adventure-tourism-cards-all h4, .adventure-tourism-cards-all h6 {
     display: flex;
     justify-content: center;
     padding-top: 2%;
-    font-size: 100%
-    
+    font-size: 100%;
+    text-align: center;
+}
+
+/* Responsive Styles */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+    .adventure-tourism-content p {
+        padding: 2% 8%;
+    }
+
+    .adventure-tourism-cards-all {
+        width: 45%; /* Adjust width for tablets */
+        margin-bottom: 20px; /* Add space between cards */
+    }
+
+    .adventure-tourism-cards h2 {
+        margin-left: 10%;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .adventure-tourism-content p {
+        padding: 2% 5%;
+    }
+
+    .adventure-tourism-cards-all {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 20px;
+    }
+
+    .adventure-tourism-cards h2 {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .adventure-tourism-card {
+        gap: 2%;
+    }
 }

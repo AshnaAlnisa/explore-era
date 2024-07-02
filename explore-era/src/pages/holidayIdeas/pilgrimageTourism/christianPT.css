@@ -1,63 +1,100 @@
-.main-pilgrimage-tourism h1{
+.main-pilgrimage-tourism h1 {
     padding-top: 5%;
     text-align: center;
 }
 
-.main-pilgrimage-tourism span{
+.main-pilgrimage-tourism span {
     color: red;
 }
 
-.pilgrimage-tourism-content p, h4, img{
-    padding: 2% 0% 0% 0;
-
+.pilgrimage-tourism-content p, 
+.pilgrimage-tourism-content h4,
+.pilgrimage-tourism-content img {
+    padding: 2% 0 0 0;
 }
 
-.pilgrimage-tourism-content{
+.pilgrimage-tourism-content {
     display: flex;
-    gap: -2%;
-    padding: 2% 15% 5% 15%;
     gap: 2%;
+    padding: 2% 15% 5% 15%;
     line-height: 150%;
     font-size: 120%;
 }
 
-.pilgrimage-tourism-cards-content h2{
+.pilgrimage-tourism-cards-content h2 {
     text-align: center;
-    /* padding-top: 5%; */
 }
-.pilgrimage-tourism-cards-content p{
+
+.pilgrimage-tourism-cards-content p {
     text-align: center;
     padding: 1% 15% 0 15%;
-
 }
 
-.pilgrimage-tourism-card{
+.pilgrimage-tourism-card {
     display: flex;
     justify-content: center;
     gap: 2%;
     align-items: center;
     padding-top: 1%;
-    height: 450px;
+    flex-wrap: wrap;
 }
 
-.pilgrimage-tourism-cards-content{
+.pilgrimage-tourism-cards-content {
     width: 100%;
-    /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* margin-left: 15%; */
     padding-top: 2%;
     background-color: rgb(247, 246, 246);
 }
 
-.pilgrimage-tourism-cards-all{
-    padding-top: -10;
+.pilgrimage-tourism-cards-all {
     background-color: white;
     line-height: 210%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 20%;
+    margin: 10px 0;
 }
 
+.pilgrimage-tourism-cards-all img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Styles */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+    .pilgrimage-tourism-content {
+        padding: 2% 8% 5% 8%;
+        flex-direction: column;
+    }
+
+    .pilgrimage-tourism-cards-all {
+        width: 45%;
+    }
+
+    .pilgrimage-tourism-cards-content p {
+        padding: 1% 10% 0 10%;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .pilgrimage-tourism-content {
+        padding: 2% 5% 5% 5%;
+    }
+
+    .pilgrimage-tourism-cards-all {
+        width: 100%;
+    }
+
+    .pilgrimage-tourism-cards-content p {
+        padding: 1% 5% 0 5%;
+    }
+}

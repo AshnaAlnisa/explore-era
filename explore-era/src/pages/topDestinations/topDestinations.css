@@ -45,8 +45,70 @@
 
 .td-cards{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2.5%;
     padding-left: 2%;
 }
+
+
+@media (max-width: 1024px) {
+    .top-destinations h1 {
+      font-size: 2rem;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  
+    .travel-content p {
+      padding: 5% 5% 1%;
+      font-size: 1rem;
+    }
+  
+    .destinations h3 {
+      font-size: 1.5rem;
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .destinations p {
+      padding: 2% 5%;
+      font-size: 0.9rem;
+      width: 100%;
+      margin-left: 0;
+    }
+
+  }
+  
+  /* Mobile devices */
+  @media (max-width: 768px) {
+    .top-destinations h1 {
+      font-size: 1.5rem;
+    }
+  
+    .travel-content-img {
+      padding: 3% 3%;
+    }
+  
+    .travel-content p {
+      padding: 5% 3% 1%;
+    }
+  
+    .destinations h3 {
+      font-size: 1.2rem;
+    }
+  
+    .destinations p {
+      padding: 2% 3%;
+      font-size: 0.9rem;
+    }
+  
+    .td-cards .td-card1,
+    .td-cards .td-card2,
+    .td-cards .td-card3,
+    .td-cards .td-card4 {
+      width: 90%; 
+      max-width: none;
+      padding-left: 20%;
+    }
+  }
