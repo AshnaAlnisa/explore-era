@@ -1,43 +1,34 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-.nav-submenu{
-    width: 10rem;
+.nav-submenu {
+    width: 15rem;
     position: absolute;
-    top: 10.48%;
+    top: 100%; /* Adjusted to position submenu below parent */
+    left: 0; /* Ensures submenu starts from left edge of parent */
     list-style: none;
     text-align: start;
+    background-color: #ffffff; /* Example background color */
+    padding: 10px 0; /* Added padding for spacing */
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure submenu appears above other content */
     flex-direction: column;
-    /* border: 2px solid red ; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.nav-submenu.clicked{
-    display: none;
+.nav-item:hover .nav-submenu {
+    display: block; /* Show submenu on hover */
 }
 
-.nav-submenu li{
-    width: 200px;
-    color: white;
+.nav-submenu li {
+    width: 100%; /* Full width of parent */
+    color: #000000;
     cursor: pointer;
-    list-style: none;
-    margin: -20px;
-    background: white;
-    padding: 5%;
-    /* border: 2px solid red ; */
-    
-
-    /* text-decoration: none; */
-    /* display: flex; */
-    /* flex-direction: column; */
+    padding: 10px 20px; /* Adjust padding for spacing */
+    transition: background-color 0.3s ease; /* Smooth background transition */
 }
 
-.submenu-item{
-    /* background: rgb(255, 255, 255); */
-    display: block;
-    text-decoration: none;
-}
-
-.submenu-item:hover{
-    background: rgb(228, 223, 223);
+.nav-submenu li:hover {
+    background-color: #fffbfb; /* Example hover background color */
 }
