@@ -76,6 +76,11 @@ const AdminLogin = () => {
             <div className="adminLogin-underline" />
             {errorMessage && <div className="adminLogin-error-message">{errorMessage}</div>}
           </div>
+          <div>
+          <Link to="/enterEmail">
+            <h5>Forget Password?</h5>
+            </Link>
+          </div>
           <div className="adminLogin-input-box adminLogin-button">
             <input type="submit" name="defaultValue" value="Continue" />
           </div>

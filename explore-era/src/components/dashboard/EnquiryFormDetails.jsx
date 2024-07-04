@@ -70,7 +70,7 @@ const EnquiryFormDetails = () => {
         <div className="table-container">
           <h3>Enquiry Form Details</h3>
           <div className="main-content">
-            <table className="form-table">
+            <table className="table table-responsive form-table">
               <thead>
                 <tr>
                   <th>ID</th>

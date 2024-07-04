@@ -36,6 +36,9 @@ import Mussoorie from "./pages/packages/AllPackages/Uttarakhand/Mussoorie.jsx";
 import Munnar from "./pages/packages/AllPackages/Kerala/Munnar.jsx";
 import Kochi from "./pages/packages/AllPackages/Kerala/Kochi.jsx";
 import Alleppey from "./pages/packages/AllPackages/Kerala/Alleppey.jsx";
+import EnterEmail from "./components/Forget Password/EnterEmail.jsx";
+import VerifyOTP from "./components/Forget Password/VerifyOTP.jsx";
+import ChangePassword from "./components/Forget Password/ChangePassword.jsx";
 
 
 const router = createBrowserRouter([
@@ -175,6 +178,18 @@ const router = createBrowserRouter([
   {
     path:"/alleppey",
     element:<Alleppey/>
+  },
+  {
+    path:"/enterEmail",
+    element:<EnterEmail/>
+  },
+  {
+    path:"/verifyOTP",
+    element:<VerifyOTP/>
+  },
+  {
+    path:"/changePassword",
+    element:<ChangePassword/>
   },
 
 ]);

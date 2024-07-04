@@ -73,7 +73,7 @@ const BookYourTripFormDetails = () => {
         <div className="table-container">
           <h3 className="form-heading">Book Your Trip Form Details</h3>
           <div className="main-content">
-            <table className="form-table form-tab">
+            <table className="table table-responsive form-table form-tab">
               <thead>
                 <tr>
                   <th>ID</th>

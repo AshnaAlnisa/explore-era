@@ -6,6 +6,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed; /* Fixed navbar */
+  top: 0; /* Stick to the top */
+  width: 100%; /* Full width */
   padding: 10px 20px;
   background-color: #fff; /* Changed background color to white */
   color: #000; /* Changed font color to black */
